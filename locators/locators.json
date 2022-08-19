@@ -1,0 +1,9 @@
+{
+    "common": {
+        "locator1": "//div[@class\u003d\u0027propertyDetailsOuter prop-detail-wrap\u0027]",
+        "locator2": "/html[1]/body[1]/div[6]/p[2]",
+        "locator3": "//div[@class\u003d\u0027propertyDetailsOuter prop-detail-wrap\u0027]",
+        "locator4": "//div[@class\u003d\u0027propertyDetailsOuter prop-detail-wrap\u0027]//div[@class\u003d\u0027property-details\u0027]//div[@class\u003d\u0027property-details-heading\u0027]",
+        "locator5": "//div[@class\u003d\u0027propertyFeatureItem\u0027]"
+    }
+}

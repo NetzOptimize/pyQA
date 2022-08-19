@@ -1,0 +1,15 @@
+{
+  "intents": [
+        {"tag": "create_file",
+    "patterns": ["Create file", "new file"],
+    "function": "newfile",
+    "responses": [""]
+  },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+        "function": "print",
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    }
+  ]
+}
