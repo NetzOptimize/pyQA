@@ -1,3 +1,4 @@
+import requests
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
@@ -148,8 +149,21 @@ class Checker:
         self.url = url
         self.driver = driver
         # self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
-        self.driver.get(f"{self.url}")
+        affirmative_url = self.valid_url(self.url)
+        self.driver.get(f"{affirmative_url}")
         self.a = ActionChains(self.driver)
+
+    def valid_url(self, url):
+        try:
+            req = requests.get(url)
+            while req.status_code != requests.codes['ok']:
+                assert False, f"Please enter a valid URL... {self.url} is not a valid URL."
+        except Exception as ex:
+            print(f'Something went wrong: {ex}')
+            print('Try again!')
+            assert False, f"Please enter a valid URL... {self.url} is not a valid URL."
+
+        return url
 
     # TODO: check the functionality
     # working
