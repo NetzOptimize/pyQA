@@ -1,6 +1,6 @@
 import requests
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 import time
@@ -131,6 +131,7 @@ class Checker:
             :param driver: input the browser driverManager
 
         """
+        self.ac_value2 = None
         self.time = None
         self.i = None
         self.func = None
@@ -182,12 +183,13 @@ class Checker:
         """
         return self.url
 
-    def current_url(self):
+    # working
+    def current_tab_url(self):
         """
                         :return: Returns the url of the current website in the current selected tab
                         :rtype: str
                 """
-        return self.driver.getCurrentUrl()
+        return self.driver.current_url
 
     # working
     def input(self, tp, locator, locator_value, ac, ac_value):
@@ -419,9 +421,200 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    def dynamic_dropdown(self, tp, locator, locator_value, ac, ac_value, locator2, locator_value2, ac2, ac_value2):
+        """
+
+
+            Parameters
+            ----------
+
+            :param str tp: Type of input eg. 'input'
+            :param str locator: xpath/css
+            :param str locator_value: input the value of the locator as xpath of css selector
+            :param str ac: action to be performed e.g. 'type'
+            :param str ac_value: value for the action
+            :param str locator2: xpath/css
+            :param str locator_value2: input the value of the locator as xpath of css selector
+            :param str ac2: action to be performed e.g. 'type'
+            :param str ac_value2: value for the action
+
+        """
+        self.tp = tp
+        self.locator = locator
+        self.lv = locator_value
+        self.ac = ac
+        self.ac_value = ac_value
+        self.locator2 = locator2
+        self.lv2 = locator_value2
+        self.ac2 = ac2
+        self.ac_value2 = ac_value2
+        if self.tp == T_INPUT:
+            if self.locator == L_CSS:
+                if self.ac == A_TYPE:
+                    try:
+                        self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").send_keys(f"{self.ac_value}")
+                        if self.locator2 == L_CSS:
+                            if self.ac2 == A_VALUE:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv2}")
+                                    time.sleep(2)
+                                    for dropdown in d_dropdown:
+                                        try:
+                                            if dropdown.text == f"{self.ac_value2}":
+                                                dropdown.click()
+                                        except StaleElementReferenceException:
+                                            print("element is not attached to the page document")
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            elif self.ac2 == A_INDEX:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv2}")
+                                    index = int(self.ac_value2)
+                                    index -= 1
+                                    print(d_dropdown[index].text)
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            else:
+                                error = IllegalCharError(f"{self.ac2}")
+                                print(error.as_string())
+                                assert False, f"{error.as_string()}"
+                        elif self.locator2 == L_XPATH:
+                            if self.ac2 == A_VALUE:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.XPATH, f"{self.lv2}")
+                                    time.sleep(2)
+                                    for dropdown in d_dropdown:
+                                        try:
+                                            if dropdown.text == f"{self.ac_value2}":
+                                                dropdown.click()
+                                        except StaleElementReferenceException:
+                                            print("element is not attached to the page document")
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            elif self.ac2 == A_INDEX:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.XPATH, f"{self.lv2}")
+                                    index = int(self.ac_value2)
+                                    index -= 1
+                                    print(d_dropdown[index].text)
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            else:
+                                error = IllegalCharError(f"{self.ac2}")
+                                print(error.as_string())
+                                assert False, f"{error.as_string()}"
+                        else:
+                            error = IllegalCharError(f"{self.locator2}")
+                            print(error.as_string())
+                            assert False, f"{error.as_string()}"
+                    except NoSuchElementException:
+                        error = NoSuchElementPresent(
+                            f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                        print(error.as_string())
+                        assert False, f"{error.as_string()}"
+                else:
+                    error = IllegalCharError(f"{self.ac}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.locator == L_XPATH:
+                if self.ac == A_TYPE:
+                    try:
+                        self.driver.find_element(By.XPATH, f"{self.lv}").send_keys(f"{self.ac_value}")
+                        if self.locator2 == L_CSS:
+                            if self.ac2 == A_VALUE:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv2}")
+                                    time.sleep(2)
+                                    for dropdown in d_dropdown:
+                                        try:
+                                            if dropdown.text == f"{self.ac_value2}":
+                                                dropdown.click()
+                                        except StaleElementReferenceException:
+                                            print("element is not attached to the page document")
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            elif self.ac2 == A_INDEX:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv2}")
+                                    index = int(self.ac_value2)
+                                    index -= 1
+                                    print(d_dropdown[index].text)
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            else:
+                                error = IllegalCharError(f"{self.ac2}")
+                                print(error.as_string())
+                                assert False, f"{error.as_string()}"
+                        elif self.locator2 == L_XPATH:
+                            if self.ac2 == A_VALUE:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.XPATH, f"{self.lv2}")
+                                    time.sleep(2)
+                                    for dropdown in d_dropdown:
+                                        try:
+                                            if dropdown.text == f"{self.ac_value2}":
+                                                dropdown.click()
+                                        except StaleElementReferenceException:
+                                            print("element is not attached to the page document")
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            elif self.ac2 == A_INDEX:
+                                try:
+                                    d_dropdown = self.driver.find_elements(By.XPATH, f"{self.lv2}")
+                                    index = int(self.ac_value2)
+                                    index -= 1
+                                    print(d_dropdown[index].text)
+                                except NoSuchElementException:
+                                    error = NoSuchElementPresent(
+                                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
+                                    print(error.as_string())
+                                    assert False, f"{error.as_string()}"
+                            else:
+                                error = IllegalCharError(f"{self.ac2}")
+                                print(error.as_string())
+                                assert False, f"{error.as_string()}"
+                    except NoSuchElementException:
+                        error = NoSuchElementPresent(
+                            f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                        print(error.as_string())
+                        assert False, f"{error.as_string()}"
+                else:
+                    error = IllegalCharError(f"{self.ac}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.locator}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.tp}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
     # working
     def slowmo(self, t):
         """
+                    Slows the browser automation.
                     Parameters
                     ----------
                     :param float t: Time to wait (in seconds)
@@ -514,8 +707,9 @@ class Checker:
 
         """
         self.url = url
+        is_correct_url = self.valid_url(self.url)
         self.driver.implicitly_wait(10)
-        self.driver.get(f"{self.url}")
+        self.driver.get(f"{is_correct_url}")
 
     def count_div_el(self, locator, divpath):
         """

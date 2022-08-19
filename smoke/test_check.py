@@ -56,3 +56,17 @@ def test_checking(browser):
     run.static_dropdown("xpath", "//select[@id='options']", "value", "1")
     run.slowmo(2)
     run.static_dropdown("xpath", "//select[@id='options']", "visible", "Option2")
+
+    ##################
+    # OPENING A NEW WEBPAGE AND PRINTING ITS URL
+    ##################
+    run.goto("https://example.com/")
+    current_tab_url = run.current_tab_url()
+    print(f"New URL is: {current_tab_url}")
+    run.goto("http://127.0.0.1:5500/sample.html")
+
+    run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "type", "i", "xpath", "//div[@id='names']", "index", "1")
+
+
+
+
