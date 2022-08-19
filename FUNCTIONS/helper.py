@@ -1,8 +1,11 @@
 import requests
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, \
+    ElementNotVisibleException, ElementNotSelectableException
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 """
@@ -10,7 +13,7 @@ Todo:
     check all boxes - done
     time.sleep() - done 
     static dropdown - done
-    dynamic dropdown
+    dynamic dropdown - done
     all_inner_text
     all_text_contents
     checked or not 
@@ -421,6 +424,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
     def dynamic_dropdown(self, tp, locator, locator_value, ac, ac_value, locator2, locator_value2, ac2, ac_value2):
         """
 
@@ -474,7 +478,7 @@ class Checker:
                                     d_dropdown = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv2}")
                                     index = int(self.ac_value2)
                                     index -= 1
-                                    print(d_dropdown[index].text)
+                                    d_dropdown[index].click()
                                 except NoSuchElementException:
                                     error = NoSuchElementPresent(
                                         f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
@@ -505,7 +509,7 @@ class Checker:
                                     d_dropdown = self.driver.find_elements(By.XPATH, f"{self.lv2}")
                                     index = int(self.ac_value2)
                                     index -= 1
-                                    print(d_dropdown[index].text)
+                                    d_dropdown[index].click()
                                 except NoSuchElementException:
                                     error = NoSuchElementPresent(
                                         f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
@@ -553,7 +557,7 @@ class Checker:
                                     d_dropdown = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv2}")
                                     index = int(self.ac_value2)
                                     index -= 1
-                                    print(d_dropdown[index].text)
+                                    d_dropdown[index].click()
                                 except NoSuchElementException:
                                     error = NoSuchElementPresent(
                                         f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
@@ -584,7 +588,7 @@ class Checker:
                                     d_dropdown = self.driver.find_elements(By.XPATH, f"{self.lv2}")
                                     index = int(self.ac_value2)
                                     index -= 1
-                                    print(d_dropdown[index].text)
+                                    d_dropdown[index].click()
                                 except NoSuchElementException:
                                     error = NoSuchElementPresent(
                                         f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value} -> {self.locator2} -> {self.lv2} -> {self.ac2} -> {self.ac_value2}")
@@ -611,6 +615,7 @@ class Checker:
             error = IllegalCharError(f"{self.tp}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     # working
     def slowmo(self, t):
         """
@@ -622,6 +627,30 @@ class Checker:
                  """
         self.time = t
         time.sleep(self.time)
+
+    # working
+    def popup_accept(self):
+        wait = WebDriverWait(self.driver, timeout=10, poll_frequency=1,
+                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
+        wait.until(expected_conditions.alert_is_present())
+        alert = self.driver.switch_to.alert
+        alert.accept()
+
+    # working
+    def popup_decline(self):
+        wait = WebDriverWait(self.driver, timeout=10, poll_frequency=1,
+                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
+        wait.until(expected_conditions.alert_is_present())
+        alert = self.driver.switch_to.alert
+        alert.dismiss()
+
+    # working
+    def popup_text(self):
+        wait = WebDriverWait(self.driver, timeout=10, poll_frequency=1,
+                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
+        wait.until(expected_conditions.alert_is_present())
+        alert = self.driver.switch_to.alert
+        return alert.text
 
     def returner(self, tp, locator, locator_value, ac):
         """

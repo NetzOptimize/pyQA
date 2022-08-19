@@ -65,8 +65,18 @@ def test_checking(browser):
     print(f"New URL is: {current_tab_url}")
     run.goto("http://127.0.0.1:5500/sample.html")
 
-    run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "type", "i", "xpath", "//div[@id='names']", "index", "1")
+    ##################
+    # SEARCHING AND SELECTING FROM DYNAMIC FIELDS
+    ##################
+    run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "type", "i", "xpath", "//div[@id='names']", "index", "4")
 
+    ##################
+    # CLICKING TO GET ALERT BOX, PRINTING THE ALERT TEXT AND ACCEPTING THE ALERT
+    ##################
+    run.button("button", "xpath", "//button[@onclick='myFunction()']", "click")
+    popup_text = run.popup_text()
+    print(f"This is the popup text: {popup_text}")
+    run.popup_accept()
 
 
 
