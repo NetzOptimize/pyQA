@@ -20,10 +20,10 @@ from dotenv import load_dotenv
 
 if platform == 'win32':
     # windows
-    load_dotenv(r"\dynamic_web_check\.env")
+    load_dotenv(r".env")
 if platform == "linux" or platform == "linux2":
     # linux
-    load_dotenv("/dynamic_web_check/.env")
+    load_dotenv(".env")
 elif platform == "darwin":
     # OS X
     load_dotenv()

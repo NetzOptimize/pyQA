@@ -330,6 +330,12 @@ def test(setup):
 
 ```
 
+excel reports can be made bye this command 
+
+```python
+--excelreport=excel_reports/%d-%m-%Y.xlsx
+```
+
 
 
 
