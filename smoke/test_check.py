@@ -1,13 +1,13 @@
 # imports
 from FUNCTIONS.helper import Checker
-import json
-from utilites.logfile import Logclass
-import pytest
+from logfile import Logclass
 
 
 # test case
 def test_checking(browser):
-
+    logger = Logclass()
+    log = logger.getLogs()
+    log.info("This test is now running")
     ##################
     #  PASSING URL AND WEBDRIVER
     ##################
@@ -62,7 +62,8 @@ def test_checking(browser):
     ##################
     # SEARCHING AND SELECTING FROM DYNAMIC FIELDS
     ##################
-    run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "type", "i", "xpath", "//div[@id='names']", "index", "4")
+    run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "type", "i", "xpath", "//div[@id='names']",
+                         "index", "4")
 
     ##################
     # CLICKING TO GET ALERT BOX, PRINTING THE ALERT TEXT AND ACCEPTING THE ALERT
