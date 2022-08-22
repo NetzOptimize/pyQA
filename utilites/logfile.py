@@ -4,17 +4,19 @@ import os
 import sys
 from sys import platform
 from dotenv import load_dotenv
+
 if platform == 'win32':
     # windows
-    load_dotenv(r"\dynamic_web_check\.env")
+    load_dotenv(r"..\.env")
 if platform == "linux" or platform == "linux2":
     # linux
-    load_dotenv("/dynamic_web_check/.env")
+    load_dotenv("../.env")
 elif platform == "darwin":
     # OS X
     load_dotenv()
 
 LOG_PATH = os.getenv('LOG_PATH')
+
 
 class Logclass:
     def getLogs(self):
