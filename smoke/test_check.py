@@ -1,5 +1,6 @@
 # imports
 from FUNCTIONS.helper import Checker
+import json
 from logfile import Logclass
 
 
@@ -8,6 +9,9 @@ def test_checking(browser):
     logger = Logclass()
     log = logger.getLogs()
     log.info("This test is now running")
+    #################
+    with open("locators/demo.json", 'r') as f:
+        data = json.loads(f.read())
     ##################
     #  PASSING URL AND WEBDRIVER
     ##################
@@ -23,24 +27,24 @@ def test_checking(browser):
     ##################
     # CHECK ALL CHECKBOXES
     ##################
-    run.check_all("xpath", "//input[@type='checkbox']")
+    run.check_all("xpath", data["common"]["locator1"])
 
     ##################
     # COUNT ALL CHECKBOXES
     ##################
-    count_checkbox = run.count_all_checkboxes("xpath", "//input[@type='checkbox']")
+    count_checkbox = run.count_all_checkboxes("xpath", data["common"]["locator2"])
     print(f"Total number of checkboxes: {count_checkbox}")
 
     ##################
     # INPUT IN FIELDS
     ##################
-    run.input("input", "xpath", "//input[@id='fname']", "type", "Sample Value 1")
-    run.input("input", "xpath", "//input[@id='lname']", "type", "Sample Value 2")
+    run.input("input", "xpath", data["common"]["locator3"], "type", "Sample Value 1")
+    run.input("input", "xpath", data["common"]["locator4"], "type", "Sample Value 2")
 
     ##################
     # UNCHECK A CHECKED BOX
     ##################
-    run.button("checkbox", "xpath", "/html[1]/body[1]/form[2]/input[2]", "click")
+    run.button("checkbox", "xpath", data["common"]["locator5"], "click")
 
     ##################
     # STATIC DROPDOWN WITH DELAY
@@ -76,7 +80,7 @@ def test_checking(browser):
     ##################
     # UPLOADS A FILE FROM THE ABSOLUTE PATH GIVEN
     ##################
-    run.file_upload("xpath", "//input[@id='myFile']", "")
+    # run.file_upload("xpath", "//input[@id='myFile']", "")
 
     ##################
     # WAITS TILL THE CHECKBOX APPEARS AND THEN CLICKS

@@ -1,0 +1,9 @@
+{
+    "common": {
+        "locator1": "//input[@type='checkbox']",
+        "locator2": "//input[@type='checkbox']",
+        "locator3": "//input[@id='fname']",
+        "locator4": "//input[@id='lname']",
+        "locator5": "/html[1]/body[1]/form[2]/input[2]"
+    }
+}
