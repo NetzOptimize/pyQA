@@ -7,12 +7,6 @@ import pytest
 
 # test case
 def test_checking(browser):
-    ##################
-    # LOGGING ERRORS, INFO etc.
-    ##################
-    logger = Logclass()
-    log = logger.getLogs()
-    log.info("This test is now running")
 
     ##################
     #  PASSING URL AND WEBDRIVER

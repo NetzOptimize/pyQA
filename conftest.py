@@ -13,7 +13,6 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.chrome.options import Options as cOP
 from selenium.webdriver.firefox.options import Options as fOP
 from selenium.webdriver.edge.options import Options as eOP
-from utilites.logfile import Logclass
 import sys
 
 from sys import platform
@@ -31,8 +30,6 @@ elif platform == "darwin":
 REPORT_PATH = os.getenv('REPORT_PATH')
 
 # from extra_report import generate_content
-logger = Logclass()
-log = logger.getLogs()
 chrome_options = cOP()
 firefox_options = fOP()
 edge_options = eOP()
