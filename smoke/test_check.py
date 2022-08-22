@@ -78,5 +78,14 @@ def test_checking(browser):
     print(f"This is the popup text: {popup_text}")
     run.popup_accept()
 
+    ##################
+    # UPLOADS A FILE FROM THE ABSOLUTE PATH GIVEN
+    ##################
+    run.file_upload("xpath", "//input[@id='myFile']", "")
 
-
+    ##################
+    # WAITS TILL THE CHECKBOX APPEARS AND THEN CLICKS
+    ##################
+    run.implicit_wait(4.5)
+    run.button("checkbox", "xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
+    run.button("checkbox", "xpath", "//p[@id='demo2']//input[@type='checkbox']", "click")

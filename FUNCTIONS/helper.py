@@ -6,6 +6,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 import time
 
 """
@@ -134,6 +136,7 @@ class Checker:
             :param driver: input the browser driverManager
 
         """
+        self.filename = None
         self.ac_value2 = None
         self.time = None
         self.i = None
@@ -630,27 +633,83 @@ class Checker:
 
     # working
     def popup_accept(self):
-        wait = WebDriverWait(self.driver, timeout=10, poll_frequency=1,
-                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
-        wait.until(expected_conditions.alert_is_present())
-        alert = self.driver.switch_to.alert
-        alert.accept()
+        try:
+            WebDriverWait(self.driver, 3).until(EC.alert_is_present(),
+                                                'Timed out waiting for PA creation ' +
+                                                'confirmation popup to appear.')
+            alert = self.driver.switch_to.alert
+            alert.accept()
+        except TimeoutException as ex:
+            print(f'Something went wrong: {ex}')
+            print('No alert present!')
+            assert False, f"No alert present!"
 
     # working
     def popup_decline(self):
-        wait = WebDriverWait(self.driver, timeout=10, poll_frequency=1,
-                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
-        wait.until(expected_conditions.alert_is_present())
-        alert = self.driver.switch_to.alert
-        alert.dismiss()
+        try:
+            WebDriverWait(self.driver, 3).until(EC.alert_is_present(),
+                                                'Timed out waiting for PA creation ' +
+                                                'confirmation popup to appear.')
+            alert = self.driver.switch_to.alert
+            alert.dismiss()
+        except TimeoutException as ex:
+            print(f'Something went wrong: {ex}')
+            print('No alert present!')
+            assert False, f"No alert present!"
 
     # working
     def popup_text(self):
-        wait = WebDriverWait(self.driver, timeout=10, poll_frequency=1,
-                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
-        wait.until(expected_conditions.alert_is_present())
-        alert = self.driver.switch_to.alert
-        return alert.text
+        try:
+            WebDriverWait(self.driver, 3).until(EC.alert_is_present(),
+                                                'Timed out waiting for PA creation ' +
+                                                'confirmation popup to appear.')
+            alert = self.driver.switch_to.alert
+            return alert.text
+        except TimeoutException as ex:
+            print(f'Something went wrong: {ex}')
+            print('No alert present!')
+            assert False, f"No alert present!"
+
+    def file_upload(self, locator, locator_value, filename):
+        """
+                    Uploads file. Must be used to input tag.
+
+                    Parameters
+                    ----------
+
+
+                    :param str locator: xpath/css
+                    :param str locator_value: input the value of the locator as xpath of css selector
+                    :param str filename: absolute path to the file.
+
+                """
+        self.locator = locator
+        self.lv = locator_value
+        self.filename = filename
+        if self.locator == L_CSS:
+            try:
+                self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                self.driver.find_element(By.XPATH, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    def implicit_wait(self, t):
+        self.time = t
+        self.driver.implicitly_wait(t)
 
     def returner(self, tp, locator, locator_value, ac):
         """
