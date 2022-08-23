@@ -92,11 +92,13 @@ def test_checking(browser):
     # ##################
     # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
     # ##################
-    run.explicit_wait(5, "element_to_be_clickable", "xpath", "//p[@id='demo']//input[@type='checkbox']")
-    run.button("xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
+    # run.explicit_wait(5, "element_to_be_clickable", "xpath", "//p[@id='demo']//input[@type='checkbox']")
+    # run.button("xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
+    #
+    # # ##################
+    # # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
+    # # ##################
+    # run.mouse_hover("xpath", "//button[normalize-space()='Dropdown']")
+    # run.button("xpath", "//a[normalize-space()='Link 1']", "click")
 
-    # ##################
-    # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
-    # ##################
-    run.mouse_hover("xpath", "//button[normalize-space()='Dropdown']")
-    run.button("xpath", "//a[normalize-space()='Link 1']", "click")
+    run.right_click("xpath","//form[@autocomplete='off']//input[@type='submit']")

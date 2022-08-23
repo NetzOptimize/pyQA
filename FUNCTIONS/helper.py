@@ -721,6 +721,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
     def mouse_hover(self, locator, locator_value):
         self.locator = locator
         self.lv = locator_value
@@ -728,6 +729,19 @@ class Checker:
             self.a.move_to_element(self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")).perform()
         elif self.locator == L_XPATH:
             self.a.move_to_element(self.driver.find_element(By.XPATH, f"{self.lv}")).perform()
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    # working
+    def right_click(self, locator, locator_value):
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            self.a.context_click(self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")).perform()
+        elif self.locator == L_XPATH:
+            self.a.context_click(self.driver.find_element(By.XPATH, f"{self.lv}")).perform()
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
