@@ -112,3 +112,10 @@ def test_checking(browser):
     # DOUBLE CLICK BUTTON
     ##################
     run.double_click("xpath", "//button[normalize-space()='double click me!']")
+
+    ##################
+    # DISPLAY TEXT OF ELEMENT(CHECKBOX)
+    ##################
+    text = run.return_text("xpath", "//label[@for='clicked1']")
+    print(text)
+    run.display_text("xpath", "//label[@for='clicked1']")

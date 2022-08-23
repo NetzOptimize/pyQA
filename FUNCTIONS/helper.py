@@ -1,31 +1,23 @@
 import requests
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, \
-    ElementNotVisibleException, ElementNotSelectableException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 import time
 
 """
 Todo:
-    check all boxes - done
-    time.sleep() - done 
-    static dropdown - done
-    dynamic dropdown - done
     all_inner_text
     explicit wait all options
     all_text_contents
     checked or not 
     click
     count
-    dbclick
     drag to
     highlight 
-    hover 
     inner text
     inner html
     is visible 
@@ -59,7 +51,6 @@ from selenium.webdriver import ActionChains
 action_chains = ActionChains(driver)
 action_chains.drag_and_drop(element, target).perform()
 
-alert = driver.switch_to.alert
 
 hisory 
 driver.forward()
@@ -592,7 +583,7 @@ class Checker:
     # working
     def popup_accept(self):
         try:
-            WebDriverWait(self.driver, 3).until(EC.alert_is_present(),
+            WebDriverWait(self.driver, 3).until(ec.alert_is_present(),
                                                 'Timed out waiting for PA creation ' +
                                                 'confirmation popup to appear.')
             alert = self.driver.switch_to.alert
@@ -605,7 +596,7 @@ class Checker:
     # working
     def popup_decline(self):
         try:
-            WebDriverWait(self.driver, 3).until(EC.alert_is_present(),
+            WebDriverWait(self.driver, 3).until(ec.alert_is_present(),
                                                 'Timed out waiting for PA creation ' +
                                                 'confirmation popup to appear.')
             alert = self.driver.switch_to.alert
@@ -618,7 +609,7 @@ class Checker:
     # working
     def popup_text(self):
         try:
-            WebDriverWait(self.driver, 3).until(EC.alert_is_present(),
+            WebDriverWait(self.driver, 3).until(ec.alert_is_present(),
                                                 'Timed out waiting for PA creation ' +
                                                 'confirmation popup to appear.')
             alert = self.driver.switch_to.alert
@@ -693,7 +684,7 @@ class Checker:
             if self.ac == E_CLICKABLE:
                 try:
                     WebDriverWait(self.driver, self.time).until(
-                        EC.element_to_be_clickable((By.CSS_SELECTOR, f"{self.lv}")))
+                        ec.element_to_be_clickable((By.CSS_SELECTOR, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -706,7 +697,7 @@ class Checker:
         elif self.locator == L_XPATH:
             if self.ac == E_CLICKABLE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(EC.element_to_be_clickable((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -778,54 +769,77 @@ class Checker:
     def leave_frame(self):
         self.driver.switch_to.default_content()
 
-    def returner(self, tp, locator, locator_value, ac):
+    def return_text(self, locator, locator_value):
         """
             Parameters
             ----------
 
-            :param str tp: Type of input eg. 'return'
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
-            :param str ac: action to be performed e.g. 'text'
             :return: Returns the text of the element
             :rtype: str
 
         """
-        self.tp = tp
         self.locator = locator
         self.lv = locator_value
-        self.ac = ac
-        if self.tp == T_RETURN:
-            if self.locator == L_CSS:
-                if self.ac == A_TEXT:
-                    try:
-                        input_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
-                    except NoSuchElementException:
-                        return
-                else:
-                    error = IllegalCharError(f"{self.ac}")
-                    print(error.as_string())
-                    assert False, f"{error.as_string()}"
-            elif self.locator == L_XPATH:
-                if self.ac == A_TEXT:
-                    try:
-                        input_obj = self.driver.find_element(By.XPATH, f"{self.lv}")
-                    except NoSuchElementException:
-                        return
-                else:
-                    error = IllegalCharError(f"{self.ac}")
-                    print(error.as_string())
-                    assert False, f"{error.as_string()}"
-            else:
-                error = IllegalCharError(f"{self.locator}")
+        if self.locator == L_CSS:
+            try:
+                input_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                input_obj = self.driver.find_element(By.XPATH, f"{self.lv}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
         else:
-            error = IllegalCharError(f"{self.tp}")
+            error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
         return input_obj.text
+
+    def display_text(self, locator, locator_value):
+        """
+            Parameters
+            ----------
+
+            :param str locator: xpath/css
+            :param str locator_value: input the value of the locator as xpath of css selector
+            :return: Returns the text of the element
+            :rtype: str
+
+        """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                input_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                input_obj = self.driver.find_element(By.XPATH, f"{self.lv}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+        return print(input_obj.text)
 
     def take_pic(self):
         """
@@ -1034,14 +1048,14 @@ class Checker:
         self.lv = locator_value
         if self.locator == L_CSS:
             try:
-                self.button("button", "css",
+                self.button("css",
                             self.lv,
                             "click")
             except NoSuchElementException:
                 pass
         if self.locator == L_XPATH:
             try:
-                self.button("button", "xpath",
+                self.button("xpath",
                             self.lv,
                             "click")
             except NoSuchElementException:
