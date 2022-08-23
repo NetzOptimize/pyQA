@@ -841,6 +841,82 @@ class Checker:
 
         return print(input_obj.text)
 
+    def return_attribute(self, locator, locator_value, ac_value):
+        """
+            Parameters
+            ----------
+
+            :param str locator: xpath/css
+            :param str locator_value: input the value of the locator as xpath of css selector
+            :param str ac_value: type of attribute
+            :return: Returns the text of the element
+            :rtype: str
+
+        """
+        self.locator = locator
+        self.lv = locator_value
+        self.ac_value = ac_value
+        if self.locator == L_CSS:
+            try:
+                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute(f"{self.ac_value}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.ac_value}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                attribute_obj = self.driver.find_element(By.XPATH, f"{self.lv}").get_attribute(f"{self.ac_value}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+        return attribute_obj
+
+    def display_attribute(self, locator, locator_value, ac_value):
+        """
+            Parameters
+            ----------
+
+            :param str locator: xpath/css
+            :param str locator_value: input the value of the locator as xpath of css selector
+            :param str ac_value: type of attribute
+            :return: Returns the text of the element
+            :rtype: str
+
+        """
+        self.locator = locator
+        self.lv = locator_value
+        self.ac_value = ac_value
+        if self.locator == L_CSS:
+            try:
+                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute(f"{self.ac_value}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.ac_value}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                attribute_obj = self.driver.find_element(By.XPATH, f"{self.lv}").get_attribute(f"{self.ac_value}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+        return print(attribute_obj)
+
     def take_pic(self):
         """
             :return: Returns the screenshot of the current webpage

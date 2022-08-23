@@ -101,21 +101,28 @@ def test_checking(browser):
     # run.mouse_hover("xpath", "//button[normalize-space()='Dropdown']")
     # run.button("xpath", "//a[normalize-space()='Link 1']", "click")
 
-    ##################
-    # GO TO FRAME AND CHECK ALL CHECKBOXES
-    ##################
-    run.shift_to_frame("xpath", "//iframe[@title='Deja vu']")
-    run.check_all("xpath", data["common"]["locator1"])
-    run.leave_frame()
+    # ##################
+    # # GO TO FRAME AND CHECK ALL CHECKBOXES
+    # ##################
+    # run.shift_to_frame("xpath", "//iframe[@title='Deja vu']")
+    # run.check_all("xpath", data["common"]["locator1"])
+    # run.leave_frame()
+    #
+    # ##################
+    # # DOUBLE CLICK BUTTON
+    # ##################
+    # run.double_click("xpath", "//button[normalize-space()='double click me!']")
 
-    ##################
-    # DOUBLE CLICK BUTTON
-    ##################
-    run.double_click("xpath", "//button[normalize-space()='double click me!']")
+    # ##################
+    # # DISPLAY TEXT OF ELEMENT(CHECKBOX)
+    # ##################
+    # text = run.return_text("xpath", "//label[@for='clicked1']")
+    # print(text)
+    # run.display_text("xpath", "//label[@for='clicked1']")
 
     ##################
     # DISPLAY TEXT OF ELEMENT(CHECKBOX)
     ##################
-    text = run.return_text("xpath", "//label[@for='clicked1']")
+    text = run.return_attribute("xpath", "//input[@id='myInput']", "placeholder")
     print(text)
-    run.display_text("xpath", "//label[@for='clicked1']")
+    run.display_attribute("xpath", "//input[@id='myInput']", "placeholder")
