@@ -20,3 +20,7 @@ function check2() {
 function myStopFunction() {
     clearTimeout(myTimeout);
 }
+
+function myFunction() {
+    document.getElementById("dbclick ").innerHTML = "Double click works!";
+}

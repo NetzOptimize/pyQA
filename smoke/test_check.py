@@ -101,4 +101,4 @@ def test_checking(browser):
     # run.mouse_hover("xpath", "//button[normalize-space()='Dropdown']")
     # run.button("xpath", "//a[normalize-space()='Link 1']", "click")
 
-    run.right_click("xpath","//form[@autocomplete='off']//input[@type='submit']")
+    run.double_click("xpath","//button[normalize-space()='double click me!']")
