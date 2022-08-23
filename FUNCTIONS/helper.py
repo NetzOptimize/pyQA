@@ -17,6 +17,7 @@ Todo:
     static dropdown - done
     dynamic dropdown - done
     all_inner_text
+    explicit wait all options
     all_text_contents
     checked or not 
     click
@@ -43,12 +44,12 @@ Todo:
     copy to clipboard
     find_element(By.ID, "id")
 find_element(By.NAME, "name")
-find_element(By.XPATH, "xpath")
+find_element(By.XPATH, "xpath") - done 
 find_element(By.LINK_TEXT, "link text")
 find_element(By.PARTIAL_LINK_TEXT, "partial link text")
 find_element(By.TAG_NAME, "tag name")
 find_element(By.CLASS_NAME, "class name")
-find_element(By.CSS_SELECTOR, "css selector")
+find_element(By.CSS_SELECTOR, "css selector") - done
 
 drag and drop 
 element = driver.find_element(By.NAME, "source")
@@ -93,6 +94,12 @@ A_HOVER_CLICK = 'hover_click'
 A_VALUE = 'value'
 A_INDEX = 'index'
 A_VISIBLE = 'visible'
+
+#################
+# EXPLICIT WAIT TYPES
+#################
+
+    E_CLICKABLE = "element_to_be_clickable"
 
 
 #################
@@ -670,6 +677,7 @@ class Checker:
             print('No alert present!')
             assert False, f"No alert present!"
 
+    # working
     def file_upload(self, locator, locator_value, filename):
         """
                     Uploads file. Must be used to input tag.
@@ -707,9 +715,59 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
     def implicit_wait(self, t):
         self.time = t
         self.driver.implicitly_wait(t)
+
+    # working
+    def explicit_wait(self, t, ac, locator, locator_value):
+        """
+
+
+                    Parameters
+                    ----------
+
+                    :param float t: time in seconds
+                    :param str locator: xpath/css
+                    :param str locator_value: input the value of the locator as xpath of css selector
+                    :param str ac: action to be performed e.g. 'type'
+
+                """
+        self.time = t
+        self.ac = ac
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(EC.element_to_be_clickable((By.CSS_SELECTOR, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(EC.element_to_be_clickable((By.XPATH, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
 
     def returner(self, tp, locator, locator_value, ac):
         """

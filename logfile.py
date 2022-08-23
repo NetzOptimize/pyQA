@@ -4,6 +4,7 @@ import os
 import sys
 from sys import platform
 from dotenv import load_dotenv
+
 if platform == 'win32':
     # windows
     load_dotenv(r".env")
@@ -15,6 +16,7 @@ elif platform == "darwin":
     load_dotenv()
 
 LOG_PATH = os.getenv('LOG_PATH')
+
 
 class Logclass:
     def getLogs(self):
