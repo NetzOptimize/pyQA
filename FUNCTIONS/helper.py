@@ -759,6 +759,25 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
+    def shift_to_frame(self, locator, locator_value):
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            iframe = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
+        elif self.locator == L_XPATH:
+            iframe = self.driver.find_element(By.XPATH, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    # working
+    def leave_frame(self):
+        self.driver.switch_to.default_content()
+
     def returner(self, tp, locator, locator_value, ac):
         """
             Parameters

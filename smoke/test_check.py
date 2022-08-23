@@ -95,10 +95,20 @@ def test_checking(browser):
     # run.explicit_wait(5, "element_to_be_clickable", "xpath", "//p[@id='demo']//input[@type='checkbox']")
     # run.button("xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
     #
-    # # ##################
-    # # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
-    # # ##################
+    # ##################
+    # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
+    # ##################
     # run.mouse_hover("xpath", "//button[normalize-space()='Dropdown']")
     # run.button("xpath", "//a[normalize-space()='Link 1']", "click")
 
-    run.double_click("xpath","//button[normalize-space()='double click me!']")
+    ##################
+    # GO TO FRAME AND CHECK ALL CHECKBOXES
+    ##################
+    run.shift_to_frame("xpath", "//iframe[@title='Deja vu']")
+    run.check_all("xpath", data["common"]["locator1"])
+    run.leave_frame()
+
+    ##################
+    # DOUBLE CLICK BUTTON
+    ##################
+    run.double_click("xpath", "//button[normalize-space()='double click me!']")
