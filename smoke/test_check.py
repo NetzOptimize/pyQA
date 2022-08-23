@@ -123,10 +123,20 @@ def test_checking(browser):
     ##################
     # DISPLAY TEXT OF ELEMENT(CHECKBOX)
     ##################
-    text = run.return_attribute("xpath", "//input[@id='myInput']", "placeholder")
-    print(text)
-    run.display_attribute("xpath", "//input[@id='myInput']", "placeholder")
+    # text = run.return_attribute("xpath", "//input[@id='myInput']", "placeholder")
+    # print(text)
+    # run.display_attribute("xpath", "//input[@id='myInput']", "placeholder")
+    #
+    # run.display_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
+    # a = run.return_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
+    # print(a)
 
-    run.display_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
-    a = run.return_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
-    print(a)
+    ##################
+    # CHECKS IF CHECKBOX IS CLICKED OR NOT
+    ##################
+    a = run.is_checked_return("xpath", "//input[@id='clicked1']")
+    if a:
+        print("yes")  # checkbox is checked
+    else:
+        print("no")  # checkbox is not checked
+    run.is_checked_display("xpath", "//input[@id='clicked1']")

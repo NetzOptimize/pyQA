@@ -11,8 +11,6 @@ import time
 """
 Todo:
     explicit wait all options
-    all_text_contents
-    checked or not 
     count
     drag to
     highlight 
@@ -1011,6 +1009,92 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(array_elements)
+
+    # working
+    def is_checked_return(self, locator, locator_value):
+        """
+                            Parameters
+                            ----------
+
+                            :param str locator: xpath/css
+                            :param str locator_value: input the value of the locator as xpath of css selector
+                            :return: Prints the text of the similar type element
+                            :rtype: bool
+
+                        """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute("checked")
+                if attribute_obj != "true":
+                    return False
+                else:
+                    return True
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                attribute_obj = self.driver.find_element(By.XPATH, f"{self.lv}").get_attribute("checked")
+                if attribute_obj != "true":
+                    return False
+                else:
+                    return True
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    # working
+    def is_checked_display(self, locator, locator_value):
+        """
+                            Parameters
+                            ----------
+
+                            :param str locator: xpath/css
+                            :param str locator_value: input the value of the locator as xpath of css selector
+                            :return: Prints the text of the similar type element
+                            :rtype: bool
+
+                        """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute("checked")
+                if attribute_obj != "true":
+                    return print("Checkbox is not checked.")
+                else:
+                    return print("Checkbox is checked.")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                attribute_obj = self.driver.find_element(By.XPATH, f"{self.lv}").get_attribute("checked")
+                if attribute_obj != "true":
+                    return print("Checkbox is not checked.")
+                else:
+                    return print("Checkbox is checked.")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
 
     def take_pic(self):
         """
