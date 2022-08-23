@@ -10,11 +10,9 @@ import time
 
 """
 Todo:
-    all_inner_text
     explicit wait all options
     all_text_contents
     checked or not 
-    click
     count
     drag to
     highlight 
@@ -28,7 +26,6 @@ Todo:
     press
     screenshot
     tap
-    type
     uncheck 
     wait for 
     scroll into view
@@ -769,6 +766,7 @@ class Checker:
     def leave_frame(self):
         self.driver.switch_to.default_content()
 
+    # working
     def return_text(self, locator, locator_value):
         """
             Parameters
@@ -805,6 +803,7 @@ class Checker:
 
         return input_obj.text
 
+    # working
     def display_text(self, locator, locator_value):
         """
             Parameters
@@ -812,7 +811,7 @@ class Checker:
 
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
-            :return: Returns the text of the element
+            :return: Prints the text of the element
             :rtype: str
 
         """
@@ -841,6 +840,7 @@ class Checker:
 
         return print(input_obj.text)
 
+    # working
     def return_attribute(self, locator, locator_value, ac_value):
         """
             Parameters
@@ -858,7 +858,8 @@ class Checker:
         self.ac_value = ac_value
         if self.locator == L_CSS:
             try:
-                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute(f"{self.ac_value}")
+                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute(
+                    f"{self.ac_value}")
             except NoSuchElementException:
                 error = NoSuchElementPresent(
                     f"{self.locator} -> {self.lv} -> {self.ac_value}")
@@ -879,6 +880,7 @@ class Checker:
 
         return attribute_obj
 
+    # working
     def display_attribute(self, locator, locator_value, ac_value):
         """
             Parameters
@@ -887,7 +889,7 @@ class Checker:
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
             :param str ac_value: type of attribute
-            :return: Returns the text of the element
+            :return: Prints the text of the element
             :rtype: str
 
         """
@@ -896,7 +898,8 @@ class Checker:
         self.ac_value = ac_value
         if self.locator == L_CSS:
             try:
-                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute(f"{self.ac_value}")
+                attribute_obj = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").get_attribute(
+                    f"{self.ac_value}")
             except NoSuchElementException:
                 error = NoSuchElementPresent(
                     f"{self.locator} -> {self.lv} -> {self.ac_value}")
@@ -916,6 +919,98 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(attribute_obj)
+
+    # working
+    def return_all_inner_text(self, locator, locator_value):
+        """
+                    Parameters
+                    ----------
+
+                    :param str locator: xpath/css
+                    :param str locator_value: input the value of the locator as xpath of css selector
+                    :return: Returns the text of the similar type element
+                    :rtype: str
+
+                """
+        self.locator = locator
+        self.lv = locator_value
+        array_elements = []
+        if self.locator == L_CSS:
+            try:
+                input_obj = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv}")
+                if len(input_obj) == 0:
+                    print(f"There are 0 checkboxes to check, try checking the locator value. ")
+                for element in input_obj:
+                    array_elements.append(element.text)
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                input_obj = self.driver.find_elements(By.XPATH, f"{self.lv}")
+                if len(input_obj) == 0:
+                    print(f"There are 0 checkboxes to check, try checking the locator value. ")
+                for element in input_obj:
+                    array_elements.append(element.text)
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+        return array_elements
+
+    # working
+    def display_all_inner_text(self, locator, locator_value):
+        """
+                    Parameters
+                    ----------
+
+                    :param str locator: xpath/css
+                    :param str locator_value: input the value of the locator as xpath of css selector
+                    :return: Prints the text of the similar type element
+                    :rtype: str
+
+                """
+        self.locator = locator
+        self.lv = locator_value
+        array_elements = []
+        if self.locator == L_CSS:
+            try:
+                input_obj = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv}")
+                if len(input_obj) == 0:
+                    print(f"There are 0 checkboxes to check, try checking the locator value. ")
+                for element in input_obj:
+                    array_elements.append(element.text)
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                input_obj = self.driver.find_elements(By.XPATH, f"{self.lv}")
+                if len(input_obj) == 0:
+                    print(f"There are 0 checkboxes to check, try checking the locator value. ")
+                for element in input_obj:
+                    array_elements.append(element.text)
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+        return print(array_elements)
 
     def take_pic(self):
         """

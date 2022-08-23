@@ -126,3 +126,7 @@ def test_checking(browser):
     text = run.return_attribute("xpath", "//input[@id='myInput']", "placeholder")
     print(text)
     run.display_attribute("xpath", "//input[@id='myInput']", "placeholder")
+
+    run.display_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
+    a = run.return_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
+    print(a)
