@@ -99,7 +99,7 @@ A_VISIBLE = 'visible'
 # EXPLICIT WAIT TYPES
 #################
 
-    E_CLICKABLE = "element_to_be_clickable"
+E_CLICKABLE = "element_to_be_clickable"
 
 
 #################
@@ -205,149 +205,100 @@ class Checker:
         return self.driver.current_url
 
     # working
-    def input(self, tp, locator, locator_value, ac, ac_value):
+    def input(self, locator, locator_value, ac, ac_value):
         """
             Takes value from user and inputs in the field specified
 
             Parameters
             ----------
 
-            :param str tp: Type of input eg. 'input'
+
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
             :param str ac: action to be performed e.g. 'type'
             :param str ac_value: value for the action
 
         """
-        self.tp = tp
         self.locator = locator
         self.lv = locator_value
         self.ac = ac
         self.ac_value = ac_value
-        if self.tp == T_INPUT:
-            if self.locator == L_CSS:
-                if self.ac == A_TYPE:
-                    try:
-                        self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").send_keys(f"{self.ac_value}")
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(
-                            f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                else:
-                    error = IllegalCharError(f"{self.ac}")
-                    print(error.as_string())
-                    assert False, f"{error.as_string()}"
-            elif self.locator == L_XPATH:
-                if self.ac == A_TYPE:
-                    try:
-                        self.driver.find_element(By.XPATH, f"{self.lv}").send_keys(f"{self.ac_value}")
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(
-                            f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                else:
-                    error = IllegalCharError(f"{self.ac}")
+        if self.locator == L_CSS:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
                     print(error.as_string())
                     assert False, f"{error.as_string()}"
             else:
-                error = IllegalCharError(f"{self.locator}")
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.XPATH, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
         else:
-            error = IllegalCharError(f"{self.tp}")
+            error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
     # working
-    def button(self, tp, locator, locator_value, ac):
+    def button(self, locator, locator_value, ac):
         """
             Clicks a button
 
             Parameters
             ----------
 
-            :param str tp: Type of input eg. 'button'
+
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
             :param str ac: action to be performed eg. 'click', or 'hover'
 
         """
-        self.tp = tp
         self.locator = locator
         self.lv = locator_value
         self.ac = ac
-        if self.tp == T_BUTTON or self.tp == T_CHECKBOX:
-            if self.locator == L_CSS:
-                if self.ac == A_CLICK:
-                    try:
-                        self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").click()
-                        self.driver.implicitly_wait(10)
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                elif self.ac == A_HOVER:
-                    try:
-                        self.m = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
-                        self.driver.implicitly_wait(10)
-                        self.a.move_to_element(self.m).perform()
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                elif self.ac == A_HOVER_CLICK:
-                    try:
-                        self.m = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
-                        self.driver.implicitly_wait(10)
-                        self.a.move_to_element(self.m).click(self.m).perform()
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                else:
-                    error = IllegalCharError(f"{self.ac}")
-                    print(error.as_string())
-                    assert False, f"{error.as_string()}"
-            elif self.locator == L_XPATH:
-                if self.ac == A_CLICK:
-                    try:
-                        self.driver.find_element(By.XPATH, f"{self.lv}").click()
-                        self.driver.implicitly_wait(10)
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                elif self.ac == A_HOVER:
-                    try:
-                        self.m = self.driver.find_element(By.XPATH, f"{self.lv}")
-                        self.driver.implicitly_wait(10)
-                        self.a.move_to_element(self.m).perform()
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                elif self.ac == A_HOVER_CLICK:
-                    try:
-                        self.m = self.driver.find_element(By.XPATH, f"{self.lv}")
-                        self.driver.implicitly_wait(10)
-                        self.a.move_to_element(self.m).click(self.m).perform()
-                    except NoSuchElementException:
-                        error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
-                        print(error.as_string())
-                        assert False, f"{error.as_string()}"
-                else:
-                    error = IllegalCharError(f"{self.ac}")
+        if self.locator == L_CSS:
+            if self.ac == A_CLICK:
+                try:
+                    self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}").click()
+                    self.driver.implicitly_wait(10)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
                     print(error.as_string())
                     assert False, f"{error.as_string()}"
             else:
-                error = IllegalCharError(f"{self.locator}")
+                error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
-
+        elif self.locator == L_XPATH:
+            if self.ac == A_CLICK:
+                try:
+                    self.driver.find_element(By.XPATH, f"{self.lv}").click()
+                    self.driver.implicitly_wait(10)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
         else:
-            error = IllegalCharError(f"{self.tp}")
+            error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
@@ -741,7 +692,8 @@ class Checker:
         if self.locator == L_CSS:
             if self.ac == E_CLICKABLE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(EC.element_to_be_clickable((By.CSS_SELECTOR, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        EC.element_to_be_clickable((By.CSS_SELECTOR, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -764,6 +716,18 @@ class Checker:
                 error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    def mouse_hover(self, locator, locator_value):
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            self.a.move_to_element(self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")).perform()
+        elif self.locator == L_XPATH:
+            self.a.move_to_element(self.driver.find_element(By.XPATH, f"{self.lv}")).perform()
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())

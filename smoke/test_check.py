@@ -38,13 +38,13 @@ def test_checking(browser):
     # ##################
     # # INPUT IN FIELDS
     # ##################
-    # run.input("input", "xpath", data["common"]["locator3"], "type", "Sample Value 1")
-    # run.input("input", "xpath", data["common"]["locator4"], "type", "Sample Value 2")
+    # run.input("xpath", data["common"]["locator3"], "type", "Sample Value 1")
+    # run.input("xpath", data["common"]["locator4"], "type", "Sample Value 2")
     #
     # ##################
     # # UNCHECK A CHECKED BOX
     # ##################
-    # run.button("checkbox", "xpath", data["common"]["locator5"], "click")
+    # run.button("xpath", data["common"]["locator5"], "click")
     #
     # ##################
     # # STATIC DROPDOWN WITH DELAY
@@ -72,7 +72,7 @@ def test_checking(browser):
     # ##################
     # # CLICKING TO GET ALERT BOX, PRINTING THE ALERT TEXT AND ACCEPTING THE ALERT
     # ##################
-    # run.button("button", "xpath", "//button[@onclick='myFunction()']", "click")
+    # run.button("xpath", "//button[@onclick='myFunction()']", "click")
     # popup_text = run.popup_text()
     # print(f"This is the popup text: {popup_text}")
     # run.popup_accept()
@@ -86,11 +86,17 @@ def test_checking(browser):
     # # WAITS IMPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
     # ##################
     # run.implicit_wait(4.5)
-    # run.button("checkbox", "xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
-    # run.button("checkbox", "xpath", "//p[@id='demo2']//input[@type='checkbox']", "click")
+    # run.button( "xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
+    # run.button( "xpath", "//p[@id='demo2']//input[@type='checkbox']", "click")
 
     # ##################
     # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
     # ##################
     run.explicit_wait(5, "element_to_be_clickable", "xpath", "//p[@id='demo']//input[@type='checkbox']")
-    run.button("checkbox", "xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
+    run.button("xpath", "//p[@id='demo']//input[@type='checkbox']", "click")
+
+    # ##################
+    # # WAITS EXPLICITLY TILL THE CHECKBOX APPEARS AND THEN CLICKS
+    # ##################
+    run.mouse_hover("xpath", "//button[normalize-space()='Dropdown']")
+    run.button("xpath", "//a[normalize-space()='Link 1']", "click")
