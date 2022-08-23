@@ -758,6 +758,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     def returner(self, tp, locator, locator_value, ac):
         """
             Parameters
@@ -957,6 +958,22 @@ class Checker:
         child = self.driver.window_handles[self.i]
         self.driver.switch_to.window(child)
         self.driver.implicitly_wait(10)
+
+    # working
+    def return_multiple_tabs_windows(self):
+        """
+                        :return: Returns the url of the main url sent to the webdriver.
+                        :rtype: list
+                """
+        return self.driver.window_handles
+
+    # working
+    def display_multiple_tabs_windows(self):
+        """
+                        :return: Returns the url of the main url sent to the webdriver.
+                        :rtype: str
+                """
+        return print(self.driver.window_handles)
 
     def closewindow(self):
         """
