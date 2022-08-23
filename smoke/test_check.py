@@ -131,12 +131,22 @@ def test_checking(browser):
     # a = run.return_all_inner_text("xpath", "//*[contains(@*, 'clicked')]")
     # print(a)
 
+    # ##################
+    # # CHECKS IF CHECKBOX IS CLICKED OR NOT
+    # ##################
+    # a = run.is_checked_return("xpath", "//input[@id='clicked1']")
+    # if a:
+    #     print("yes")  # checkbox is checked
+    # else:
+    #     print("no")  # checkbox is not checked
+    # run.is_checked_display("xpath", "//input[@id='clicked1']")
+
     ##################
-    # CHECKS IF CHECKBOX IS CLICKED OR NOT
+    # CHECKS IF ELEMENT IS VISIBLE
     ##################
-    a = run.is_checked_return("xpath", "//input[@id='clicked1']")
+    a = run.is_visible_return("xpath", "//label[@for='clicked19']")
     if a:
-        print("yes")  # checkbox is checked
+        print("yes")  # is visible
     else:
-        print("no")  # checkbox is not checked
-    run.is_checked_display("xpath", "//input[@id='clicked1']")
+        print("no")  # not visible
+    run.is_visible_display("xpath", "//label[@for='clicked19']")

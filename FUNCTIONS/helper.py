@@ -14,17 +14,11 @@ Todo:
     count
     drag to
     highlight 
-    inner text
-    inner html
     is visible 
-    is checked
     is editable
     is hidden 
     nth
-    press
     screenshot
-    tap
-    uncheck 
     wait for 
     scroll into view
     select text
@@ -1091,6 +1085,69 @@ class Checker:
                     f"{self.locator} -> {self.lv}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    def is_visible_return(self, locator, locator_value):
+        """
+                                    Parameters
+                                    ----------
+
+                                    :param str locator: xpath/css
+                                    :param str locator_value: input the value of the locator as xpath of css selector
+                                    :return: Prints the text of the similar type element
+                                    :rtype: bool
+
+        """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+                if element.is_displayed():
+                    return True
+            except NoSuchElementException:
+                return False
+        elif self.locator == L_XPATH:
+            try:
+                element = self.driver.find_element(By.XPATH, f"{self.lv}")
+                if element.is_displayed():
+                    return True
+            except NoSuchElementException:
+                    return False
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+            
+    def is_visible_display(self, locator, locator_value):
+        """
+                                    Parameters
+                                    ----------
+
+                                    :param str locator: xpath/css
+                                    :param str locator_value: input the value of the locator as xpath of css selector
+                                    :return: Prints the text of the similar type element
+
+        """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+                if element.is_displayed():
+                    return print("Element is visible.")
+            except NoSuchElementException:
+                return print("Element not visible.")
+        elif self.locator == L_XPATH:
+            try:
+                element = self.driver.find_element(By.XPATH, f"{self.lv}")
+                if element.is_displayed():
+                    return print("Element is visible.")
+            except NoSuchElementException:
+                return print("Element not visible.")
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
