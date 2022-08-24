@@ -2625,6 +2625,16 @@ class Checker:
             self.a.double_click(self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")).perform()
         elif self.locator == L_XPATH:
             self.a.double_click(self.driver.find_element(By.XPATH, f"{self.lv}")).perform()
+        elif self.locator == L_NAME:
+            self.a.double_click(self.driver.find_element(By.NAME, f"{self.lv}")).perform()
+        elif self.locator == L_LINK_TEXT:
+            self.a.double_click(self.driver.find_element(By.LINK_TEXT, f"{self.lv}")).perform()
+        elif self.locator == L_PARTIAL_LINK_TEXT:
+            self.a.double_click(self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}")).perform()
+        elif self.locator == L_TAG_NAME:
+            self.a.double_click(self.driver.find_element(By.TAG_NAME, f"{self.lv}")).perform()
+        elif self.locator == L_CLASS_NAME:
+            self.a.double_click(self.driver.find_element(By.CLASS_NAME, f"{self.lv}")).perform()
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
