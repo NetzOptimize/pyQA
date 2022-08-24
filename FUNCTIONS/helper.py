@@ -38,7 +38,7 @@ action_chains = ActionChains(driver)
 action_chains.drag_and_drop(element, target).perform()
 
 
-hisory 
+history 
 driver.forward()
 driver.back()
 """
@@ -312,7 +312,7 @@ class Checker:
 
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
-            :param str ac: action to be performed eg. 'click', or 'hover'
+            :param str ac: action to be performed e.g. 'click', or 'hover'
 
         """
         self.locator = locator
@@ -424,7 +424,7 @@ class Checker:
 
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
-            :param str ac: action to be performed eg. 'value','visible' or 'index'
+            :param str ac: action to be performed e.g. 'value','visible' or 'index'
             :param str ac_value: value for the action
 
         """
@@ -655,7 +655,7 @@ class Checker:
             Parameters
             ----------
 
-            :param str tp: Type of input eg. 'input'
+            :param str tp: Type of input e.g. 'input'
             :param str locator: xpath/css
             :param str locator_value: input the value of the locator as xpath of css selector
             :param str ac: action to be performed e.g. 'type'
@@ -2402,6 +2402,46 @@ class Checker:
         elif self.locator == L_XPATH:
             try:
                 self.driver.find_element(By.XPATH, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_NAME:
+            try:
+                self.driver.find_element(By.NAME, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_LINK_TEXT:
+            try:
+                self.driver.find_element(By.LINK_TEXT, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_PARTIAL_LINK_TEXT:
+            try:
+                self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_TAG_NAME:
+            try:
+                self.driver.find_element(By.TAG_NAME, f"{self.lv}").send_keys(f"{self.filename}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv} -> {self.filename}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_CLASS_NAME:
+            try:
+                self.driver.find_element(By.CLASS_NAME, f"{self.lv}").send_keys(f"{self.filename}")
             except NoSuchElementException:
                 error = NoSuchElementPresent(
                     f"{self.locator} -> {self.lv} -> {self.filename}")
