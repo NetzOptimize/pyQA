@@ -2,10 +2,11 @@
 from FUNCTIONS.helper import Checker
 import json
 from logfile import Logclass
+import pytest
 
 
 # test case
-def test_checking(browser):
+def checking(browser):
     logger = Logclass()
     log = logger.getLogs()
     log.error("This test is now running")
@@ -150,3 +151,33 @@ def test_checking(browser):
     else:
         print("no")  # not visible
     run.is_visible_display("xpath", "//label[@for='clicked19']")
+
+
+list1 = ["http://127.0.0.1:5500/sample.html","https://example.com/"]
+
+
+@pytest.mark.parametrize("expected", list1)
+def test_squares(browser, expected):
+    logger = Logclass()
+    log = logger.getLogs()
+    log.error("This test is now running")
+    #################
+    with open("locators/demo.json", 'r') as f:
+        data = json.loads(f.read())
+    ##################
+    #  PASSING URL AND WEBDRIVER
+    ##################
+    run = Checker(expected, browser)
+
+    ##################
+    # METHODS TO DISPLAY URL
+    ##################
+    run.display_url()
+    website_url = run.return_url()
+    print(f"Website url is: {website_url}")
+
+    ##################
+    # CHECK ALL CHECKBOXES
+    ##################
+    run.check_all("xpath", data["common"]["locator1"])
+    run.end()

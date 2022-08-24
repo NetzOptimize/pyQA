@@ -1,6 +1,6 @@
 import requests
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, WebDriverException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -1360,14 +1360,14 @@ class Checker:
                 self.button("css",
                             self.lv,
                             "click")
-            except NoSuchElementException:
+            except WebDriverException:
                 pass
         if self.locator == L_XPATH:
             try:
                 self.button("xpath",
                             self.lv,
                             "click")
-            except NoSuchElementException:
+            except WebDriverException:
                 pass
 
     def end(self):
