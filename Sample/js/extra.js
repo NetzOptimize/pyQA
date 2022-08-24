@@ -1,4 +1,4 @@
-function myFunction() {
+function myFunction3() {
     alert("Hello! I am an alert box!");
 }
 
