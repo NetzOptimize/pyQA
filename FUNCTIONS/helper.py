@@ -2650,6 +2650,21 @@ class Checker:
         elif self.locator == L_XPATH:
             iframe = self.driver.find_element(By.XPATH, f"{self.lv}")
             self.driver.switch_to.frame(iframe)
+        elif self.locator == L_NAME:
+            iframe = self.driver.find_element(By.NAME, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
+        elif self.locator == L_LINK_TEXT:
+            iframe = self.driver.find_element(By.LINK_TEXT, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
+        elif self.locator == L_PARTIAL_LINK_TEXT:
+            iframe = self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
+        elif self.locator == L_TAG_NAME:
+            iframe = self.driver.find_element(By.TAG_NAME, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
+        elif self.locator == L_CLASS_NAME:
+            iframe = self.driver.find_element(By.CLASS_NAME, f"{self.lv}")
+            self.driver.switch_to.frame(iframe)
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
