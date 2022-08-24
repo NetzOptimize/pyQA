@@ -492,6 +492,156 @@ class Checker:
                 error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
+        elif self.locator == L_NAME:
+            if self.ac == A_VALUE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.NAME, f"{self.lv}"))
+                    s_dropdown.select_by_value(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_INDEX:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.NAME, f"{self.lv}"))
+                    int(self.ac_value)
+                    s_dropdown.select_by_index(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_VISIBLE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.NAME, f"{self.lv}"))
+                    s_dropdown.select_by_visible_text(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_LINK_TEXT:
+            if self.ac == A_VALUE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.LINK_TEXT, f"{self.lv}"))
+                    s_dropdown.select_by_value(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_INDEX:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.LINK_TEXT, f"{self.lv}"))
+                    int(self.ac_value)
+                    s_dropdown.select_by_index(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_VISIBLE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.LINK_TEXT, f"{self.lv}"))
+                    s_dropdown.select_by_visible_text(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_PARTIAL_LINK_TEXT:
+            if self.ac == A_VALUE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}"))
+                    s_dropdown.select_by_value(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_INDEX:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}"))
+                    int(self.ac_value)
+                    s_dropdown.select_by_index(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_VISIBLE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}"))
+                    s_dropdown.select_by_visible_text(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_TAG_NAME:
+            if self.ac == A_VALUE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.TAG_NAME, f"{self.lv}"))
+                    s_dropdown.select_by_value(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_INDEX:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.TAG_NAME, f"{self.lv}"))
+                    int(self.ac_value)
+                    s_dropdown.select_by_index(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_VISIBLE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.TAG_NAME, f"{self.lv}"))
+                    s_dropdown.select_by_visible_text(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_CLASS_NAME:
+            if self.ac == A_VALUE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.CLASS_NAME, f"{self.lv}"))
+                    s_dropdown.select_by_value(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_INDEX:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.CLASS_NAME, f"{self.lv}"))
+                    int(self.ac_value)
+                    s_dropdown.select_by_index(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == A_VISIBLE:
+                try:
+                    s_dropdown = Select(self.driver.find_element(By.CLASS_NAME, f"{self.lv}"))
+                    s_dropdown.select_by_visible_text(self.ac_value)
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(f"{self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
