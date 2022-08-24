@@ -13,10 +13,7 @@ Todo:
     explicit wait all options
     count
     drag to
-    highlight 
-    is visible 
-    is editable
-    is hidden 
+    highlight
     nth
     screenshot
     wait for 
