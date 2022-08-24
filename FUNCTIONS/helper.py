@@ -58,6 +58,11 @@ T_RETURN = "return"
 
 L_CSS = 'css'
 L_XPATH = 'xpath'
+L_NAME = 'name'
+L_LINK_TEXT = 'link_text'
+L_PARTIAL_LINK_TEXT = 'partial_link_text'
+L_TAG_NAME = 'tag_name'
+L_CLASS_NAME = 'class_name'
 
 #################
 # ACTIONS
@@ -217,6 +222,71 @@ class Checker:
             if self.ac == A_TYPE:
                 try:
                     self.driver.find_element(By.XPATH, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_NAME:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.NAME, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_LINK_TEXT:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.LINK_TEXT, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_PARTIAL_LINK_TEXT:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.PARTIAL_LINK_TEXT, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_TAG_NAME:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.TAG_NAME, f"{self.lv}").send_keys(f"{self.ac_value}")
+                except NoSuchElementException:
+                    error = NoSuchElementPresent(
+                        f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_CLASS_NAME:
+            if self.ac == A_TYPE:
+                try:
+                    self.driver.find_element(By.CLASS_NAME, f"{self.lv}").send_keys(f"{self.ac_value}")
                 except NoSuchElementException:
                     error = NoSuchElementPresent(
                         f"{self.tp} -> {self.locator} -> {self.lv} -> {self.ac} -> {self.ac_value}")
