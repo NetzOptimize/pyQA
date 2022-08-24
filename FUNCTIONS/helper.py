@@ -2502,6 +2502,71 @@ class Checker:
                 error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
                 assert False, f"{error.as_string()}"
+        elif self.locator == L_NAME:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.NAME, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_LINK_TEXT:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.LINK_TEXT, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_PARTIAL_LINK_TEXT:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.PARTIAL_LINK_TEXT, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_TAG_NAME:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.TAG_NAME, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_CLASS_NAME:
+            if self.ac == E_CLICKABLE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.CLASS_NAME, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            else:
+                error = IllegalCharError(f"{self.ac}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
