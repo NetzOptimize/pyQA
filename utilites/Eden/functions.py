@@ -3,7 +3,7 @@ N = '\n'
 
 def create_file():
     try:
-        with open('final_tests/test_example.py', 'w') as f:
+        with open('final_test/test_example.py', 'w') as f:
             f.write(f'# imports{N}')
             f.write(f'from FUNCTIONS.helper import Checker{N}')
             f.write(f'import json{N}')
@@ -24,4 +24,4 @@ def create_file():
 
         print("File created!")
     except FileNotFoundError:
-        print("The 'final_tests' directory does not exist")
+        print("The 'final_test' directory does not exist")
