@@ -3,7 +3,7 @@ N = '\n'
 
 def create_file():
     try:
-        with open('/Users/montekkundan/Downloads/coding/defisherpa/dynamic_web_check/smoke/test_example.py', 'w') as f:
+        with open('final_tests/test_example.py', 'w') as f:
             f.write(f'# imports{N}')
             f.write(f'from FUNCTIONS.helper import Checker{N}')
             f.write(f'import json{N}')
@@ -24,4 +24,4 @@ def create_file():
 
         print("File created!")
     except FileNotFoundError:
-        print("The 'smoke' directory does not exist")
+        print("The 'final_tests' directory does not exist")
