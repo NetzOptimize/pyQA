@@ -132,3 +132,5 @@ geckodriver.log
 reports
 excel_reports
 logs
+archive
+automation-report

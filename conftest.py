@@ -15,26 +15,17 @@ from selenium.webdriver.firefox.options import Options as fOP
 from selenium.webdriver.edge.options import Options as eOP
 import sys
 
-from sys import platform
-from dotenv import load_dotenv
-
-if platform == 'win32':
-    # windows
-    load_dotenv(r".env")
-if platform == "linux" or platform == "linux2":
-    # linux
-    load_dotenv(".env")
-elif platform == "darwin":
-    # OS X
-    load_dotenv()
-REPORT_PATH = os.getenv('REPORT_PATH')
+directory = os.getcwd()
+REPORT_PATH = os.environ.get('REPORT_PATH')
+if REPORT_PATH is None:
+    REPORT_PATH = directory
 
 # from extra_report import generate_content
 chrome_options = cOP()
 firefox_options = fOP()
 edge_options = eOP()
 ##################################################################
-firefox_options.set_preference('detach', True) # keeps browser open
+firefox_options.set_preference('detach', True)  # keeps browser open
 chrome_options.add_experimental_option("detach", True)  # keeps browser open
 ##################################################################
 # edge_options.add_argument("--remote-debugging-port=9222")
@@ -57,6 +48,8 @@ chrome_options.headless = True
 ##################################################################
 # firefox_options.add_argument('--disable-blink-features=AutomationControlled')
 firefox_options.headless = True
+
+
 ##################################################################
 
 
@@ -126,7 +119,8 @@ def pytest_generate_tests(metafunc):
         ###################################
         if browser1 == "edge":
             chrome_options.headless = True
-            parameters += [webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)]
+            parameters += [
+                webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)]
             ids += ["edge"]
         if browser1 == "edge-head":
             chrome_options.headless = True
@@ -166,7 +160,8 @@ def pytest_generate_tests(metafunc):
         ###################################
         if browser2 == "edge":
             chrome_options.headless = True
-            parameters += [webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)]
+            parameters += [
+                webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)]
             ids += ["edge"]
         if browser2 == "edge-head":
             chrome_options.headless = True
@@ -193,23 +188,21 @@ def pytest_html_report_title(report):
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
     if sys.platform == 'win32':
-        if not os.path.exists(rf"{REPORT_PATH}\reports"):
-            os.makedirs(rf"{REPORT_PATH}\reports")
+        if not os.path.exists(rf"{REPORT_PATH}\automation-report"):
+            os.makedirs(rf"{REPORT_PATH}\automation-report")
+        if not os.path.exists(rf"{REPORT_PATH}\automation-report\reports"):
+            os.makedirs(rf"{REPORT_PATH}\automation-report\reports")
     else:
-        if not os.path.exists(f"{REPORT_PATH}/reports"):
-            os.mkdir(f"{REPORT_PATH}/reports")
-    if sys.platform == 'win32':
-        if not os.path.exists(rf"{REPORT_PATH}\excel_reports"):
-            os.makedirs(rf"{REPORT_PATH}\excel_reports")
-    else:
-        if not os.path.exists(f"{REPORT_PATH}/excel_reports"):
-            os.mkdir(f"{REPORT_PATH}/excel_reports")
-    config.option.htmlpath = f"{REPORT_PATH}/reports/" + \
+        if not os.path.exists(f"{REPORT_PATH}/automation-report"):
+            os.mkdir(f"{REPORT_PATH}/automation-report")
+        if not os.path.exists(f"{REPORT_PATH}/automation-report/reports"):
+            os.mkdir(f"{REPORT_PATH}/automation-report/reports")
+    config.option.htmlpath = f"{REPORT_PATH}/automation-report/reports/" + \
                              datetime.now().strftime("%d-%m-%Y/%d-%m-%Y") + ".html"
 
 
 def pytest_html_results_table_header(cells):
-    ''' meta programming to modify header of the result'''
+    """ meta programming to modify header of the result"""
 
     from py.xml import html
     # removing old table headers
@@ -224,8 +217,8 @@ def pytest_html_results_table_header(cells):
 
 
 def pytest_html_results_table_row(report, cells):
-    ''' orienting the data gotten from  pytest_runtest_makereport
-    and sending it as row to the result '''
+    """ orienting the data gotten from  pytest_runtest_makereport
+    and sending it as row to the result """
     del cells[1]
     cells.insert(0, html.td(datetime.today(), class_='col-time'))
     cells.insert(1, html.td(report.folder))
@@ -237,8 +230,8 @@ def pytest_html_results_table_row(report, cells):
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    '''data from the output of pytest gets processed here
-     and are passed to pytest_html_results_table_row'''
+    """data from the output of pytest gets processed here
+     and are passed to pytest_html_results_table_row"""
     outcome = yield
     # this is the output that is seen end of test case
     report = outcome.get_result()
@@ -252,4 +245,3 @@ def pytest_runtest_makereport(item, call):
     #    data = re.split(r"\[|\]", 'tests/test_case.py::test_min[input0-1]')
     #    =>  ['tests/test_case.py::test_min', 'input0-1', '']
     report.browser = re.split(r"\[|\]", report.nodeid)[-2]
-
