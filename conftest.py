@@ -198,7 +198,7 @@ def pytest_configure(config):
         if not os.path.exists(f"{REPORT_PATH}/automation-report/reports"):
             os.mkdir(f"{REPORT_PATH}/automation-report/reports")
     config.option.htmlpath = f"{REPORT_PATH}/automation-report/reports/" + \
-                             datetime.now().strftime("%d-%m-%Y/%d-%m-%Y") + ".html"
+                             datetime.now().strftime("%d-%m-%Y/%d-%m-%Y %I.%M.%S %p") + ".html"
 
 
 def pytest_html_results_table_header(cells):

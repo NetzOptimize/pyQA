@@ -1,5 +1,5 @@
 import logging
-import datetime
+from datetime import datetime
 import os
 import sys
 
@@ -15,15 +15,20 @@ class Logclass:
                 os.makedirs(rf"{LOG_PATH}\automation-report")
             if not os.path.exists(rf"{LOG_PATH}\automation-report\logs"):
                 os.makedirs(rf"{LOG_PATH}\automation-report\logs")
+            if not os.path.exists(rf"{LOG_PATH}\automation-report\logs"):
+                os.makedirs(rf"{LOG_PATH}\automation-report\logs")
         else:
             if not os.path.exists(f"{LOG_PATH}/automation-report"):
                 os.mkdir(f"{LOG_PATH}/automation-report")
             if not os.path.exists(f"{LOG_PATH}/automation-report/logs"):
                 os.mkdir(f"{LOG_PATH}/automation-report/logs")
+            if not os.path.exists(f"{LOG_PATH}/automation-report/logs/" + datetime.now().strftime(
+                    "%d-%m-%Y")):
+                os.mkdir(f"{LOG_PATH}/automation-report/logs/"+datetime.now().strftime(
+                    "%d-%m-%Y"))
         logger = logging.getLogger()
         filehandler = logging.FileHandler(
-            f"{LOG_PATH}/automation-report/logs/" + datetime.datetime.now().strftime(
-                "%d-%m-%Y") + ".log", mode="w")
+            f"{LOG_PATH}/automation-report/logs/" + datetime.now().strftime("%d-%m-%Y/%d-%m-%Y %I.%M.%S %p") + ".log", mode="w")
         formatter = logging.Formatter('%(asctime)s: %(levelname)s: %(module)s: %(funcName)s: %(message)s',
                                       datefmt='%d/%m/%Y %I:%M:%S %p')
         filehandler.setFormatter(formatter)
