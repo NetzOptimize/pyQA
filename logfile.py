@@ -15,8 +15,10 @@ class Logclass:
                 os.makedirs(rf"{LOG_PATH}\automation-report")
             if not os.path.exists(rf"{LOG_PATH}\automation-report\logs"):
                 os.makedirs(rf"{LOG_PATH}\automation-report\logs")
-            if not os.path.exists(rf"{LOG_PATH}\automation-report\logs"):
-                os.makedirs(rf"{LOG_PATH}\automation-report\logs")
+            if not os.path.exists(rf"{LOG_PATH}\automation-report\logs\\" + datetime.now().strftime(
+                    "%d-%m-%Y")):
+                os.mkdir(rf"{LOG_PATH}\automation-report\logs\\" + datetime.now().strftime(
+                    "%d-%m-%Y"))
         else:
             if not os.path.exists(f"{LOG_PATH}/automation-report"):
                 os.mkdir(f"{LOG_PATH}/automation-report")
