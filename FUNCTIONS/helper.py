@@ -11,6 +11,7 @@ import time
 """
 Todo:
     able to extend external functio files
+    check url if -> yes not same then false
     explicit wait all options
     count
     drag to

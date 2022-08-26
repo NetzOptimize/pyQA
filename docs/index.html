@@ -433,39 +433,34 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail
                         <div class="row">
 
                             <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-                                    letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The
-                                    point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                <p><code>Pytest</code> allows us to provide a custom testpath to run all test from, this means that when we run the command
+                                <code>pytest</code> (or <code>python -m pytest</code> for window users), all tests provided in the set testpath will run without
+                                specifying the pathname for testcases. Also there is a set rule to name test files.</p>
                             </div>
 
                             <div class="col-md-4">
-                                <h4 id="line5_1">WordPress Blog Page -</h4>
+                                <h4 id="line5_1"><code>pytest.ini</code></h4>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <li><strong>Step 1</strong> - The default folder is <code>final_test</code>, you can change it too. </li>
+                                    <li><strong>Step 2</strong> - Run the command to start testing all the files in the default set folder.</li>
                                 </ul>
                             </div>
                             <!-- end col -->
 
                             <div class="col-md-4">
-                                <h4 id="line5_2">Blog Post Sections -</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
+                                <h4 id="line5_2">Folders</h4>
+                                <p>Folders must have <code>test_</code> at the starting, and folders insided test folders can be named anything.</p>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <li><strong>Step 1</strong> - Folders inside test folders must have <code>__init__.py</code> file for pytest to recognize test case folders.</li>
                                 </ul>
                             </div>
                             <!-- end col -->
 
                             <div class="col-md-4">
-                                <h4 id="line5_3">Create Blog Gallery -</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
+                                <h4 id="line5_3">Test files</h4>
+                                <p>Test case files must have <code>test_</code> at the starting.</p>
                                 <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
+                                    <li><strong>Step 1</strong> - Test case files should have test cases made from the built-in functions.</li>
                                 </ul>
                             </div>
                             <!-- end col -->
