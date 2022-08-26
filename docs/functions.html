@@ -104,7 +104,6 @@
                     <div class="col-md-12">
                         <div class="big-title text-center">
                             <h1>Functions</h1>
-                            <p class="lead">Documentation version 1.0</p>
                         </div>
                         <!-- end title -->
                     </div>
@@ -125,8 +124,10 @@
                             <li><a href="#line1">Getting Started</a></li>
                             <li><a href="#URL">Displaying website URL</a>
                                 <ul class="nav">
-                                    <li><a href="#URL_1"><code>.display_url</code></a></li>
-                                    <li><a href="#URL_2"><code>.return_url</code></a></li>
+                                    <li><a href="#URL_1"><code>.display_url()</code></a></li>
+                                    <li><a href="#URL_2"><code>.return_url()</code></a></li>
+                                    <li><a href="#URL_3"><code>.valid_url()</code></a></li>
+                                    <li><a href="#URL_4"><code>.current_tab_url()</code></a></li>
                                 </ul>
                             </li>
                             <li><a href="#INPUT">Function <code>.input</code></a>
@@ -141,7 +142,7 @@
                                     <li><a href="#BUTTON_2">With CSS</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#STATIC_DROPDOWN">Function <code>.static_dropdown</code></a>
+                            <li><a href="#STATIC_DROPDOWN">Function <code>.static_dropdown()</code></a>
                                 <ul class="nav">
                                     <li><a href="#STATIC_DROPDOWN_1">With XPATH</a></li>
                                     <li><a href="#STATIC_DROPDOWN_2">With CSS</a></li>
@@ -149,7 +150,73 @@
 
                                 </ul>
                             </li>
-                            <li><a href="#SLOWMO">Function <code>.slowmo</code></a></li>
+                             <li><a href="#DYNAMIC_DROPDOWN">Function <code>.dynamic_dropdown()</code></a>
+                                <ul class="nav">
+                                    <li><a href="#DYNAMIC_DROPDOWN_1">With XPATH</a></li>
+                                    <li><a href="#DYNAMIC_DROPDOWN_2">With CSS</a></li>
+                                    <li><a href="#DYNAMIC_DROPDOWN_3">Types of Actions</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#SLOWMO">Function <code>.slowmo()</code></a></li>
+                            <li><a href="#ALERT">Dealing with alert boxes</a>
+                                <ul class="nav">
+                                    <li><a href="#ALERT_1"><code>.popup_accept()</code></a></li>
+                                    <li><a href="#ALERT_2"><code>.popup_decline()</code></a></li>
+                                    <li><a href="#ALERT_3"><code>.popup_text()</code></a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#FILE_UPLOAD">Function <code>.file_upload()</code></a></li>
+                            <li><a href="#WAITS">WAITS</a>
+                                <ul class="nav">
+                                    <li><a href="#WAITS_1"><code>.implicit_wait()</code></a></li>
+                                    <li><a href="#WAITS_2"><code>.explicit_wait()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#HOVER">Function <code>.mouse_hover()</code></a></li>
+                            <li><a href="#CLICKS">CLICKS</a>
+                                <ul class="nav">
+                                    <li><a href="#CLICKS_1"><code>.right_click()</code></a></li>
+                                    <li><a href="#CLICKS_2"><code>.double_click()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#FRAMES">FRAMES</a>
+                                <ul class="nav">
+                                    <li><a href="#FRAMES_1"><code>.shift_to_frame()</code></a></li>
+                                    <li><a href="#FRAMES_2"><code>.leave_frame()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#TEXT">Displaying text</a>
+                                <ul class="nav">
+                                    <li><a href="#TEXT_1"><code>.return_text()</code></a></li>
+                                    <li><a href="#TEXT_2"><code>.display_text()</code></a></li>
+                                    <li><a href="#TEXT_3"><code>.return_all_inner_text()</code></a></li>
+                                    <li><a href="#TEXT_4"><code>.display_all_inner_text()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#ATTRIBUTES">Getting attributes</a>
+                                <ul class="nav">
+                                    <li><a href="#ATTRIBUTES_1"><code>.return_attribute()</code></a></li>
+                                    <li><a href="#ATTRIBUTES_2"><code>.display_attribute()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#CHECKBOX">Checkboxes</a>
+                                <ul class="nav">
+                                    <li><a href="#CHECKBOX_1"><code>.return_is_checked()</code></a></li>
+                                    <li><a href="#CHECKBOX_2"><code>.display_is_checked()</code></a></li>
+                                    <li><a href="#CHECKBOX_3"><code>.check_all()</code></a></li>
+                                    <li><a href="#CHECKBOX_4"><code>.count_all_checkboxes()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#VISIBLE">Visible and Clickable handling</a>
+                                <ul class="nav">
+                                    <li><a href="#VISIBLE_1"><code>.return_is_visible()</code></a></li>
+                                    <li><a href="#VISIBLE_2"><code>.display_is_visible()</code></a></li>
+                                    <li><a href="#VISIBLE_3"><code>.return_is_clickable()</code></a></li>
+                                    <li><a href="#VISIBLE_4"><code>.display_is_clickable()</code></a></li>
+                                </ul>
+                            </li>
 
 
                         </ul>
@@ -493,7 +560,9 @@
 
             </div>
             <!-- end wrapper -->
-
+            <footer>
+                <span class="heart-footer">Created with ❤️ by Montek in 🇮🇳</span>
+            </footer>
             <script src="prism.js"></script>
             <script src="js/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>

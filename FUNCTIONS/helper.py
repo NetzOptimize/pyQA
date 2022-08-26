@@ -2926,7 +2926,7 @@ class Checker:
         return print(array_elements)
 
     # working
-    def is_checked_return(self, locator, locator_value):
+    def return_is_checked(self, locator, locator_value):
         """
                             Parameters
                             ----------
@@ -2969,7 +2969,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
     # working
-    def is_checked_display(self, locator, locator_value):
+    def display_is_checked(self, locator, locator_value):
         """
                             Parameters
                             ----------
@@ -3012,7 +3012,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
     # working
-    def is_visible_return(self, locator, locator_value):
+    def return_is_visible(self, locator, locator_value):
         """
                                     Parameters
                                     ----------
@@ -3045,7 +3045,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
     # working
-    def is_visible_display(self, locator, locator_value):
+    def display_is_visible(self, locator, locator_value):
         """
                                     Parameters
                                     ----------
@@ -3077,7 +3077,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
     # working
-    def is_clickable_return(self, locator, locator_value):
+    def return_is_clickable(self, locator, locator_value):
         """
                                             Parameters
                                             ----------
@@ -3120,7 +3120,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
     # working
-    def is_clickable_display(self, locator, locator_value):
+    def display_is_clickable(self, locator, locator_value):
         """
                                             Parameters
                                             ----------
