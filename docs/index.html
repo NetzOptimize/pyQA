@@ -221,11 +221,12 @@
                                 <p>After un-zipping the file, the default folder is set to smoke, the default folder can be changed from <code>pytest.ini</code> file. To run the code open the terminal in the root path of the framework folder.
                                 </p>
                                 <div class="intro2 clearfix">
-                                    <p><i class="fa fa-exclamation-triangle"></i> Be careful you need a <code>.env</code> file in your root folder.
+                                    <p><i class="fa fa-exclamation-triangle"></i> Be careful you need a <code>env variables</code> in your system to generate report in particular
+                                        location, by default reports will be generated in the root directory of the project.
 
                                     </p>
                                 </div>
-                                <h4>Contents for <code>.env</code> file</h4>
+                                <h4>Contents for <code>env variables</code></h4>
 
                                 <pre><code class="language-python" data-prismjs-copy="Copy!">LOG_PATH = path
 REPORT_PATH = path</code></pre>
@@ -235,15 +236,15 @@ REPORT_PATH = path</code></pre>
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">pytest</code></pre>
 
 
-                                <p>Our you can use the grid system with 2 columns like this;</p>
+                                <p>For Windows</p>
 
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">python -m pytest</code></pre>
 
-                                <p>Our you can use the grid system with 3 columns like this;</p>
+                                <p>To run a test for particular file</p>
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">pytest 'filename'</code></pre>
 
 
-                                <p>Our you can use the grid system with 2 columns like this;</p>
+                                <p>To run a test for particular file, For Windows</p>
 
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">python -m pytest 'filename'</code></pre>
 
@@ -254,6 +255,7 @@ REPORT_PATH = path</code></pre>
 
                     </section>
                     <!-- end section -->
+
                     <section id="FUNCTIONS" class="section">
                         <div class="row">
                             <div class="col-md-12 left-align">
@@ -275,6 +277,7 @@ REPORT_PATH = path</code></pre>
                         </div>
                     </section>
                     <!-- end section -->
+
                     <section id="line2" class="section">
 
                         <div class="row">
@@ -302,14 +305,14 @@ markers =
     regression: tests that are to be run finally.
 testpaths =
     smoke
-addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelreport=excel_reports/%d-%m-%Y.xlsx
+addopts = --verbose --workers 2 --tests-per-worker auto --instafail
                         </code></pre>
                         <br>
                         <h4>Exception for Windows</h4>
 
                         <p>Currently for Windows a pytest plugin <code>pytest-parallel</code> does not work. Remove the arguments <code>--workers 2 --tests-per-worker auto</code> from the <code>addopts</code> configuration, it should look like this now:</p>
 
-                        <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">addopts = --verbose--instafail --excelreport=excel_reports/%d-%m-%Y.xlsx</code></pre>
+                        <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">addopts = --verbose --instafail</code></pre>
                         <br>
 
                         <a href="https://docs.pytest.org/en/6.2.x/customize.html"  target="_blank" class="btn btn-primary">Pytest configuration</a>
@@ -373,7 +376,7 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelrepor
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Necessary Plugins <a href="#top">Back to top</a>
+                                <h2 class="dark-text">Necessary Plugins<a href="#top">Back to top</a>
                                 </h2>
                                 <hr>
                             </div>
@@ -404,13 +407,9 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelrepor
                             <!-- end col -->
 
                             <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-                                    letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The
-                                    point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                <p>These plugins are necessary because they controll the workflow of this framework,<strong>webdriver-manager</strong> helps in automatically getting the binaries of the webdrivers
+                                . <strong>pytest-html</strong> generates the html report of the test runs. <strong>pytest-parallel</strong> This plugin helps in running multiple tests parallel, which reduces test run time.</p>
 
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-                                </div>
                             </div>
                         </div>
                         <!-- end row -->
@@ -422,7 +421,7 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelrepor
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Creating New Folders and Tests
+                                <h2 class="dark-text">Creating New Folders and Tests<a href="#top">Back to top</a>
 
                                 </h2>
                                 <hr>
@@ -440,7 +439,6 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelrepor
                             </div>
 
                             <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
                                 <h4 id="line5_1">WordPress Blog Page -</h4>
                                 <ul>
                                     <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
@@ -451,7 +449,6 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelrepor
                             <!-- end col -->
 
                             <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
                                 <h4 id="line5_2">Blog Post Sections -</h4>
                                 <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
                                 <ul>
@@ -463,7 +460,6 @@ addopts = --verbose --workers 2 --tests-per-worker auto --instafail --excelrepor
                             <!-- end col -->
 
                             <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
                                 <h4 id="line5_3">Create Blog Gallery -</h4>
                                 <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
                                 <ul>
