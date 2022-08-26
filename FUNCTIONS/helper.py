@@ -2518,7 +2518,8 @@ class Checker:
         elif self.locator == L_LINK_TEXT:
             if self.ac == E_CLICKABLE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.LINK_TEXT, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_to_be_clickable((By.LINK_TEXT, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2531,7 +2532,8 @@ class Checker:
         elif self.locator == L_PARTIAL_LINK_TEXT:
             if self.ac == E_CLICKABLE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.PARTIAL_LINK_TEXT, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_to_be_clickable((By.PARTIAL_LINK_TEXT, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2557,7 +2559,8 @@ class Checker:
         elif self.locator == L_CLASS_NAME:
             if self.ac == E_CLICKABLE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_to_be_clickable((By.CLASS_NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_to_be_clickable((By.CLASS_NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -3006,6 +3009,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
     def is_visible_return(self, locator, locator_value):
         """
                                     Parameters
@@ -3038,6 +3042,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
     def is_visible_display(self, locator, locator_value):
         """
                                     Parameters
@@ -3064,6 +3069,92 @@ class Checker:
                     return print("Element is visible.")
             except NoSuchElementException:
                 return print("Element not visible.")
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    # working
+    def is_clickable_return(self, locator, locator_value):
+        """
+                                            Parameters
+                                            ----------
+
+                                            :param str locator: xpath/css
+                                            :param str locator_value: input the value of the locator as xpath of css selector
+                                            :return: Prints the text of the similar type element
+                                            :rtype: bool
+
+                """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+                if element.is_enabled() and element.is_displayed():
+                    return True
+                else:
+                    return False
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                element = self.driver.find_element(By.XPATH, f"{self.lv}")
+                if element.is_enabled() and element.is_displayed():
+                    return True
+                else:
+                    return False
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+
+    # working
+    def is_clickable_display(self, locator, locator_value):
+        """
+                                            Parameters
+                                            ----------
+
+                                            :param str locator: xpath/css
+                                            :param str locator_value: input the value of the locator as xpath of css selector
+                                            :return: Displays the text of the similar type element
+                                            :rtype: bool
+
+                """
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+                if element.is_enabled() and element.is_displayed():
+                    return print("Element is clickable.")
+                else:
+                    return print("Element not clickable.")
+            except:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                element = self.driver.find_element(By.XPATH, f"{self.lv}")
+                if element.is_enabled() and element.is_displayed():
+                    return print("Element is clickable.")
+                else:
+                    return print("Element not clickable.")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
         else:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
