@@ -38,13 +38,13 @@ edge_options.use_chromium = True
 edge_options.add_argument("headless")
 edge_options.add_argument("disable-gpu")
 ##################################################################
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
 # chrome_options.add_argument('--disable-gpu')
 # chrome_options.add_argument('--disable-dev-shm-usage')
 # chrome_options.add_argument('--profile-directory=Default')
 # chrome_options.add_argument('--user-data-dir=~/.config/google-chrome')
-chrome_options.headless = True
+# chrome_options.headless = True
 ##################################################################
 # firefox_options.add_argument('--disable-blink-features=AutomationControlled')
 firefox_options.headless = True
