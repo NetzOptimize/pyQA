@@ -430,7 +430,7 @@ REPORT_PATH = path</code></pre>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.input("xpath", "//path", "type", "Sample Value")</code></pre>
+        run.input("xpath", "//path", "Sample Value")</code></pre>
                             </div>
 
 
@@ -449,7 +449,7 @@ REPORT_PATH = path</code></pre>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.input("css", "//path", "type", "Sample Value")</code></pre>
+        run.input("css", "//path", "Sample Value")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -469,25 +469,27 @@ REPORT_PATH = path</code></pre>
 
                     <section id="BUTTON" class="section">
 
-                        <div class="row">
+                            <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Use Option Panel </h2>
+                                <h2 class="dark-text">Function <code>.button</code> <a href="#top">Back to top</a>
+                                </h2>
                                 <hr>
+                                <p>This function takes an input of the element path and clicks it..</p>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="BUTTON_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="BUTTON_1">With XPATH</h4>
+                                <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.button("xpath", "//path")</code></pre>
                             </div>
 
 
@@ -498,18 +500,27 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="BUTTON_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="BUTTON_2">With CSS</h4>
+                                <p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.button("css", "//path")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
+                        <h2>Other selectors which can be used:</h2>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
+
                         <!-- end row -->
 
                     </section>
@@ -519,7 +530,9 @@ REPORT_PATH = path</code></pre>
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Use Option Panel </h2>
+                                <h2 class="dark-text">Function <code>.static_dropdown()</code><a href="#top">Back to top</a>
+
+                                </h2>
                                 <hr>
                             </div>
                             <!-- end col -->
@@ -527,8 +540,8 @@ REPORT_PATH = path</code></pre>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="STATIC_DROPDOWN_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="STATIC_DROPDOWN_1">With XPATH</h4>
+                                <p>This command prints the url of the main url sent to the webdriver.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -546,33 +559,38 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="STATIC_DROPDOWN_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="STATIC_DROPDOWN_2">With CSS</h4>
+                                <p>This command returns the url of the main url sent to the webdriver.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        website_url = run.return_url()
+        print(f"Website url is: {website_url}")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-                    <div class="col-md-8">
-                                <h4 id="STATIC_DROPDOWN_3">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="STATIC_DROPDOWN_3">Types of Actions</h4>
+                                <p>This command checks and returns the url if its valid, if it is not valid (in case of a wrong website url, or a non working localhost url) it asserts false.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.valid_url("http://wrongurl.com")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+                        <hr>
+
                     </section>
                     <!-- end section -->
 

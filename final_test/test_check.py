@@ -38,13 +38,13 @@ def test_demo(browser):
     # ##################
     # # INPUT IN FIELDS
     # ##################
-    # run.input("xpath", data["common"]["locator3"], "type", "Sample Value 1")
-    # run.input("xpath", data["common"]["locator4"], "type", "Sample Value 2")
+    run.input("xpath", data["common"]["locator3"], "Sample Value 1")
+    run.input("xpath", data["common"]["locator4"], "Sample Value 2")
     #
     # ##################
     # # UNCHECK A CHECKED BOX
     # ##################
-    # run.button("xpath", data["common"]["locator5"], "click")
+    run.button("xpath", data["common"]["locator5"])
     #
     # ##################
     # # STATIC DROPDOWN WITH DELAY
@@ -152,19 +152,19 @@ def test_demo(browser):
     #     print("no")  # not visible
     # run.is_visible_display("xpath", "//label[@for='clicked19']")
 
-    a = run.is_clickable_return("xpath", "//button[@id='nonclick']")
+    a = run.return_is_clickable("xpath", "//button[@id='nonclick']")
     if a:
         print("yes")  # is clickable
     else:
         print("no")  # not clickable
-    run.is_clickable_display("xpath", "//button[@id='nonclick']")
+    run.display_is_clickable("xpath", "//button[@id='nonclick']")
 
-    a = run.is_clickable_return("xpath", "//button[@id='nonclick2']")
+    a = run.return_is_clickable("xpath", "//button[@id='nonclick2']")
     if a:
         print("yes")  # is clickable
     else:
         print("no")  # not clickable
-    run.is_clickable_display("xpath", "//button[@id='nonclick2']")
+    run.display_is_clickable("xpath", "//button[@id='nonclick2']")
 
 
 
