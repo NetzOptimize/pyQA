@@ -573,6 +573,15 @@ REPORT_PATH = path</code></pre>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
                         <hr>
 
                         <div class="col-md-8">
@@ -622,23 +631,28 @@ REPORT_PATH = path</code></pre>
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Use Option Panel </h2>
+                                <h2 class="dark-text">Function <code>.dynamic_dropdown()</code><a href="#top">Back to top</a>
+                                </h2>
                                 <hr>
+                                <p>This command picks and selects the value under a <code>dynamic</code> dropdown.
+                                The first path is for the dropdown, and the second path is for all the elements under the dropdown/</p>
+
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="DYNAMIC_DROPDOWN_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="DYNAMIC_DROPDOWN_1">With XPATH</h4>
+                                <p>There are many ways of selecting an element, the most effective way is using XPATH.
+                                Here the second path can be any, CSS or XPATH or other provided options.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.dynamic_dropdown("input", "xpath", "//path", "i", "xpath", "//path", "index", "4")</code></pre>
                             </div>
 
 
@@ -649,33 +663,59 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="DYNAMIC_DROPDOWN_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="DYNAMIC_DROPDOWN_2">With CSS</h4>
+                                <p>If XPATH is not what works great for the work, CSS selector is also an option.
+                                Here the second path can be any, CSS or XPATH or other provided options.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.dynamic_dropdown("input", "css", "//path", "i", "xpath", "//path", "index", "4")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-                    <div class="col-md-8">
-                                <h4 id="DYNAMIC_DROPDOWN_3">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                                <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="DYNAMIC_DROPDOWN_3">Types of Actions</h4>
+                                <p>There are 2 ways by which you can select a value from the dropdown. <code>index</code> takes the position of the element;<code>value</code> takes the exact name of a specific dropdown element.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
+                                <p>With index:</p>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.dynamic_dropdown("input", "xpath", "//path", "i", "xpath", "//path", "index", "4")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>With value:</p>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.dynamic_dropdown("input", "xpath", "//path", "i", "xpath", "//path", "value", "India")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <hr>
                     </section>
                     <!-- end section -->
 
