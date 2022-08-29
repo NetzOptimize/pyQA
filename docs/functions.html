@@ -1100,15 +1100,31 @@ REPORT_PATH = path</code></pre>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="FRAMES_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="FRAMES_1"><code>.shift_to_frame</code></h4>
+                            <p>Use this command to shift to a frame and perform other functions in the frame provided.</p>
                             </div>
+
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.shift_to_frame("xpath", "//iframe")</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.shift_to_frame("css", "//iframe")</code></pre>
                             </div>
 
 
@@ -1119,20 +1135,28 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="FRAMES_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="FRAMES_2"><code>.leave_frame</code></h4>
+                            <p>Use this function to exit from the current frame and perform other functions to the webpage.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.leave_frame()</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
                     </section>
                     <!-- end section -->
 
