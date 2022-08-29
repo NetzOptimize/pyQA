@@ -152,6 +152,10 @@ class Checker:
         self.a = ActionChains(self.driver)
 
     def valid_url(self, url):
+        """
+                :return: Returns the url if its valid, else asserts false
+                :rtype: str
+        """
         try:
             req = requests.get(url)
             while req.status_code != requests.codes['ok']:

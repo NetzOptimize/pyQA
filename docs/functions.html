@@ -288,23 +288,34 @@
                             <div class="col-md-12">
                                 <p>After un-zipping the file, the default folder is set to smoke, the default folder can be changed from <code>pytest.ini</code> file. To run the code open the terminal in the root path of the framework folder.
                                 </p>
+                                <div class="intro2 clearfix">
+                                    <p><i class="fa fa-exclamation-triangle"></i> Be careful you need a <code>env variables</code> in your system to generate report in particular
+                                        location, by default reports will be generated in the root directory of the project.
+
+                                    </p>
+                                </div>
+                                <h4>Contents for <code>env variables</code></h4>
+
+                                <pre><code class="language-python" data-prismjs-copy="Copy!">LOG_PATH = path
+REPORT_PATH = path</code></pre>
 
                                 <h4>Deployment</h4>
 
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">pytest</code></pre>
 
 
-                                <p>Our you can use the grid system with 2 columns like this;</p>
+                                <p>For Windows</p>
 
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">python -m pytest</code></pre>
 
-                                <p>Our you can use the grid system with 3 columns like this;</p>
+                                <p>To run a test for particular file</p>
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">pytest 'filename'</code></pre>
 
 
-                                <p>Our you can use the grid system with 2 columns like this;</p>
+                                <p>To run a test for particular file, For Windows</p>
 
                                 <pre><code class="language-python" data-prismjs-copy="Copy the python snippet!">python -m pytest 'filename'</code></pre>
+
                             </div>
                             <!-- end col -->
                         </div>
@@ -333,8 +344,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -352,9 +363,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
-        run.display_url()</code></pre>
+    def test(browser):
+        run = Checker("url", browser)
+        website_url = run.return_url()
+        print(f"Website url is: {website_url}")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -362,15 +374,15 @@
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="URL_3"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <h4 id="URL_3"><code>.valid_url</code></h4>
+                                <p>This command checks and returns the url if its valid, if it is not valid (in case of a wrong website url, or a non working localhost url) it asserts false.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
-        run.display_url()</code></pre>
+    def test(browser):
+        run = Checker("url", browser)
+        run.valid_url("http://wrongurl.com")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -378,15 +390,16 @@
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="URL_4"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <h4 id="URL_4"><code>.current_tab_url</code></h4>
+                                <p>This command returns the url of the current website in the current selected tab.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
-        run.display_url()</code></pre>
+    def test(browser):
+        run = Checker("url", browser)
+        current_tab_url = run.current_tab_url()
+        print(f"New URL is: {current_tab_url}")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -399,25 +412,25 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Customize <code>pytest.ini</code> <a href="#top">Back to top</a>
-
+                                <h2 class="dark-text">Function <code>.input</code> <a href="#top">Back to top</a>
                                 </h2>
                                 <hr>
+                                <p>This function takes an input and types it into the path given to the element.</p>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="INPUT_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="INPUT_1">With XPATH</h4>
+                                <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
-        run.display_url()</code></pre>
+    def test(browser):
+        run = Checker("url", browser)
+        run.input("xpath", "//path", "type", "Sample Value")</code></pre>
                             </div>
 
 
@@ -428,18 +441,27 @@
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="INPUT_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="INPUT_2">With CSS</h4>
+                                <p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
-        run.display_url()</code></pre>
+    def test(browser):
+        run = Checker("url", browser)
+        run.input("css", "//path", "type", "Sample Value")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
+                        <h2>Other selectors which can be used:</h2>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
+
                         <!-- end row -->
 
                     </section>
@@ -463,8 +485,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -482,8 +504,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -511,8 +533,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -530,8 +552,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -544,8 +566,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -572,8 +594,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -591,8 +613,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -605,8 +627,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -629,8 +651,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -660,8 +682,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -679,8 +701,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -693,8 +715,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -717,8 +739,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -750,8 +772,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -769,8 +791,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -800,8 +822,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -833,8 +855,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -852,8 +874,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -883,8 +905,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -902,8 +924,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -933,8 +955,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -952,8 +974,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -968,8 +990,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -984,8 +1006,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1015,8 +1037,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -1034,8 +1056,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1065,8 +1087,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -1084,8 +1106,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1100,8 +1122,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1116,8 +1138,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1147,8 +1169,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
 
@@ -1166,8 +1188,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1182,8 +1204,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
@@ -1198,8 +1220,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(setup):
-        run = Checker("url", setup)
+    def test(browser):
+        run = Checker("url", browser)
         run.display_url()</code></pre>
                             </div>
                             <!-- end col -->
