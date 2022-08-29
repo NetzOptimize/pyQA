@@ -825,7 +825,7 @@ REPORT_PATH = path</code></pre>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
+                        <h3>With XPATH</h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
@@ -837,8 +837,30 @@ REPORT_PATH = path</code></pre>
 
                             <!-- end col -->
                         </div>
-                        <br>
                         <!-- end row -->
+                        <h3>With CSS</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.file_upload("css", "//path", "filepath")</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
+                        <br>
                         <div class="intro2 clearfix">
                             <p><i class="fa fa-exclamation-triangle"></i> Be careful, the file path should be the absolute path to the file.</p>
                         </div>
@@ -932,20 +954,32 @@ REPORT_PATH = path</code></pre>
 
                        <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Function <code>.mouse_hover()</code></code></h2>
+                                <h2 class="dark-text">Function <code>.mouse_hover()</code></h2>
                                 <hr>
-                                <p>This command lets you input your absolute filepath and upload it to the element which requires an upload.</p>
+                                <p>This command lets you hover the mouse over an element.</p>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
+                        <h3>With XPATH</h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.file_upload("xpath", "//path", "filepath")</code></pre>
+        run.mouse_hover("xpath", "//path")</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <h3>With CSS</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.mouse_hover("css", "//path")</code></pre>
                             </div>
 
 
@@ -953,7 +987,15 @@ REPORT_PATH = path</code></pre>
                         </div>
                         <br>
                         <!-- end row -->
-
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
                     </section>
                     <!-- end section -->
 
@@ -961,7 +1003,7 @@ REPORT_PATH = path</code></pre>
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">FRAMES <a href="#top">Back to top</a>
+                                <h2 class="dark-text">CLICKS <a href="#top">Back to top</a>
 
                                 </h2>
                                 <hr>
@@ -971,15 +1013,30 @@ REPORT_PATH = path</code></pre>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="CLICKS_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
+                                <h4 id="CLICKS_1"><code>.right_click</code></h4>
+                                <p>This command is used to right click on an element or anywhere on the browser window.</p>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.right_click("xpath", "//path")</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.right_click("css", "//path")</code></pre>
                             </div>
 
 
@@ -990,19 +1047,41 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="CLICKS_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="CLICKS_2"><code>.double_click</code></h4>
+                            <p>This command is used to double click on an element or anywhere on the browser window.</p>
+
                             </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.double_click("xpath", "//path")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.double_click("css", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
 
                     </section>
                     <!-- end section -->
