@@ -66,8 +66,10 @@ def test_demo(browser):
     # ##################
     # # SEARCHING AND SELECTING FROM DYNAMIC FIELDS
     # ##################
-    run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "i", "xpath", "//div[@id='names']",
-                         "index", "4")
+    # run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "i", "xpath", "//div[@id='names']",
+    #                      "index", "4")
+    # run.dynamic_dropdown("input", "xpath", "//input[@id='myInput']", "i", "xpath", "//div[@id='names']",
+    #                      "value", "India")
     #
     # ##################
     # # CLICKING TO GET ALERT BOX, PRINTING THE ALERT TEXT AND ACCEPTING THE ALERT
