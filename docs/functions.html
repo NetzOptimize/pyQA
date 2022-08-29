@@ -1174,71 +1174,131 @@ REPORT_PATH = path</code></pre>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="TEXT_1"><code>.display_url</code></h4>
-                                <p>This command prints the url of the main url sent to the webdriver.</p>
+                                <h4 id="TEXT_1"><code>.return_text</code></h4>
+                                <p>This command returns the text written on a particular element.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        text = run.return_text("xpath", "//path")
+        print(text)</code></pre>
                             </div>
 
 
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
-                        <hr>
-
-                        <div class="col-md-8">
-                                <h4 id="TEXT_2"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
-                            </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With CSS</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        text = run.return_text("css", "//path")
+        print(text)</code></pre>
                             </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-                        <hr>
 
-                        <div class="col-md-8">
-                                <h4 id="TEXT_3"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
-                            </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.display_url()</code></pre>
-                            </div>
+
                             <!-- end col -->
                         </div>
                         <!-- end row -->
                         <hr>
-
                         <div class="col-md-8">
-                                <h4 id="TEXT_4"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <h4 id="TEXT_2"><code>.display_text</code></h4>
+                                <p>This command prints the text written on a particular element.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.display_text("xpath", "//path")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_text("css", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <hr>
 
+                        <div class="col-md-8">
+                                <h4 id="TEXT_3"><code>.return_all_inner_text</code></h4>
+                                <p>This command returns texts in a <code>list</code> of all elements with similar selector path.</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With XPATH</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        a = run.return_all_inner_text("xpath", "//path")
+        print(a)</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        a = run.return_all_inner_text("css", "//path")
+        print(a)</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="TEXT_4"><code>.display_all_inner_text</code></h4>
+                                <p>This command prints texts in a <code>list</code> of all elements with similar selector path.</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With XPATH</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_all_inner_text("xpath", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With XPATH</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_all_inner_text("css", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
                     </section>
                     <!-- end section -->
 
@@ -1246,8 +1306,7 @@ REPORT_PATH = path</code></pre>
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Customize <code>pytest.ini</code> <a href="#top">Back to top</a>
-
+                                <h2 class="dark-text">Getting attributes <a href="#top">Back to top</a>
                                 </h2>
                                 <hr>
                             </div>
@@ -1256,15 +1315,32 @@ REPORT_PATH = path</code></pre>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="ATTRIBUTES_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="ATTRIBUTES_1"><code>.return_attribute</code></h4>
+                            <p>This command returns the css attribute of a particular element, argument required by the function can be any attribute of css.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        text = run.return_attribute("xpath", "//path", "placeholder")
+        print(text)</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        text = run.return_attribute("css", "//path", "placeholder")
+        print(text)</code></pre>
                             </div>
 
 
@@ -1275,19 +1351,41 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="ATTRIBUTES_2">Style - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
+                                <h4 id="ATTRIBUTES_2"><code>.display_attribute</code></h4>
+                            <p>This command prints the css attribute of a particular element, argument required by the function can be any attribute of css.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <h3>With XPATH</h3>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.display_attribute("xpath", "//path", "placeholder")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>With CSS</h3>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_attribute("css", "//path", "placeholder")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
 
                     </section>
                     <!-- end section -->
@@ -1296,7 +1394,7 @@ REPORT_PATH = path</code></pre>
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Displaying website URL<a href="#top">Back to top</a>
+                                <h2 class="dark-text">Checkboxes<a href="#top">Back to top</a>
 
                                 </h2>
                                 <hr>
@@ -1378,7 +1476,7 @@ REPORT_PATH = path</code></pre>
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Displaying website URL<a href="#top">Back to top</a>
+                                <h2 class="dark-text">Visible and Clickable handling<a href="#top">Back to top</a>
 
                                 </h2>
                                 <hr>
