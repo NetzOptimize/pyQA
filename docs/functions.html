@@ -531,9 +531,10 @@ REPORT_PATH = path</code></pre>
                         <div class="row">
                             <div class="col-md-12 left-align">
                                 <h2 class="dark-text">Function <code>.static_dropdown()</code><a href="#top">Back to top</a>
-
                                 </h2>
                                 <hr>
+                                <p>This command picks and selects the value under a <code>select</code> tag.</p>
+
                             </div>
                             <!-- end col -->
                         </div>
@@ -541,14 +542,14 @@ REPORT_PATH = path</code></pre>
 
                         <div class="col-md-8">
                                 <h4 id="STATIC_DROPDOWN_1">With XPATH</h4>
-                                <p>This command prints the url of the main url sent to the webdriver.</p>
+                                <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.static_dropdown("xpath", "//path", "index", "3")</code></pre>
                             </div>
 
 
@@ -560,15 +561,14 @@ REPORT_PATH = path</code></pre>
 
                         <div class="col-md-8">
                                 <h4 id="STATIC_DROPDOWN_2">With CSS</h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        website_url = run.return_url()
-        print(f"Website url is: {website_url}")</code></pre>
+        run.static_dropdown("css", "//path", "index", "3")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -577,18 +577,42 @@ REPORT_PATH = path</code></pre>
 
                         <div class="col-md-8">
                                 <h4 id="STATIC_DROPDOWN_3">Types of Actions</h4>
-                                <p>This command checks and returns the url if its valid, if it is not valid (in case of a wrong website url, or a non working localhost url) it asserts false.</p>
+                                <p>There are 3 ways by which you can select a value from the dropdown. <code>index</code> takes the position of the element;<code>value</code> takes the value given to that particular element; <code>visible</code> takes the element name given in the dropdown.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-6">
+                                <p>With index:</p>
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.valid_url("http://wrongurl.com")</code></pre>
+        run.static_dropdown("xpath", "//path", "index", "3")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>With value:</p>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.static_dropdown("xpath", "//path", "value", "1")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>With visibility:</p>
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.static_dropdown("xpath", "//path", "visible", "OptionName")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
                         <hr>
 
                     </section>
