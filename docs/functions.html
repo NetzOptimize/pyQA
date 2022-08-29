@@ -217,8 +217,6 @@
                                     <li><a href="#VISIBLE_4"><code>.display_is_clickable()</code></a></li>
                                 </ul>
                             </li>
-
-
                         </ul>
                     </nav>
                 </div>
@@ -855,22 +853,23 @@ REPORT_PATH = path</code></pre>
                                 <h2 class="dark-text">WAITS <a href="#top">Back to top</a>
                                 </h2>
                                 <hr>
-                                <p>This function takes an input and types it into the path given to the element.</p>
+                                <p>Waits are used when you have the automated task execution elapse a certain amount of time before continuing with the next step.</p>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="WAITS_1">With XPATH</h4>
-                                <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+                                <h4 id="WAITS_1"><code>.implicit_wait</code></h4>
+                                <p>By implicitly waiting, WebDriver polls the DOM for a certain duration when trying to find any element. This can be useful when certain elements on the webpage are not available immediately and need some time to load.
+                                Value is given in seconds.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.input("xpath", "//path", "Sample Value")</code></pre>
+        run.implicit_wait(4.5)</code></pre>
                             </div>
 
 
@@ -881,18 +880,49 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="WAITS_2">With CSS</h4>
-                                <p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+                                <h4 id="WAITS_2"><code>.explicit_wait</code></h4>
+                                <p>This allow your code to halt program execution, or freeze the thread, until the condition you pass it resolves. The condition is called with a certain frequency until the timeout of the wait is elapsed. This means that for as long as the condition returns a falsy value, it will keep trying and waiting.
+                                This command requires you to input, the time period (in seconds), the condition to perform, here again you have choice for xpath/css or other provided selectors, and lastly you have to provide the selector path.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.input("css", "//path", "Sample Value")</code></pre>
+        run.explicit_wait(5, "element_to_be_clickable", "xpath", "//path]")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
+                        <br>
+                        <h2>Conditions that can be used with <code>.explicit_wait</code>:</h2>
+                        <ul>
+                            <li><code>title_is</code></li>
+                            <li><code>title_contains</code></li>
+                            <li><code>presence_of_element_located</code></li>
+                            <li><code>visibility_of_element_located</code></li>
+                            <li><code>visibility_of</code></li>
+                            <li><code>presence_of_all_elements_located</code></li>
+                            <li><code>text_to_be_present_in_element</code></li>
+                            <li><code>text_to_be_present_in_element_value</code></li>
+                            <li><code>frame_to_be_available_and_switch_to_it</code></li>
+                            <li><code>invisibility_of_element_located</code></li>
+                            <li><code>element_to_be_clickable</code></li>
+                            <li><code>staleness_of</code></li>
+                            <li><code>element_to_be_selected</code></li>
+                            <li><code>element_located_to_be_selected</code></li>
+                            <li><code>element_selection_state_to_be</code></li>
+                            <li><code>element_located_selection_state_to_be</code></li>
+                            <li><code>alert_is_present</code></li>
+                        </ul>
+                        <br>
+                        <h3>Other selectors which can be used:</h3>
+                        <ul>
+                            <li><code>name</code></li>
+                            <li><code>link_text</code></li>
+                            <li><code>partial_link_text</code></li>
+                            <li><code>tag_name</code></li>
+                            <li><code>class_name</code></li>
+                        </ul>
                         <!-- end row -->
 
                     </section>
@@ -900,32 +930,28 @@ REPORT_PATH = path</code></pre>
 
                     <section id="HOVER" class="section">
 
-                        <div class="row">
+                       <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Customize <code>pytest.ini</code> <a href="#top">Back to top</a>
-
-                                </h2>
+                                <h2 class="dark-text">Function <code>.mouse_hover()</code></code></h2>
                                 <hr>
+                                <p>This command lets you input your absolute filepath and upload it to the element which requires an upload.</p>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
-                        <div class="col-md-8">
-                                <h4 id="HOVER_1">General Options - </h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.file_upload("xpath", "//path", "filepath")</code></pre>
                             </div>
 
 
                             <!-- end col -->
                         </div>
+                        <br>
                         <!-- end row -->
 
                     </section>
