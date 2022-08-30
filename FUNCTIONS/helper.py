@@ -127,6 +127,7 @@ class Checker:
             :param driver: input the browser driverManager
 
         """
+        self.y_axis = None
         self.x_axis = None
         self.variable = None
         self.filename = None
@@ -3057,6 +3058,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
+    # working
     def store_var(self, locator, locator_value):
         self.locator = locator
         self.lv = locator_value
@@ -3081,18 +3083,48 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
         return element
+
+    # working
     def drag_and_drop_x(self, variable, x_axis):
         """
             Parameters
                 ----------
 
                 :param var variable: xpath/css
-                :param int x_axis: input the value of the locator as xpath of css selector
+                :param int x_axis: value in pixels to slide
 
         """
         self.variable = variable
         self.x_axis = x_axis
         self.a.drag_and_drop_by_offset(self.variable, x_axis, 0).perform()
+
+    def drag_and_drop_y(self, variable, y_axis):
+        """
+            Parameters
+                ----------
+
+                :param var variable: xpath/css
+                :param int y_axis: value in pixels to slide
+
+        """
+        self.variable = variable
+        self.y_axis = y_axis
+        self.a.drag_and_drop_by_offset(self.variable, 0, y_axis).perform()
+
+    def drag_and_drop_x_y(self, variable, x_axis, y_axis):
+        """
+            Parameters
+                ----------
+
+                :param var variable: xpath/css
+                :param int x_axis: value in pixels to slide
+                :param int y_axis: value in pixels to slide
+
+        """
+        self.variable = variable
+        self.x_axis = x_axis
+        self.y_axis = y_axis
+        self.a.drag_and_drop_by_offset(self.variable, x_axis, y_axis).perform()
 
     def take_pic(self):
         """
