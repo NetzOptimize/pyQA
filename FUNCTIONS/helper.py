@@ -127,6 +127,7 @@ class Checker:
             :param driver: input the browser driverManager
 
         """
+        self.pause = None
         self.y_axis = None
         self.x_axis = None
         self.variable = None
@@ -3090,7 +3091,7 @@ class Checker:
             Parameters
                 ----------
 
-                :param var variable: xpath/css
+                :param var variable: variable which contains the element
                 :param int x_axis: value in pixels to slide
 
         """
@@ -3103,7 +3104,7 @@ class Checker:
             Parameters
                 ----------
 
-                :param var variable: xpath/css
+                :param var variable: variable which contains the element
                 :param int y_axis: value in pixels to slide
 
         """
@@ -3116,7 +3117,7 @@ class Checker:
             Parameters
                 ----------
 
-                :param var variable: xpath/css
+                :param var variable: variable which contains the element
                 :param int x_axis: value in pixels to slide
                 :param int y_axis: value in pixels to slide
 
@@ -3125,6 +3126,24 @@ class Checker:
         self.x_axis = x_axis
         self.y_axis = y_axis
         self.a.drag_and_drop_by_offset(self.variable, x_axis, y_axis).perform()
+
+    def click_and_hold(self, variable, x_axis, pause=0):
+        """
+            Parameters
+                ----------
+
+                :param var variable: variable which contains the element
+                :param int x_axis: value in pixels to slide
+                :param int pause: default 0
+
+        """
+        self.variable = variable
+        self.x_axis = x_axis
+        self.pause = pause
+        if self.pause != 0:
+            self.a.click_and_hold(self.variable).pause(self.pause)
+        else:
+            self.a.click_and_hold(self.variable)
 
     def take_pic(self):
         """
