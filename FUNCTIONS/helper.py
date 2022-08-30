@@ -13,7 +13,6 @@ Todo:
     able to extend external function files
     check url if -> yes not same then false
     explicit wait all options
-    drag to
     maximize windows
     highlight
     nth
@@ -3127,23 +3126,77 @@ class Checker:
         self.y_axis = y_axis
         self.a.drag_and_drop_by_offset(self.variable, x_axis, y_axis).perform()
 
-    def click_and_hold(self, variable, x_axis, pause=0):
+    def click_and_hold(self, variable, pause=0):
+        """
+            Parameters
+                ----------
+
+                :param var variable: variable which contains the element
+                :param int pause: default 1
+
+        """
+        self.variable = variable
+        self.pause = pause
+        if self.pause != 1:
+            self.a.click_and_hold(self.variable).pause(self.pause)
+        else:
+            self.a.click_and_hold(self.variable).pause(1)
+
+    def click_hold_move_x(self, variable, x_axis, pause=0):
         """
             Parameters
                 ----------
 
                 :param var variable: variable which contains the element
                 :param int x_axis: value in pixels to slide
-                :param int pause: default 0
+                :param int pause: default 1
 
         """
         self.variable = variable
         self.x_axis = x_axis
         self.pause = pause
         if self.pause != 0:
-            self.a.click_and_hold(self.variable).pause(self.pause)
+            self.a.click_and_hold(self.variable).pause(self.pause).move_by_offset(self.x_axis, 0).release().perform()
         else:
-            self.a.click_and_hold(self.variable)
+            self.a.click_and_hold(self.variable).pause(1).move_by_offset(self.x_axis, 0).release().perform()
+
+    def click_hold_move_y(self, variable, y_axis, pause=0):
+        """
+            Parameters
+                ----------
+
+                :param var variable: variable which contains the element
+                :param int y_axis: value in pixels to slide
+                :param int pause: default 1
+
+        """
+        self.variable = variable
+        self.y_axis = y_axis
+        self.pause = pause
+        if self.pause != 0:
+            self.a.click_and_hold(self.variable).pause(self.pause).move_by_offset(0, self.y_axis).release().perform()
+        else:
+            self.a.click_and_hold(self.variable).pause(1).move_by_offset(0, self.y_axis).release().perform()
+
+    def click_hold_move_x_y(self, variable, x_axis,y_axis, pause=0):
+        """
+            Parameters
+                ----------
+
+                :param var variable: variable which contains the element
+                :param int x_axis: value in pixels to slide
+                :param int y_axis: value in pixels to slide
+                :param int pause: default 1
+
+        """
+        self.variable = variable
+        self.x_axis = x_axis
+        self.y_axis = y_axis
+        self.pause = pause
+        if self.pause != 0:
+            self.a.click_and_hold(self.variable).pause(self.pause).move_by_offset(self.x_axis, self.y_axis).release().perform()
+        else:
+            self.a.click_and_hold(self.variable).pause(1).move_by_offset(self.x_axis, self.y_axis).release().perform()
 
     def take_pic(self):
         """
