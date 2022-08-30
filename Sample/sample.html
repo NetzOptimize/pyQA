@@ -63,11 +63,15 @@
         <button ondblclick="myFunction()" ">double click me!</button>
         <p id="dbclick "></p>
     </div>
+    <br>
+    <input type="range" name="rangeInput " min="0 " max="100 " onchange="updateTextInput(this.value); ">
+    <input type="text" id="textInput" value=" ">
+    <br>
     <iframe src="http://127.0.0.1:5500/sample.html " width="80% "" title="Deja vu">
         </iframe>
-    <br>
-    <button type="button" id="nonclick" disabled>Click Me!</button>
-    <button type="button" id="nonclick2">Click Me!</button>
+        <br>
+        <button type="button" id="nonclick" disabled>Click Me!</button>
+        <button type="button" id="nonclick2">Click Me!</button>
         <script src="js/dynamic.js "></script>
         <script src="js/extra.js "></script>
 </body>

@@ -45,7 +45,13 @@ def test_demo(browser):
     # # UNCHECK A CHECKED BOX
     # ##################
     run.button("xpath", data["common"]["locator5"])
-    #
+
+    # ##################
+    # # SLIDE A SLIDER
+    # ##################
+    # slider = run.store_var("xpath", "//input[contains(@name,'rangeInput')]")
+    # run.drag_and_drop_x(slider, 10)
+
     # ##################
     # # STATIC DROPDOWN WITH DELAY
     # ##################

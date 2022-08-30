@@ -24,3 +24,7 @@ function myStopFunction() {
 function myFunction() {
     document.getElementById("dbclick ").innerHTML = "Double click works!";
 }
+
+function updateTextInput(val) {
+    document.getElementById('textInput').value = val;
+}

@@ -13,8 +13,8 @@ Todo:
     able to extend external function files
     check url if -> yes not same then false
     explicit wait all options
-    count
     drag to
+    maximize windows
     highlight
     nth
     screenshot
@@ -127,6 +127,8 @@ class Checker:
             :param driver: input the browser driverManager
 
         """
+        self.x_axis = None
+        self.variable = None
         self.filename = None
         self.ac_value2 = None
         self.time = None
@@ -3054,6 +3056,43 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
+    def store_var(self, locator, locator_value):
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+            except:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                element = self.driver.find_element(By.XPATH, f"{self.lv}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+        return element
+    def drag_and_drop_x(self, variable, x_axis):
+        """
+            Parameters
+                ----------
+
+                :param var variable: xpath/css
+                :param int x_axis: input the value of the locator as xpath of css selector
+
+        """
+        self.variable = variable
+        self.x_axis = x_axis
+        self.a.drag_and_drop_by_offset(self.variable, x_axis, 0).perform()
 
     def take_pic(self):
         """
