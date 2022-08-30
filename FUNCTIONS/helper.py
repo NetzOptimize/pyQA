@@ -3094,31 +3094,9 @@ class Checker:
         self.driver.implicitly_wait(10)
         self.driver.get(f"{is_correct_url}")
 
-    def count_div_el(self, locator, divpath):
+    def increasing_order_click(self, divpath, ac, i=0):
         """
-        counts the elements present in the specified div
-
-        Parameters
-        ----------
-        :param str locator: xpath/css
-        :param str divpath: xpath or css selector of the div element
-
-        """
-        self.divpath = divpath
-        self.locator = locator
-        if self.locator == L_CSS:
-            count = len(self.driver.find_elements(By.CSS_SELECTOR, f"{self.divpath}"))
-        elif self.locator == L_XPATH:
-            count = len(self.driver.find_elements(By.XPATH, f"{self.divpath}"))
-        else:
-            error = IllegalCharError(f"{self.ac}")
-            print(error.as_string())
-            assert False, f"{error.as_string()}"
-        return count
-
-    def divcheck(self, divpath, ac, i=0):
-        """
-                clicks on the div elements in increasing order of xpath
+                clicks on the elements in increasing order of xpath
 
                 Parameters
                 ----------
@@ -3133,57 +3111,6 @@ class Checker:
         path = f"{self.divpath}"
         if ac == A_CLICK:
             self.driver.find_element(By.XPATH, f"({path})[{i + 1}]").click()
-
-    def divtext(self, divpath, ac):
-        """
-                Parameters
-                ----------
-                :param str divpath: takes the xpath of the div
-                :param str ac: action needed to be performed e.g: 'text'
-                :return: Returns all the text inside the div element in increasing order of xpath
-                :rtype: list
-
-
-        """
-        list_of_words = []
-        self.divpath = divpath
-        self.ac = ac
-        count = len(self.driver.find_elements(By.XPATH, f"{self.divpath}"))
-        # print(count)
-        for a in range(count):
-            path = f"{self.divpath}"
-            if ac == A_TEXT:
-                i = self.driver.find_element(By.XPATH, f"({path})[{a + 1}]")
-                list_of_words += [i.text]
-        return list_of_words
-
-    def divtextcheck(self, divpath, ac, word):
-        """
-                Parameters
-                ----------
-                :param str divpath: takes the xpath of the div
-                :param str ac: action needed to be performed e.g: 'text'
-                :param str word: word that needs to be evaluated in the list of words
-                :return: Returns the text of the element in increasing order of xpath and checks equality
-                with the string provided.
-                :rtype: bool
-
-
-        """
-        list_of_words = []
-        self.divpath = divpath
-        self.ac = ac
-        self.word = word
-        count = len(self.driver.find_elements(By.XPATH, f"{self.divpath}"))
-        for a in range(count):
-            path = f"{self.divpath}"
-            if ac == A_TEXT:
-                i = self.driver.find_element(By.XPATH, f"({path})[{a + 1}]")
-                list_of_words += [i.text]
-        if word in list_of_words:
-            print("True")
-        else:
-            print("False")
 
     def homescreen(self):
         """
@@ -3229,7 +3156,7 @@ class Checker:
         """
         self.driver.close()
 
-    def returndivtext(self, divpath, ac, i=0):
+    def return_text_nth(self, divpath, ac, i=0):
         """
                 Parameters
                 ----------
@@ -3338,7 +3265,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
     # working
-    def count_all_checkboxes(self, locator, locator_value):
+    def count_all(self, locator, locator_value):
         """
                     Checks all checkboxes
 
@@ -3357,7 +3284,7 @@ class Checker:
         if self.locator == L_CSS:
 
             try:
-                checkboxes = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv}")
+                elements = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv}")
             except NoSuchElementException:
                 error = NoSuchElementPresent(f"{self.locator} -> {self.lv}")
                 print(error.as_string())
@@ -3366,7 +3293,7 @@ class Checker:
         elif self.locator == L_XPATH:
 
             try:
-                checkboxes = self.driver.find_elements(By.XPATH, f"{self.lv}")
+                elements = self.driver.find_elements(By.XPATH, f"{self.lv}")
             except NoSuchElementException:
                 error = NoSuchElementPresent(f"{self.locator} -> {self.lv}")
                 print(error.as_string())
@@ -3376,7 +3303,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
-        if len(checkboxes) == 0:
+        if len(elements) == 0:
             return f"0, (If it should not be 0, check the locator value."
         else:
-            return len(checkboxes)
+            return len(elements)

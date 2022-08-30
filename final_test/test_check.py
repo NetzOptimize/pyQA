@@ -29,11 +29,11 @@ def test_demo(browser):
     ##################
     run.check_all("xpath", data["common"]["locator1"])
 
-    # ##################
-    # # COUNT ALL CHECKBOXES
-    # ##################
-    # count_checkbox = run.count_all_checkboxes("xpath", data["common"]["locator2"])
-    # print(f"Total number of checkboxes: {count_checkbox}")
+    ##################
+    # COUNT ALL CHECKBOXES
+    ##################
+    count_checkbox = run.count_all("xpath", data["common"]["locator2"])
+    print(f"Total number of checkboxes: {count_checkbox}")
     #
     # ##################
     # # INPUT IN FIELDS
