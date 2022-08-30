@@ -30,15 +30,6 @@ find_element(By.TAG_NAME, "tag name")
 find_element(By.CLASS_NAME, "class name")
 find_element(By.CSS_SELECTOR, "css selector") - done
 
-drag and drop 
-element = driver.find_element(By.NAME, "source")
-target = driver.find_element(By.NAME, "target")
-
-from selenium.webdriver import ActionChains
-action_chains = ActionChains(driver)
-action_chains.drag_and_drop(element, target).perform()
-
-
 history 
 driver.forward()
 driver.back()
@@ -3466,3 +3457,9 @@ class Checker:
             return f"0, (If it should not be 0, check the locator value."
         else:
             return len(elements)
+
+    def page_forward(self):
+        self.driver.forward()
+
+    def page_back(self):
+        self.driver.back()

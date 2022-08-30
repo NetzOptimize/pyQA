@@ -32,8 +32,8 @@ def test_demo(browser):
     ##################
     # COUNT ALL CHECKBOXES
     ##################
-    count_checkbox = run.count_all("xpath", data["common"]["locator2"])
-    print(f"Total number of checkboxes: {count_checkbox}")
+    # count_checkbox = run.count_all("xpath", data["common"]["locator2"])
+    # print(f"Total number of checkboxes: {count_checkbox}")
     #
     # ##################
     # # INPUT IN FIELDS
@@ -44,8 +44,8 @@ def test_demo(browser):
     # ##################
     # # UNCHECK A CHECKED BOX
     # ##################
-    run.button("xpath", data["common"]["locator5"])
-
+    # run.button("xpath", data["common"]["locator5"])
+    #
     # ##################
     # # SLIDE A SLIDER
     # ##################
@@ -160,19 +160,19 @@ def test_demo(browser):
     #     print("no")  # not visible
     # run.is_visible_display("xpath", "//label[@for='clicked19']")
 
-    a = run.return_is_clickable("xpath", "//button[@id='nonclick']")
-    if a:
-        print("yes")  # is clickable
-    else:
-        print("no")  # not clickable
-    run.display_is_clickable("xpath", "//button[@id='nonclick']")
-
-    a = run.return_is_clickable("xpath", "//button[@id='nonclick2']")
-    if a:
-        print("yes")  # is clickable
-    else:
-        print("no")  # not clickable
-    run.display_is_clickable("xpath", "//button[@id='nonclick2']")
+    # a = run.return_is_clickable("xpath", "//button[@id='nonclick']")
+    # if a:
+    #     print("yes")  # is clickable
+    # else:
+    #     print("no")  # not clickable
+    # run.display_is_clickable("xpath", "//button[@id='nonclick']")
+    #
+    # a = run.return_is_clickable("xpath", "//button[@id='nonclick2']")
+    # if a:
+    #     print("yes")  # is clickable
+    # else:
+    #     print("no")  # not clickable
+    # run.display_is_clickable("xpath", "//button[@id='nonclick2']")
 
 
 
