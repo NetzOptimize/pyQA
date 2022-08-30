@@ -126,6 +126,8 @@ class Checker:
             :param driver: input the browser driverManager
 
         """
+        self.target = None
+        self.element = None
         self.pause = None
         self.y_axis = None
         self.x_axis = None
@@ -3084,6 +3086,19 @@ class Checker:
             assert False, f"{error.as_string()}"
         return element
 
+    def drag_and_drop(self, element, target):
+        """
+             Parameters
+                 ----------
+
+                 :param var element: variable which contains the element to be draged.
+                 :param var target: variable which contains the target elemetn to be draged to.
+
+         """
+        self.element = element
+        self.target = target
+        self.a.drag_and_drop(self.element, self.target).perform()
+
     # working
     def drag_and_drop_x(self, variable, x_axis):
         """
@@ -3178,7 +3193,7 @@ class Checker:
         else:
             self.a.click_and_hold(self.variable).pause(1).move_by_offset(0, self.y_axis).release().perform()
 
-    def click_hold_move_x_y(self, variable, x_axis,y_axis, pause=0):
+    def click_hold_move_x_y(self, variable, x_axis, y_axis, pause=0):
         """
             Parameters
                 ----------
@@ -3194,7 +3209,8 @@ class Checker:
         self.y_axis = y_axis
         self.pause = pause
         if self.pause != 0:
-            self.a.click_and_hold(self.variable).pause(self.pause).move_by_offset(self.x_axis, self.y_axis).release().perform()
+            self.a.click_and_hold(self.variable).pause(self.pause).move_by_offset(self.x_axis,
+                                                                                  self.y_axis).release().perform()
         else:
             self.a.click_and_hold(self.variable).pause(1).move_by_offset(self.x_axis, self.y_axis).release().perform()
 
