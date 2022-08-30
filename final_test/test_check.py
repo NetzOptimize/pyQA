@@ -1,4 +1,6 @@
 # imports
+from selenium.webdriver.common.by import By
+
 from FUNCTIONS.helper import Checker
 import json
 from logfile import Logclass
@@ -40,6 +42,8 @@ def test_demo(browser):
     # ##################
     run.input("xpath", data["common"]["locator3"], "Sample Value 1")
     run.input("xpath", data["common"]["locator4"], "Sample Value 2")
+    # driver = run.get_driver()
+    # driver.find_element(By.XPATH, "//input[@id='lname']").send_keys("Sample Value 2")
     #
     # ##################
     # # UNCHECK A CHECKED BOX

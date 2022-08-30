@@ -21,7 +21,7 @@ Todo:
     scroll into view
     select text
     copy to clipboard
-    find_element(By.ID, "id")
+find_element(By.ID, "id")
 find_element(By.NAME, "name")
 find_element(By.XPATH, "xpath") - done 
 find_element(By.LINK_TEXT, "link text")
@@ -29,10 +29,6 @@ find_element(By.PARTIAL_LINK_TEXT, "partial link text")
 find_element(By.TAG_NAME, "tag name")
 find_element(By.CLASS_NAME, "class name")
 find_element(By.CSS_SELECTOR, "css selector") - done
-
-history 
-driver.forward()
-driver.back()
 """
 #################
 # Types
@@ -162,6 +158,9 @@ class Checker:
             assert False, f"Please enter a valid URL... {self.url} is not a valid URL."
 
         return url
+
+    def get_driver(self):
+        return self.driver
 
     # TODO: check the functionality
     # working
@@ -3458,8 +3457,10 @@ class Checker:
         else:
             return len(elements)
 
+    # working
     def page_forward(self):
         self.driver.forward()
 
+    # working
     def page_back(self):
         self.driver.back()
