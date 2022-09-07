@@ -147,22 +147,22 @@ def test_demo(browser):
     ##################
     # CHECKS IF CHECKBOX IS CLICKED OR NOT
     ##################
-    a = run.is_checked_return("xpath", "//input[@id='clicked1']")
+    a = run.return_is_checked("xpath", "//input[@id='clicked1']")
     if a:
         print("yes")  # checkbox is checked
     else:
         print("no")  # checkbox is not checked
-    run.is_checked_display("xpath", "//input[@id='clicked1']")
+    run.display_is_checked("xpath", "//input[@id='clicked1']")
 
     ##################
     # CHECKS IF ELEMENT IS VISIBLE
     ##################
-    a = run.is_visible_return("xpath", "//label[@for='clicked19']")
+    a = run.return_is_visible("xpath", "//label[@for='clicked19']")
     if a:
         print("yes")  # is visible
     else:
         print("no")  # not visible
-    run.is_visible_display("xpath", "//label[@for='clicked19']")
+    run.display_is_visible("xpath", "//label[@for='clicked19']")
 
     a = run.return_is_clickable("xpath", "//button[@id='nonclick']")
     if a:
