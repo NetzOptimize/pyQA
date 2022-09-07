@@ -216,6 +216,22 @@
                                     <li><a href="#VISIBLE_4"><code>.display_is_clickable()</code></a></li>
                                 </ul>
                             </li>
+                            <li><a href="#DRAG">Drag and Drop</a>
+                                <ul class="nav">
+                                    <li><a href="#DRAG_1"><code>.drag_and_drop()</code></a></li>
+                                    <li><a href="#DRAG_2"><code>.drag_and_drop()</code></a></li>
+                                    <li><a href="#DRAG_3"><code>.drag_and_drop()</code></a></li>
+                                    <li><a href="#DRAG_4"><code>.drag_and_drop()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#CLICKHOLD">Click and hold</a>
+                                <ul class="nav">
+                                    <li><a href="#CLICKHOLD_1"><code>.click_and_hold()</code></a></li>
+                                    <li><a href="#CLICKHOLD_2"><code>.click_and_hold()</code></a></li>
+                                    <li><a href="#CLICKHOLD_3"><code>.click_and_hold()</code></a></li>
+                                    <li><a href="#CLICKHOLD_4"><code>.click_and_hold()</code></a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -1535,6 +1551,186 @@ REPORT_PATH = path</code></pre>
 
                         <div class="col-md-8">
                                 <h4 id="VISIBLE_4"><code>.display_is_clickable</code></h4>
+                                <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_is_clickable("xpath", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </section>
+                    <!-- end section -->
+
+                    <section id="DRAG" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Visible and Clickable handling<a href="#top">Back to top</a>
+
+                                </h2>
+                                <hr>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="col-md-8">
+                                <h4 id="DRAG_1"><code>.return_is_visible</code></h4>
+                                <p>This command returns true if the element is visible on the browser else returns false.</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        a = run.return_is_visible("xpath", "//path")
+        if a:
+            print("yes")  # is visible
+        else:
+            print("no")  # not visible</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="DRAG_2"><code>.display_is_visible</code></h4>
+                                <p>This command prints "Element is visible" if the element is visible on the browser else prints "Element not visible".</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_is_visible("xpath", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="DRAG_3"><code>.return_is_clickable</code></h4>
+                                <p>This command returns true if the element is clickable else returns false.</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        a = run.return_is_clickable("xpath", "//path")
+        if a:
+            print("yes")  # is clickable
+        else:
+            print("no")  # not clickable</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="DRAG_4"><code>.display_is_clickable</code></h4>
+                                <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_is_clickable("xpath", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </section>
+                    <!-- end section -->
+
+                    <section id="CLICKHOLD" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Visible and Clickable handling<a href="#top">Back to top</a>
+
+                                </h2>
+                                <hr>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="col-md-8">
+                                <h4 id="CLICKHOLD_1"><code>.return_is_visible</code></h4>
+                                <p>This command returns true if the element is visible on the browser else returns false.</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        a = run.return_is_visible("xpath", "//path")
+        if a:
+            print("yes")  # is visible
+        else:
+            print("no")  # not visible</code></pre>
+                            </div>
+
+
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="CLICKHOLD_2"><code>.display_is_visible</code></h4>
+                                <p>This command prints "Element is visible" if the element is visible on the browser else prints "Element not visible".</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        run.display_is_visible("xpath", "//path")</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="CLICKHOLD_3"><code>.return_is_clickable</code></h4>
+                                <p>This command returns true if the element is clickable else returns false.</p>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
+    def test(browser):
+        run = Checker("url", browser)
+        a = run.return_is_clickable("xpath", "//path")
+        if a:
+            print("yes")  # is clickable
+        else:
+            print("no")  # not clickable</code></pre>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <hr>
+
+                        <div class="col-md-8">
+                                <h4 id="CLICKHOLD_4"><code>.display_is_clickable</code></h4>
                                 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
                             </div>
                         <div class="row">
