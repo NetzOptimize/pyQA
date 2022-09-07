@@ -10,7 +10,6 @@ import time
 
 """
 Todo:
-    able to extend external function files
     check url if -> yes not same then false
     explicit wait all options
     maximize windows
