@@ -160,7 +160,11 @@ class Checker:
 
     def get_driver(self):
         return self.driver
+    #########################################################################
 
+    ################
+    # URL's
+    ################
     # TODO: check the functionality
     # working
     def display_url(self):
@@ -185,7 +189,11 @@ class Checker:
                         :rtype: str
                 """
         return self.driver.current_url
+    #########################################################################
 
+    ################
+    # BASIC
+    ################
     # working
     def input(self, locator, locator_value, ac_value):
         """
@@ -339,7 +347,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+    #########################################################################
 
+    ################
+    # DROPDOWNS
+    ################
     # working
     def static_dropdown(self, locator, locator_value, ac, ac_value):
         """
@@ -2223,7 +2235,11 @@ class Checker:
                  """
         self.time = t
         time.sleep(self.time)
+    #########################################################################
 
+    ################
+    # POPUP ALERT
+    ################
     # working
     def popup_accept(self):
         try:
@@ -2262,7 +2278,11 @@ class Checker:
             print(f'Something went wrong: {ex}')
             print('No alert present!')
             assert False, f"No alert present!"
+    #########################################################################
 
+    ################
+    # UPLOADS
+    ################
     # working
     def file_upload(self, locator, locator_value, filename):
         """
@@ -2340,7 +2360,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+    #########################################################################
 
+    ################
+    # WAITS
+    ################
     # working
     def implicit_wait(self, t):
         self.time = t
@@ -2486,7 +2510,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+    #########################################################################
 
+    ################
+    # CLICKS
+    ################
     # working
     def right_click(self, locator, locator_value):
         self.locator = locator
@@ -2531,7 +2559,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+    #########################################################################
 
+    ################
+    # FRAMES
+    ################
     # working
     def shift_to_frame(self, locator, locator_value):
         self.locator = locator
@@ -2565,7 +2597,11 @@ class Checker:
     # working
     def leave_frame(self):
         self.driver.switch_to.default_content()
+    #########################################################################
 
+    ################
+    # TEXT
+    ################
     # working
     def return_text(self, locator, locator_value):
         """
@@ -2639,7 +2675,11 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(input_obj.text)
+    #########################################################################
 
+    ################
+    # ATTRIBUTE
+    ################
     # working
     def return_attribute(self, locator, locator_value, ac_value):
         """
@@ -2719,7 +2759,11 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(attribute_obj)
+    #########################################################################
 
+    ################
+    # ALl INNER TEXT
+    ################
     # working
     def return_all_inner_text(self, locator, locator_value):
         """
@@ -2811,7 +2855,11 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(array_elements)
+    #########################################################################
 
+    ################
+    # CHECKED
+    ################
     # working
     def return_is_checked(self, locator, locator_value):
         """
@@ -2897,7 +2945,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+    #########################################################################
 
+    ################
+    # VISIBLE
+    ################
     # working
     def return_is_visible(self, locator, locator_value):
         """
@@ -2962,7 +3014,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+    #########################################################################
 
+    ################
+    # CLICKABLE
+    ################
     # working
     def return_is_clickable(self, locator, locator_value):
         """
@@ -3074,6 +3130,11 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
         return element
+    #########################################################################
+
+    ################
+    # DRAG and DROP
+    ################
 
     def drag_and_drop(self, element, target):
         """
@@ -3129,6 +3190,11 @@ class Checker:
         self.x_axis = x_axis
         self.y_axis = y_axis
         self.a.drag_and_drop_by_offset(self.variable, x_axis, y_axis).perform()
+    #########################################################################
+
+    ################
+    # CLICK and HOLD
+    ################
 
     def click_and_hold(self, variable, pause=0):
         """
@@ -3202,6 +3268,7 @@ class Checker:
                                                                                   self.y_axis).release().perform()
         else:
             self.a.click_and_hold(self.variable).pause(1).move_by_offset(self.x_axis, self.y_axis).release().perform()
+    #########################################################################
 
     def take_pic(self):
         """
@@ -3259,7 +3326,11 @@ class Checker:
         path = f"{self.divpath}"
         if ac == A_CLICK:
             self.driver.find_element(By.XPATH, f"({path})[{i + 1}]").click()
+    #########################################################################
 
+    ################
+    # WEB PAGES
+    ################
     def homescreen(self):
         """
             Moves to the first tab and sets it as the main tab.
