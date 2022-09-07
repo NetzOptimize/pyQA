@@ -1475,15 +1475,19 @@ REPORT_PATH = path</code></pre>
                         <!-- end row -->
 
                         <div class="col-md-8">
-                                <h4 id="VISIBLE_1"><code>.display_url</code></h4>
-                                <p>This command prints the url of the main url sent to the webdriver.</p>
+                                <h4 id="VISIBLE_1"><code>.return_is_visible</code></h4>
+                                <p>This command returns true if the element is visible on the browser else returns false.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        a = run.return_is_visible("xpath", "//path")
+        if a:
+            print("yes")  # is visible
+        else:
+            print("no")  # not visible</code></pre>
                             </div>
 
 
@@ -1494,15 +1498,15 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="VISIBLE_2"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <h4 id="VISIBLE_2"><code>.display_is_visible</code></h4>
+                                <p>This command prints "Element is visible" if the element is visible on the browser else prints "Element not visible".</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.display_is_visible("xpath", "//path")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -1510,15 +1514,19 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="VISIBLE_3"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <h4 id="VISIBLE_3"><code>.return_is_clickable</code></h4>
+                                <p>This command returns true if the element is clickable else returns false.</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        a = run.return_is_clickable("xpath", "//path")
+        if a:
+            print("yes")  # is clickable
+        else:
+            print("no")  # not clickable</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
@@ -1526,15 +1534,15 @@ REPORT_PATH = path</code></pre>
                         <hr>
 
                         <div class="col-md-8">
-                                <h4 id="VISIBLE_4"><code>.return_url</code></h4>
-                                <p>This command returns the url of the main url sent to the webdriver.</p>
+                                <h4 id="VISIBLE_4"><code>.display_is_clickable</code></h4>
+                                <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <pre><code class="language-python" data-prismjs-copy="Copy snippet!">from FUNCTIONS.helper import Checker
     def test(browser):
         run = Checker("url", browser)
-        run.display_url()</code></pre>
+        run.display_is_clickable("xpath", "//path")</code></pre>
                             </div>
                             <!-- end col -->
                         </div>
