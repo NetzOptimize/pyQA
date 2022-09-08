@@ -188,7 +188,10 @@ class Checker:
                         :return: Returns the url of the current website in the current selected tab
                         :rtype: str
                 """
-        return self.driver.current_url
+        try:
+            return self.driver.current_url
+        except TimeoutException:
+            return f"No url found, timeout exception occurred."
     #########################################################################
 
     ################
