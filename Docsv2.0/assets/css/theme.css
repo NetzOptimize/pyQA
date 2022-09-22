@@ -1673,6 +1673,8 @@ progress{
         overflow-x:auto;
         -webkit-overflow-scrolling:touch
     }
+    .search-form{
+    padding: 0px 20px}
 }
 @media (max-width: 991.98px){
     .table-responsive-lg{
@@ -10241,6 +10243,8 @@ a.text-link:hover{
 }
 .search-form{
     position:relative;
+    max-width: 600px;
+margin: 30px auto 0px;
     width:100%
 }
 .search-form .search-input {
@@ -10265,7 +10269,7 @@ a.text-link:hover{
     line-height: 55px;
     position:absolute;
     text-align: center;
-    right:0;
+    right:15px;
     top:0;
     font-size:20px;
     color: green;
@@ -10279,9 +10283,19 @@ a.text-link:hover{
    pointer-events:none;
 }
 .search-input.active .autocom-box{
+position:absolute;
   padding: 10px 8px;
-  opacity:1;
-  pointer-events: auto;
+opacity: 1;
+pointer-events: auto;
+top: 52px;
+  left: 0px;
+z-index: 999;
+display: inline-block;
+width: 100%;
+background-color: #fff;
+box-shadow: yellowgreen;
+box-shadow: 0px 6px 5px 3px rgba(0, 0, 0,0.12);
+
 }
 .search-input.active .autocom-box li{
   display:block;
