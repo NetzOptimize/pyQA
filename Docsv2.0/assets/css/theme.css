@@ -1673,6 +1673,8 @@ progress{
         overflow-x:auto;
         -webkit-overflow-scrolling:touch
     }
+    .search-form{
+    padding: 0px 20px}
 }
 @media (max-width: 991.98px){
     .table-responsive-lg{
@@ -6884,7 +6886,8 @@ textarea.form-control-lg{
     margin-right:.25rem !important
 }
 .me-2{
-    margin-right:.5rem !important
+    margin-right:.5rem !important;
+    width:12%;
 }
 .me-3{
     margin-right:1rem !important
@@ -10241,25 +10244,73 @@ a.text-link:hover{
 }
 .search-form{
     position:relative;
+    max-width: 600px;
+margin: 30px auto 0px;
     width:100%
 }
-.search-form .search-input{
-    font-size:0.875rem;
-    border-radius:1.5rem;
-    padding-right:3rem;
-    padding-left:1.5rem
+.search-form .search-input {
+ background: #fff;
+ width:100%;
+ border-radius: 5px;
+ box-shadow: 0px 1px 5px 3px rgba(0, 0, 0,0.12);
 }
-.search-form .search-input:focus{
-    border-color:#e7e9ed
-}
-.search-form .search-btn{
-    color:#828d9f;
-    background:none;
+.search-input input {
+    height:55px;
+    width:100%;
+    outline:none;
     border:none;
+    border-radius: 5px;
+    padding:0 60px 0 20px;
+    font-size:18px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0,0.1);
+}
+.search-input .icon{
+    height:55px;
+    width:55px;
+    line-height: 55px;
     position:absolute;
-    right:0;
-    top:0.15rem;
-    margin-right:0
+    text-align: center;
+    right:15px;
+    top:0;
+    font-size:20px;
+    color: green;
+    cursor:pointer;
+}
+.search-input .autocom-box{
+    padding:0px;
+   max-height:280px;
+   overflow-y:auto;
+   opacity: 0;
+   pointer-events:none;
+}
+.search-input.active .autocom-box{
+position:absolute;
+  padding: 10px 8px;
+opacity: 1;
+pointer-events: auto;
+top: 52px;
+  left: 0px;
+z-index: 999;
+display: inline-block;
+width: 100%;
+background-color: #fff;
+box-shadow: yellowgreen;
+box-shadow: 0px 6px 5px 3px rgba(0, 0, 0,0.12);
+
+}
+.search-input.active .autocom-box li{
+  display:block;
+}
+.autocom-box li{
+   list-style:none;
+   padding:8px 12px;
+   width:100%;
+   cursor:default;
+   border-radius:3px;
+   display:none;
+}
+.autocom-box li:hover {
+    background: #efefef;
 }
 .search-form .search-btn:active,.search-form .search-btn:focus,.search-form .search-btn:hover{
     outline:none !important;
@@ -10618,7 +10669,8 @@ span.slide:before {
   transition: 0.5s;
 }
 .dark-mode {
-transition: background-color 0.5s ease;
+transition: background-color 0.5s ease-in;
   background-color: black;
   color: white;
 }
+

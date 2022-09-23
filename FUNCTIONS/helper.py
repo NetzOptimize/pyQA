@@ -12,7 +12,6 @@ import time
 Todo:
     check url if -> yes not same then false
     explicit wait all options
-    maximize windows
     highlight
     nth
     screenshot
@@ -160,6 +159,7 @@ class Checker:
 
     def get_driver(self):
         return self.driver
+
     #########################################################################
 
     ################
@@ -192,6 +192,7 @@ class Checker:
             return self.driver.current_url
         except TimeoutException:
             return f"No url found, timeout exception occurred."
+
     #########################################################################
 
     ################
@@ -350,6 +351,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     #########################################################################
 
     ################
@@ -2238,6 +2240,7 @@ class Checker:
                  """
         self.time = t
         time.sleep(self.time)
+
     #########################################################################
 
     ################
@@ -2281,6 +2284,7 @@ class Checker:
             print(f'Something went wrong: {ex}')
             print('No alert present!')
             assert False, f"No alert present!"
+
     #########################################################################
 
     ################
@@ -2363,6 +2367,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     #########################################################################
 
     ################
@@ -2513,6 +2518,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     #########################################################################
 
     ################
@@ -2562,6 +2568,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     #########################################################################
 
     ################
@@ -2600,6 +2607,7 @@ class Checker:
     # working
     def leave_frame(self):
         self.driver.switch_to.default_content()
+
     #########################################################################
 
     ################
@@ -2678,6 +2686,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(input_obj.text)
+
     #########################################################################
 
     ################
@@ -2762,6 +2771,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(attribute_obj)
+
     #########################################################################
 
     ################
@@ -2858,6 +2868,7 @@ class Checker:
             assert False, f"{error.as_string()}"
 
         return print(array_elements)
+
     #########################################################################
 
     ################
@@ -2948,6 +2959,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     #########################################################################
 
     ################
@@ -3017,6 +3029,7 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
     #########################################################################
 
     ################
@@ -3133,6 +3146,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
         return element
+
     #########################################################################
 
     ################
@@ -3193,6 +3207,7 @@ class Checker:
         self.x_axis = x_axis
         self.y_axis = y_axis
         self.a.drag_and_drop_by_offset(self.variable, x_axis, y_axis).perform()
+
     #########################################################################
 
     ################
@@ -3271,6 +3286,7 @@ class Checker:
                                                                                   self.y_axis).release().perform()
         else:
             self.a.click_and_hold(self.variable).pause(1).move_by_offset(self.x_axis, self.y_axis).release().perform()
+
     #########################################################################
 
     def take_pic(self):
@@ -3329,6 +3345,7 @@ class Checker:
         path = f"{self.divpath}"
         if ac == A_CLICK:
             self.driver.find_element(By.XPATH, f"({path})[{i + 1}]").click()
+
     #########################################################################
 
     ################
@@ -3537,3 +3554,36 @@ class Checker:
     # working
     def page_back(self):
         self.driver.back()
+
+    # working
+    def maximize_window(self):
+        """
+                    Maximizes the Browser window
+
+                """
+        self.driver.maximize_window()
+
+    # working
+    def minimize_window(self):
+        """
+                            Minimizes the Browser window
+
+                        """
+        self.driver.minimize_window()
+
+    # working
+    def set_window_size(self, x_axis, y_axis):
+        """
+                    Set Browser window size as per parameters
+
+                    Parameters
+                    ----------
+
+
+                    :param int x_axis: Browser x axis scale.
+                    :param int y_axis: Browser y axis scale.
+
+                """
+        self.x_axis = x_axis
+        self.y_axis = y_axis
+        self.driver.set_window_size(self.x_axis, self.y_axis)
