@@ -6,6 +6,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.keys import Keys
 import time
 
 """
@@ -3587,3 +3588,9 @@ class Checker:
         self.x_axis = x_axis
         self.y_axis = y_axis
         self.driver.set_window_size(self.x_axis, self.y_axis)
+
+    def enter_key(self, locator):
+        self.lv = locator
+        element = self.driver.find_element(By.XPATH, f"{self.lv}")
+        element.click()
+        element.send_keys(Keys.ENTER)
