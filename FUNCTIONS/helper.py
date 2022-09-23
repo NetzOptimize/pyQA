@@ -3594,3 +3594,9 @@ class Checker:
         element = self.driver.find_element(By.XPATH, f"{self.lv}")
         element.click()
         element.send_keys(Keys.ENTER)
+
+    def backspace_key(self, locator):
+        self.lv = locator
+        element = self.driver.find_element(By.XPATH, f"{self.lv}")
+        element.click()
+        element.send_keys(Keys.BACK_SPACE)
