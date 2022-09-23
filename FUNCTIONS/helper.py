@@ -3537,3 +3537,36 @@ class Checker:
     # working
     def page_back(self):
         self.driver.back()
+
+    # working
+    def maximize_window(self):
+        """
+                    Maximizes the Browser window
+
+                """
+        self.driver.maximize_window()
+
+    # working
+    def minimize_window(self):
+        """
+                            Minimizes the Browser window
+
+                        """
+        self.driver.minimize_window()
+
+    # working
+    def set_window_size(self, x_axis, y_axis):
+        """
+                    Set Browser window size as per parameters
+
+                    Parameters
+                    ----------
+
+
+                    :param int x_axis: Browser x axis scale.
+                    :param int y_axis: Browser y axis scale.
+
+                """
+        self.x_axis = x_axis
+        self.y_axis = y_axis
+        self.driver.set_window_size(self.x_axis, self.y_axis)

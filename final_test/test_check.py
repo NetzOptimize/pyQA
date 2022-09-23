@@ -179,4 +179,11 @@ def test_demo(browser):
     run.display_is_clickable("xpath", "//button[@id='nonclick2']")
 
 
+    ##################
+    # WINDOW SIZE CHANGES
+    ##################
+    run.maximize_window()
+    run.set_window_size(1500,800)
+
+
 
