@@ -1,5 +1,7 @@
 
-# Dynamic web Checker
+![](pyQA.png)
+
+# pyQA
 
 Automate the web testing using simple functions!
 
