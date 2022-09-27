@@ -177,6 +177,32 @@ class Checker:
     def get_driver(self):
         return self.driver
 
+    # working
+    def store_var(self, locator, locator_value):
+        self.locator = locator
+        self.lv = locator_value
+        if self.locator == L_CSS:
+            try:
+                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
+            except:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        elif self.locator == L_XPATH:
+            try:
+                element = self.driver.find_element(By.XPATH, f"{self.lv}")
+            except NoSuchElementException:
+                error = NoSuchElementPresent(
+                    f"{self.locator} -> {self.lv}")
+                print(error.as_string())
+                assert False, f"{error.as_string()}"
+        else:
+            error = IllegalCharError(f"{self.locator}")
+            print(error.as_string())
+            assert False, f"{error.as_string()}"
+        return element
+
     #########################################################################
 
     ################
@@ -209,6 +235,10 @@ class Checker:
             return self.driver.current_url
         except TimeoutException:
             return f"No url found, timeout exception occurred."
+
+    def click_element(self, element):
+        self.element = element
+        self.element.click()
 
     #########################################################################
 
@@ -292,6 +322,11 @@ class Checker:
             error = IllegalCharError(f"{self.locator}")
             print(error.as_string())
             assert False, f"{error.as_string()}"
+
+    def input_element(self,element,ac_value):
+        self.element = element
+        self.ac_value = ac_value
+        self.element.send_keys(f"{self.ac_value}")
 
     # working
     def button(self, locator, locator_value):
@@ -4115,32 +4150,6 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
-    # working
-    def store_var(self, locator, locator_value):
-        self.locator = locator
-        self.lv = locator_value
-        if self.locator == L_CSS:
-            try:
-                element = self.driver.find_element(By.CSS_SELECTOR, f"{self.lv}")
-            except:
-                error = NoSuchElementPresent(
-                    f"{self.locator} -> {self.lv}")
-                print(error.as_string())
-                assert False, f"{error.as_string()}"
-        elif self.locator == L_XPATH:
-            try:
-                element = self.driver.find_element(By.XPATH, f"{self.lv}")
-            except NoSuchElementException:
-                error = NoSuchElementPresent(
-                    f"{self.locator} -> {self.lv}")
-                print(error.as_string())
-                assert False, f"{error.as_string()}"
-        else:
-            error = IllegalCharError(f"{self.locator}")
-            print(error.as_string())
-            assert False, f"{error.as_string()}"
-        return element
-
     #########################################################################
 
     ################
@@ -4593,3 +4602,11 @@ class Checker:
         element = self.driver.find_element(By.XPATH, f"{self.lv}")
         element.click()
         element.send_keys(Keys.BACK_SPACE)
+
+    def backspace_key_element(self, element):
+        self.element = element
+        self.element.send_keys(Keys.BACK_SPACE)
+
+    def enter_key_element(self,element):
+        self.element = element
+        self.element.send_keys(Keys.ENTER)
