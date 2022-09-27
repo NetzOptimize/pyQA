@@ -1,5 +1,6 @@
 import openpyxl
 
+
 # TODO: Make functions for Excel and code link
 # TODO: Link functions with code for smooth viewing
 
@@ -26,4 +27,3 @@ def writeData(file, sheetname, rownum, colnum, data):
     sheet = workbook[sheetname]
     sheet.cell(row=rownum, column=colnum).value = data
     workbook.save(file)
-
