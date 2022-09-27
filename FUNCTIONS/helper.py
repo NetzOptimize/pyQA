@@ -2531,6 +2531,15 @@ class Checker:
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
                     print(error.as_string())
                     assert False, f"{error.as_string()}"
+            elif self.ac == E_ELEMENT_LOCATED_TO_BE_SELECTED:
+                try:
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_located_to_be_selected((By.CSS_SELECTOR, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
             else:
                 error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
