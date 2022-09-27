@@ -69,6 +69,22 @@ A_VISIBLE = 'visible'
 #################
 
 E_CLICKABLE = "element_to_be_clickable"
+E_TITTLE_IS = "title_is"
+E_TITTLE_CONTAINS = "title_contains"
+E_PRESENCE_OF_ELEMENT_LOCATED = "presence_of_element_located"
+E_VISIBILITY_OF_ELEMENT_LOCATED = "visibility_of_element_located"
+E_VISIBILITY_OF = "visibility_of"
+E_PRESENCE_OF_ALL_ELEMENTS_LOCATED = "presence_of_all_elements_located"
+E_TEXT_TO_BE_PRESENT_IN_ELEMENT = "text_to_be_present_in_element"
+E_TEXT_TO_BE_PRESENT_IN_ELEMENT_VALUE = "text_to_be_present_in_element_value"
+E_FRAME_TO_BE_AVAILABLE_AND_SWITCH_TO_IT = "frame_to_be_available_and_switch_to_it"
+E_INVISIBILITY_OF_ELEMENT_LOCATED = "invisibility_of_element_located"
+E_STALENESS_OF = "staleness_of"
+E_ELEMENT_TO_BE_SELECTED = "element_to_be_selected"
+E_ELEMENT_LOCATED_TO_BE_SELECTED = "element_located_to_be_selected"
+E_ELEMENT_SELECTION_STATE_TO_BE = "element_selection_state_to_be"
+E_ELEMENT_LOCATED_SELECTION_STATE_TO_BE = "element_located_selection_state_to_be"
+E_ALERT_IS_PRESENT = "alert_is_present"
 
 
 #################
