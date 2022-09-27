@@ -2486,6 +2486,15 @@ class Checker:
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
                     print(error.as_string())
                     assert False, f"{error.as_string()}"
+            elif self.ac == E_TEXT_TO_BE_PRESENT_IN_ELEMENT_VALUE:
+                try:
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.text_to_be_present_in_element_value((By.CSS_SELECTOR, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
             else:
                 error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
