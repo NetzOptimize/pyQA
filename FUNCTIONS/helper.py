@@ -323,7 +323,7 @@ class Checker:
             print(error.as_string())
             assert False, f"{error.as_string()}"
 
-    def input_element(self,element,ac_value):
+    def input_element(self, element, ac_value):
         self.element = element
         self.ac_value = ac_value
         self.element.send_keys(f"{self.ac_value}")
@@ -2633,7 +2633,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_PRESENCE_OF_ELEMENT_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.presence_of_element_located((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.presence_of_element_located((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2641,7 +2642,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_VISIBILITY_OF_ELEMENT_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.visibility_of_element_located((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.visibility_of_element_located((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2657,7 +2659,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_PRESENCE_OF_ALL_ELEMENTS_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.presence_of_all_elements_located((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.presence_of_all_elements_located((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2665,7 +2668,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_TEXT_TO_BE_PRESENT_IN_ELEMENT:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.text_to_be_present_in_element((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.text_to_be_present_in_element((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2673,7 +2677,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_TEXT_TO_BE_PRESENT_IN_ELEMENT_VALUE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.text_to_be_present_in_element_value((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.text_to_be_present_in_element_value((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2681,7 +2686,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_FRAME_TO_BE_AVAILABLE_AND_SWITCH_TO_IT:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.frame_to_be_available_and_switch_to_it((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.frame_to_be_available_and_switch_to_it((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2689,7 +2695,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_INVISIBILITY_OF_ELEMENT_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.invisibility_of_element_located((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.invisibility_of_element_located((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2713,7 +2720,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_ELEMENT_LOCATED_TO_BE_SELECTED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_located_to_be_selected((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_located_to_be_selected((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2721,7 +2729,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_ELEMENT_SELECTION_STATE_TO_BE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_selection_state_to_be((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_selection_state_to_be((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2729,7 +2738,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_ELEMENT_LOCATED_SELECTION_STATE_TO_BE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_located_selection_state_to_be((By.XPATH, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_located_selection_state_to_be((By.XPATH, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2782,7 +2792,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_VISIBILITY_OF_ELEMENT_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.visibility_of_element_located((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.visibility_of_element_located((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2798,7 +2809,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_PRESENCE_OF_ALL_ELEMENTS_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.presence_of_all_elements_located((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.presence_of_all_elements_located((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2806,7 +2818,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_TEXT_TO_BE_PRESENT_IN_ELEMENT:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.text_to_be_present_in_element((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.text_to_be_present_in_element((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2814,7 +2827,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_TEXT_TO_BE_PRESENT_IN_ELEMENT_VALUE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.text_to_be_present_in_element_value((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.text_to_be_present_in_element_value((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2822,7 +2836,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_FRAME_TO_BE_AVAILABLE_AND_SWITCH_TO_IT:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.frame_to_be_available_and_switch_to_it((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.frame_to_be_available_and_switch_to_it((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2830,7 +2845,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_INVISIBILITY_OF_ELEMENT_LOCATED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.invisibility_of_element_located((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.invisibility_of_element_located((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2854,7 +2870,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_ELEMENT_LOCATED_TO_BE_SELECTED:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_located_to_be_selected((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_located_to_be_selected((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2862,7 +2879,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_ELEMENT_SELECTION_STATE_TO_BE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_selection_state_to_be((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_selection_state_to_be((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -2870,7 +2888,8 @@ class Checker:
                     assert False, f"{error.as_string()}"
             elif self.ac == E_ELEMENT_LOCATED_SELECTION_STATE_TO_BE:
                 try:
-                    WebDriverWait(self.driver, self.time).until(ec.element_located_selection_state_to_be((By.NAME, f"{self.lv}")))
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.element_located_selection_state_to_be((By.NAME, f"{self.lv}")))
                 except TimeoutException:
                     error = NoSuchElementPresent(
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
@@ -4607,6 +4626,11 @@ class Checker:
         self.element = element
         self.element.send_keys(Keys.BACK_SPACE)
 
-    def enter_key_element(self,element):
+    def enter_key_element(self, element):
         self.element = element
         self.element.send_keys(Keys.ENTER)
+
+    def scroll_down(self, y_axis):
+        self.y_axis = y_axis
+        self.y_axis = int(self.y_axis)
+        self.driver.execute_script(f"window.scrollTo(0, {self.y_axis})")
