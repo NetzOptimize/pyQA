@@ -2459,6 +2459,33 @@ class Checker:
                         f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
                     print(error.as_string())
                     assert False, f"{error.as_string()}"
+            elif self.ac == E_VISIBILITY_OF:
+                try:
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.visibility_of((By.CSS_SELECTOR, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == E_PRESENCE_OF_ALL_ELEMENTS_LOCATED:
+                try:
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.presence_of_all_elements_located((By.CSS_SELECTOR, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
+            elif self.ac == E_TEXT_TO_BE_PRESENT_IN_ELEMENT:
+                try:
+                    WebDriverWait(self.driver, self.time).until(
+                        ec.text_to_be_present_in_element((By.CSS_SELECTOR, f"{self.lv}")))
+                except TimeoutException:
+                    error = NoSuchElementPresent(
+                        f"{self.time} -> {self.ac} -> {self.locator} -> {self.lv}")
+                    print(error.as_string())
+                    assert False, f"{error.as_string()}"
             else:
                 error = IllegalCharError(f"{self.ac}")
                 print(error.as_string())
