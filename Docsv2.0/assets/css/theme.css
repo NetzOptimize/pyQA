@@ -4984,6 +4984,12 @@ textarea.form-control-lg{
     }
 }
 @media (max-width: 1199.98px){
+.search-form.function-page{
+display:none;
+}
+.docs-logo-wrapper{
+display:flex;
+}
     .modal-fullscreen-xl-down{
         width:100vw;
         max-width:none;
@@ -8606,8 +8612,8 @@ textarea.form-control-lg{
         margin-left:1.5rem !important
     }
     .mx-lg-5{
-        margin-right:3rem !important;
-        margin-left:3rem !important
+        margin-right:2rem !important;
+        margin-left:1rem !important
     }
     .mx-lg-auto{
         margin-right:auto !important;
@@ -10019,6 +10025,9 @@ a.text-link:hover{
     background:#28b76b;
     color:#fff
 }
+.repo-btn.btn-primary{
+margin-right:   15px;
+}
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active{
     color:#fff
 }
@@ -10247,6 +10256,10 @@ a.text-link:hover{
     max-width: 600px;
 margin: 30px auto 0px;
     width:100%
+}
+.search-form.function-page{
+margin: 0px;
+max-width:400px;
 }
 .search-form .search-input {
  background: #fff;
@@ -10636,9 +10649,8 @@ box-shadow: 0px 6px 5px 3px rgba(0, 0, 0,0.12);
 label{
   display: block;
   height: 15px;
-  width: 60px;
+  width: 18px;
   position: relative;
-  margin: 0px auto;
 }
 span.slide {
   position: absolute;

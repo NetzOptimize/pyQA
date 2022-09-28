@@ -10,25 +10,25 @@ const sidebarLinks = document.querySelectorAll('#docs-sidebar .scrollto');
 
 /* ===== Responsive Sidebar ====== */
 
-window.onload=function() 
-{ 
-    responsiveSidebar(); 
+window.onload=function()
+{
+    responsiveSidebar();
 };
 
-window.onresize=function() 
-{ 
-    responsiveSidebar(); 
+window.onresize=function()
+{
+    responsiveSidebar();
 };
 
 
 function responsiveSidebar() {
     let w = window.innerWidth;
 	if(w >= 1200) {
-	    // if larger 
+	    // if larger
 	    console.log('larger');
 		sidebar.classList.remove('sidebar-hidden');
 		sidebar.classList.add('sidebar-visible');
-		
+
 	} else {
 	    // if smaller
 	    console.log('smaller');
@@ -42,7 +42,7 @@ sidebarToggler.addEventListener('click', () => {
 		console.log('visible');
 		sidebar.classList.remove('sidebar-visible');
 		sidebar.classList.add('sidebar-hidden');
-		
+
 	} else {
 		console.log('hidden');
 		sidebar.classList.remove('sidebar-hidden');
