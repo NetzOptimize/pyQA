@@ -94,14 +94,13 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">With X-path</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">With CSS</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Types of actions</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-5-4">Other Selectors</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span><code>.dynamic_dropdown()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">With X-path</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">With CSS</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Types of actions</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-6-4">Other Selectors</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span><code>.slowmo()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">Section Item 7.1</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-2">Section Item 7.2</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-3">Section Item 7.3</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Dealing with alert boxes</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1"><code>.popup_accept()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2"><code>.popup_decline()</code></a></li>
@@ -535,22 +534,77 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.input()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>This function takes an input and types it into the path given to the element.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-3-1">
 						<h2 class="section-heading">With X-path</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						 <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.input("xpath", "//path", "Sample Value")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-2">
 						<h2 class="section-heading">With CSS</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.input("css", "//path", "Sample Value")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-3">
 						<h2 class="section-heading">Other Selectors</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<p>Other selectors which can be used:</p>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.input("name", "//path", "Sample Value")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.input("link_text", "//path", "Sample Value")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.input("partial_link_text", "//path", "Sample Value")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.input("tag_name", "//path", "Sample Value")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.input("class_name", "//path", "Sample Value")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -558,22 +612,73 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.button()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>This function takes an input of the element path and clicks it..</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-4-1">
 						<h2 class="section-heading">With X-path</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.button("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 
 					<section class="docs-section" id="item-4-2">
 						<h2 class="section-heading">With CSS</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.button("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 
 					<section class="docs-section" id="item-4-3">
 						<h2 class="section-heading">Other Selectors</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.button("name", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.button("link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.button("partial_link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.button("tag_name", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.button("class_name", "//path")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -581,22 +686,97 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.static_dropdown()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>This command picks and selects the value under a <code>select</code> tag.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-5-1">
 						<h2 class="section-heading">With X-path</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.static_dropdown("xpath", "//path", "index", "3")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+					 </section><!--//section-->
 
 					<section class="docs-section" id="item-5-2">
 						<h2 class="section-heading">With CSS</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.static_dropdown("css", "//path", "index", "3")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>							</section><!--//section-->
 
 					<section class="docs-section" id="item-5-3">
 							<h2 class="section-heading">Types of actions</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+<p>There are 3 ways by which you can select a value from the dropdown. index takes the position of the element;value takes the value given to that particular element; visible takes the element name given in the dropdown.</p>
+						<h5>With index:</h5>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.static_dropdown("xpath", "//path", "index", "3")
+</code></pre>
+												<h5>With value:</h5>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.static_dropdown("xpath", "//path", "value", "1")
+</code></pre>
+												<h5>With visibility:</h5>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.static_dropdown("xpath", "//path", "visible", "OptionName")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+					</section><!--//section-->
+					<section class="docs-section" id="item-5-4">
+						<h2 class="section-heading">Other Selectors</h2>
+<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.static_dropdown("name", "//path", "value", "1")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.static_dropdown("link_text", "//path", "value", "1")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.static_dropdown("partial_link_text", "//path", "value", "1")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.static_dropdown("tag_name", "//path", "value", "1")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.static_dropdown("class_name", "//path", "value", "1")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -605,22 +785,90 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.dynamic_dropdown()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>This command picks and selects the value under a <code>dynamic</code> dropdown. The first path is for the dropdown, and the second path is for all the elements under the dropdown.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-6-1">
 						<h2 class="section-heading">With X-path</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>There are many ways of selecting an element, the most effective way is using XPATH. Here the second path can be any, CSS or XPATH or other provided options.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.dynamic_dropdown("input", "xpath", "//path", "i", "xpath", "//path", "index", "4")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 
 					<section class="docs-section" id="item-6-2">
 						<h2 class="section-heading">With CSS</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>If XPATH is not what works great for the work, CSS selector is also an option. Here the second path can be any, CSS or XPATH or other provided options.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.dynamic_dropdown("input", "css", "//path", "i", "xpath", "//path", "index", "4")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 
 					<section class="docs-section" id="item-6-3">
 							<h2 class="section-heading">Types of actions</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+<p>There are 2 ways by which you can select a value from the dropdown. index takes the position of the element;value takes the exact name of a specific dropdown element.</p>
+						<h5>With index:</h5>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.dynamic_dropdown("input", "xpath", "//path", "i", "xpath", "//path", "index", "4")
+</code></pre>
+												<h5>With value:</h5>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.dynamic_dropdown("input", "xpath", "//path", "i", "xpath", "//path", "value", "India")
+</code></pre>
+					</section><!--//section-->
+					</section><!--//section-->
+					<section class="docs-section" id="item-6-4">
+						<h2 class="section-heading">Other Selectors</h2>
+<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.dynamic_dropdown("input", "name", "//path", "i", "xpath", "//path", "index", "4")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.dynamic_dropdown("input", "link_text", "//path", "i", "xpath", "//path", "index", "4")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.dynamic_dropdown("input", "partial_link_text", "//path", "i", "xpath", "//path", "index", "4")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.dynamic_dropdown("input", "tag_name", "//path", "i", "xpath", "//path", "index", "4")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.dynamic_dropdown("input", "class_name", "//path", "i", "xpath", "//path", "index", "4")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -629,23 +877,17 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.slowmo()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+<p>This command slows down the browser instance for the inputted time in seconds. (This does not slow the whole browser instance, it only slows it for that particular command and continues back with its original speed.)</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.slowmo(2)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 						</section><!--//docs-intro-->
 				    </header>
-				     <section class="docs-section" id="item-7-1">
-						<h2 class="section-heading">Section Item 7.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-7-2">
-						<h2 class="section-heading">Section Item 7.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-7-3">
-							<h2 class="section-heading">Section Item 7.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 
