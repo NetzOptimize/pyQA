@@ -895,23 +895,46 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Dealing with alert boxes</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>This command helps you to accept, decline and print the text of an alert box.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-8-1">
 						<h2 class="section-heading"><code>.popup_accept()</code></h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>Use this command to accept an alert box.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.popup_accept()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+					 </section><!--//section-->
 
 					<section class="docs-section" id="item-8-2">
 						<h2 class="section-heading"><code>.popup_decline()</code></h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>Use this command to decline an alert box.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.popup_decline()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 
 					<section class="docs-section" id="item-8-3">
 							<h2 class="section-heading"><code>.popup_text</code></h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>Use this command to print the text displayed on the alert box..</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   popup_text = run.popup_text()
+   print(f"This is the popup text: {popup_text}")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 
