@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Bootstrap 4 Template For Software Startups">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <meta name="description" content="pyQA functions">
+    <meta name="author" content="Montek">
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Google Font -->
@@ -112,7 +112,6 @@
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-10"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Waits</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-10-1"><code>.implicit_wait()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-10-2"><code>.explicit_wait()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-10-3">Section Item 10.3</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-11"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span><code>.mouse_hover()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-1">With X-path</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-2">With CSS</a></li>
@@ -140,11 +139,9 @@
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-17"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Visible Elements</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-17-1"><code>.return_is_visible()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-17-2"><code>.display_is_visible()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-17-3">Section Item 17.3</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-18"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Clickable Elements</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-18-1"><code>.return_is_clickable()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-18-2"><code>.display_is_clickable()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-18-3">Section Item 18.3</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-19"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Drag and Drop</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-1"><code>.drag_and_drop()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-2"><code>.drag_and_drop()</code></a></li>
@@ -947,6 +944,8 @@ def test_example(browser):
 				    </header>
 				     <section class="docs-section" id="item-9-1">
 						<h2 class="section-heading">With X-path</h2>
+						 <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+
 						<h5>Example:</h5>
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
@@ -960,7 +959,8 @@ def test_example(browser):
 
 					<section class="docs-section" id="item-9-2">
 						<h2 class="section-heading">With CSS</h2>
-							<h5>Example:</h5>
+						<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+						<h5>Example:</h5>
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
 def test_example(browser):
@@ -973,12 +973,44 @@ def test_example(browser):
 
 					<section class="docs-section" id="item-9-3">
 							<h2 class="section-heading">Other Selectors</h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						    <div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.file_upload("name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.file_upload("link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.file_upload("partial_link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.file_upload("tag_name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.file_upload("class_name", "//path", "filepath")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1024,15 +1056,6 @@ def test_example(browser):
 
 					</section><!--//section-->
 
-					<section class="docs-section" id="item-10-3">
-							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 				<article class="docs-article" id="section-11">
@@ -1044,7 +1067,8 @@ def test_example(browser):
 				    </header>
 				     <section class="docs-section" id="item-11-1">
 						<h2 class="section-heading">With X-path</h2>
-						 	        <h5>Example:</h5>
+						 <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+						 <h5>Example:</h5>
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
@@ -1058,6 +1082,7 @@ def test_example(browser):
 
 					<section class="docs-section" id="item-11-2">
 						<h2 class="section-heading">With CSS</h2>
+						<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
 						      <h5>Example:</h5>
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
@@ -1072,12 +1097,44 @@ def test_example(browser):
 
 					<section class="docs-section" id="item-11-3">
 							<h2 class="section-heading">Other Selectors</h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						        <div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.file_upload("name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.file_upload("link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.file_upload("partial_link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.file_upload("tag_name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.file_upload("class_name", "//path", "filepath")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1147,13 +1204,86 @@ def test_example(browser):
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-12-3">
-							<h2 class="section-heading">Other Selectors</h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<h2 class="section-heading"><code>.right_click()</code></h2>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.right_click("name", "//path")</code>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.right_click("link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.right_click("partial_link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.right_click("tag_name", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.right_click("class_name", "//path")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+						<h2 class="section-heading"><code>.double_click()</code></h2>
+							<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.double_click("name", "//path")</code>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.double_click("link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.double_click("partial_link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.double_click("tag_name", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.double_click("class_name", "//path")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1482,16 +1612,6 @@ def test_example(browser):
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
 					</section><!--//section-->
-
-					<section class="docs-section" id="item-17-3">
-							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 				<article class="docs-article" id="section-18">
@@ -1531,16 +1651,6 @@ def test_example(browser):
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
 
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-18-3">
-							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
