@@ -1218,43 +1218,101 @@ def test_example(browser):
 
 				<article class="docs-article" id="section-14">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Displaying Text</h1>
+					    <h1 class="docs-heading">Displaying website URL</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-14-1">
 						<h2 class="section-heading"><code>.return_text()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <p>This command returns the text written on a particular element.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   text = run.return_text("xpath", "//path")
+   print(text)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   text = run.return_text("css", "//path")
+   print(text)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-14-2">
 						<h2 class="section-heading"><code>.display_text()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command prints the text written on a particular element.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_text("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_text("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-14-3">
 							<h2 class="section-heading"><code>.return_all_inner_text()</code></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command returns texts in a list of all elements with similar selector path.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_all_inner_text("xpath", "//path")
+   print(a)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_all_inner_text("css", "//path")
+   print(a)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+
+
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
