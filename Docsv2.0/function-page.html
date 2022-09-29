@@ -998,9 +998,9 @@ def test_example(browser):
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.implicit_wait(4.5)
+def test_example(browser):
+   run = Checker("url", browser)
+   run.implicit_wait(4.5)
 </code></pre>
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
@@ -1016,9 +1016,9 @@ from FUNCTIONS.helper import Checker
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.explicit_wait(5, "element_to_be_clickable", "xpath", "//path]")
+def test_example(browser):
+   run = Checker("url", browser)
+   run.explicit_wait(5, "element_to_be_clickable", "xpath", "//path]")
 </code></pre>
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
@@ -1048,9 +1048,9 @@ from FUNCTIONS.helper import Checker
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.mouse_hover("xpath", "//path")
+def test_example(browser):
+   run = Checker("url", browser)
+   run.mouse_hover("xpath", "//path")
 </code></pre>
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
@@ -1062,9 +1062,9 @@ from FUNCTIONS.helper import Checker
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.mouse_hover("css", "//path")
+def test_example(browser):
+   run = Checker("url", browser)
+   run.mouse_hover("css", "//path")
 </code></pre>
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
@@ -1095,9 +1095,9 @@ from FUNCTIONS.helper import Checker
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.mouse_hover("xpath", "//path")
+def test_example(browser):
+   run = Checker("url", browser)
+   run.right_click("xpath", "//path")
 </code></pre>
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
@@ -1108,9 +1108,9 @@ from FUNCTIONS.helper import Checker
 						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
 							<pre class="shadow-lg rounded"><code class="python">
 from FUNCTIONS.helper import Checker
-    def test(browser):
-        run = Checker("url", browser)
-        run.mouse_hover("css", "//path")
+def test_example(browser):
+   run = Checker("url", browser)
+   run.right_click("css", "//path")
 </code></pre>
 					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
@@ -1118,14 +1118,32 @@ from FUNCTIONS.helper import Checker
 
 					<section class="docs-section" id="item-12-2">
 						<h2 class="section-heading"><code>.double_click()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command is used to double click on an element or anywhere on the browser window.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.double_click("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.double_click("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-12-3">
@@ -1143,31 +1161,48 @@ from FUNCTIONS.helper import Checker
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Frames</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-13-1">
 						<h2 class="section-heading"><code>.shift_to_frame()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 	<p>Use this command to shift to a frame and perform other functions in the frame provided.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.shift_to_frame("xpath", "//iframe")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.shift_to_frame("css", "//iframe")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-13-2">
 						<h2 class="section-heading"><code>.leave_frame()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+							 	<p>Use this function to exit from the current frame and perform other functions to the webpage.</p>
+							<pre class="shadow-lg rounded"><code class="python">
+from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.leave_frame()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-13-3">
