@@ -124,16 +124,17 @@ It has built in pre-written functions, which use selenium as its backbone, all t
 				    </header>
 				    <section class="docs-section" id="item-1-1">
 						<h2 class="section-heading">Motivation</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. </p>
-
+						<p>Learning all new concepts and working of tools, their structure their syntax, it was time consuming, and so was manually testing products. We needed a something which was simple to use and with comparatively less code.
+						Selenium is one of the best and a powerful option for web automation, and Pytest can be used to write various types of software tests, including unit tests, integration tests, end-to-end tests, and functional tests.
+						Instead of diving deep in all the tools associated with automation testing, we wanted simple to use commands which are easy to understand even for a beginner programmer or a new person on a project.</p>
                         
                        
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-1-2">
 						<h2 class="section-heading">Solution</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-
+						<p><strong>pyQA</strong> was created to solve all the issues we stated above. It has pre written built-in functions, which use Selenium as backbone. To run all tests we use Pytest. Also as Playwright offered test with multiple
+						browsers at once, pyQA also offers this feature. This highly customisable and scalable framework offers: simple code and file structure and endless customizability.</p>
 						
 						
 					</section><!--//section-->
@@ -141,13 +142,48 @@ It has built in pre-written functions, which use selenium as its backbone, all t
 					<section class="docs-section" id="item-1-3">
 						<h2 class="section-heading">Structure</h2>
 						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<div class="mermaid">
+                            flowchart TB
+                                helper.py-- Functions are called from each test-->folders
+                                locator.json-- For each test--->folders
+                                conftest.py-- For each test-->folders
+                                pytest.ini-->conftest.py
+                                folders-- Each test genearates and overwrites for the same day--->day-month-year.html
+                                day-month-year.log--->day-month-year.html
+                                folders-- Each test genearates and overwrites for the same day--->logs
+                                default_css--->day-month-year.html
+                                subgraph folders
+                                    subgraph smoke
+                                    test_check.py
+                                    end
+                                    subgraph tests
+                                    test_finalassert.py
+                                    end
+                                end
 
+                                subgraph reports
+                                day-month-year---assets
+                                assets---default_css
+                                day-month-year--->day-month-year.html
+                                end
+                                subgraph locators
+                                locator.json
+                                end
+                                subgraph FUNCTIONS
+                                helper.py
+                                end
+                                subgraph logs
+                                day-month-year.log
+                                end
+                                conftest.py
+                                pytest.ini{pytest.ini}
+                        </div>
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-1-4">
 						<h2 class="section-heading">Scalabilty</h2>
 						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-						
+
 
 					</section><!--//section-->
 					<section class="docs-section" id="item-1-5">
@@ -365,6 +401,7 @@ It has built in pre-written functions, which use selenium as its backbone, all t
     
     
     <!-- Page Specific JS -->
+	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="assets/plugins/smoothscroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
     <script src="assets/js/highlight-custom.js"></script> 
