@@ -6,7 +6,7 @@ inputBox.onkeyup = (e) => {
   let emptyArray = [];
   if (userData){
     emptyArray = Object.keys(suggest).filter((data) => {
-      return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+      return data.toLocaleLowerCase().includes(userData.toLocaleLowerCase());
     });
     linkArray = emptyArray
     emptyArray = emptyArray.map((data) => {
@@ -16,9 +16,9 @@ inputBox.onkeyup = (e) => {
     showSuggestions(emptyArray)
     let allList = suggBox.querySelectorAll("a");
     for (let i = 0; i < allList.length; i++) {
-            console.log(linkArray)
+//            console.log(linkArray)
             var link = Object.values(suggest).find(value => suggest[linkArray[i]] === value);
-            allList[i].setAttribute('href', "docs-page.html" + link)
+            allList[i].setAttribute('href', link)
     }
   }
   else{
