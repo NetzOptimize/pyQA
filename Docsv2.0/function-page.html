@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Bootstrap 4 Template For Software Startups">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <meta name="description" content="pyQA functions">
+    <meta name="author" content="Montek">
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Google Font -->
@@ -112,7 +112,6 @@
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-10"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Waits</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-10-1"><code>.implicit_wait()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-10-2"><code>.explicit_wait()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-10-3">Section Item 10.3</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-11"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span><code>.mouse_hover()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-1">With X-path</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-2">With CSS</a></li>
@@ -140,11 +139,9 @@
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-17"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Visible Elements</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-17-1"><code>.return_is_visible()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-17-2"><code>.display_is_visible()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-17-3">Section Item 17.3</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-18"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Clickable Elements</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-18-1"><code>.return_is_clickable()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-18-2"><code>.display_is_clickable()</code></a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-18-3">Section Item 18.3</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-19"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>Drag and Drop</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-1"><code>.drag_and_drop()</code></a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-19-2"><code>.drag_and_drop()</code></a></li>
@@ -161,7 +158,7 @@
 		    <div class="container">
 			    <article class="docs-article" id="section-1">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">List of functions <span class="docs-time">Last updated: 2019-06-01</span></h1>
+					    <h1 class="docs-heading">List of functions <span class="docs-time">Last updated: 2022-10-01</span></h1>
 					    <section class="docs-intro">
 						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
 						</section><!--//docs-intro-->
@@ -895,23 +892,46 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Dealing with alert boxes</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>This command helps you to accept, decline and print the text of an alert box.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-8-1">
 						<h2 class="section-heading"><code>.popup_accept()</code></h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>Use this command to accept an alert box.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.popup_accept()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+					 </section><!--//section-->
 
 					<section class="docs-section" id="item-8-2">
 						<h2 class="section-heading"><code>.popup_decline()</code></h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>Use this command to decline an alert box.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.popup_decline()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 
 					<section class="docs-section" id="item-8-3">
 							<h2 class="section-heading"><code>.popup_text</code></h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+<p>Use this command to print the text displayed on the alert box..</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   popup_text = run.popup_text()
+   print(f"This is the popup text: {popup_text}")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 
@@ -919,41 +939,78 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.file_upload()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
+						    <p>This command lets you input your absolute filepath and upload it to the element which requires an upload.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-9-1">
 						<h2 class="section-heading">With X-path</h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.file_upload("xpath", "//path", "filepath")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-9-2">
 						<h2 class="section-heading">With CSS</h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+						<h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.file_upload("css", "//path", "filepath")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-9-3">
 							<h2 class="section-heading">Other Selectors</h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						    <div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.file_upload("name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.file_upload("link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.file_upload("partial_link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.file_upload("tag_name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.file_upload("class_name", "//path", "filepath")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -961,83 +1018,119 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Waits</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your Clickable Elements using the format below.</p>
+						    <p>Waits are used when you have the automated task execution elapse a certain amount of time before continuing with the next step.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-10-1">
 						<h2 class="section-heading"><code>.implicit_wait()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <p>By implicitly waiting, WebDriver polls the DOM for a certain duration when trying to find any element.
+						 This can be useful when certain elements on the webpage are not available immediately and need some time to load.
+						 Value is given in seconds.</p>
+						        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.implicit_wait(4.5)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-10-2">
 						<h2 class="section-heading"><code>.explicit_wait()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This allow your code to halt program execution, or freeze the thread, until the condition you pass it resolves.
+						The condition is called with a certain frequency until the timeout of the wait is elapsed.
+						This means that for as long as the condition returns a falsy value, it will keep trying and waiting.
+						This command requires you to input, the time period (in seconds), the condition to perform, here again you have choice for xpath/css or other provided selectors, and lastly you have to provide the selector path.</p>
+						        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.explicit_wait(5, "element_to_be_clickable", "xpath", "//path]")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
-					<section class="docs-section" id="item-10-3">
-							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
 			    </article><!--//docs-article-->
 
 				<article class="docs-article" id="section-11">
 				    <header class="docs-header">
 					    <h1 class="docs-heading"><code>.mouse_hover()</code></h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
+						    <p>This command lets you hover the mouse over an element.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-11-1">
 						<h2 class="section-heading">With X-path</h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <p>There are many ways of selecting an element, the most effective way is using XPATH.</p>
+						 <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.mouse_hover("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-11-2">
 						<h2 class="section-heading">With CSS</h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>If XPATH is not what works great for the work, CSS selector is also an option.</p>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.mouse_hover("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-11-3">
 							<h2 class="section-heading">Other Selectors</h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						        <div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.file_upload("name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.file_upload("link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.file_upload("partial_link_text", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.file_upload("tag_name", "//path", "filepath")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.file_upload("class_name", "//path", "filepath")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1045,41 +1138,144 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Clicks</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-12-1">
 						<h2 class="section-heading"><code>.right_click()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+				        <p>This command is used to right click on an element or anywhere on the browser window.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.right_click("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.right_click("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-12-2">
 						<h2 class="section-heading"><code>.double_click()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command is used to double click on an element or anywhere on the browser window.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.double_click("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.double_click("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-12-3">
-							<h2 class="section-heading">Other Selectors</h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<h2 class="section-heading"><code>.right_click()</code></h2>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.right_click("name", "//path")</code>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.right_click("link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.right_click("partial_link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.right_click("tag_name", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.right_click("class_name", "//path")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+						<h2 class="section-heading"><code>.double_click()</code></h2>
+							<div class="table-responsive my-4">
+							<table class="table table-bordered table-dark">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Selector</th>
+										<th scope="col">Usage</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>name</td>
+										<td><code>run.double_click("name", "//path")</code>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>link_text</td>
+										<td><code>run.double_click("link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>partial_link_text</td>
+										<td><code>run.double_click("partial_link_text", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>tag_name</td>
+										<td><code>run.double_click("tag_name", "//path")</code></td>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>class_name</td>
+										<td><code>run.double_click("class_name", "//path")</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1087,31 +1283,45 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Frames</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-13-1">
 						<h2 class="section-heading"><code>.shift_to_frame()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 	<p>Use this command to shift to a frame and perform other functions in the frame provided.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.shift_to_frame("xpath", "//iframe")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.shift_to_frame("css", "//iframe")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-13-2">
 						<h2 class="section-heading"><code>.leave_frame()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+							 	<p>Use this function to exit from the current frame and perform other functions to the webpage.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.leave_frame()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-13-3">
@@ -1129,41 +1339,91 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Displaying Text</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-14-1">
 						<h2 class="section-heading"><code>.return_text()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <p>This command returns the text written on a particular element.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   text = run.return_text("xpath", "//path")
+   print(text)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   text = run.return_text("css", "//path")
+   print(text)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-14-2">
 						<h2 class="section-heading"><code>.display_text()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command prints the text written on a particular element.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_text("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_text("css", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-14-3">
 							<h2 class="section-heading"><code>.return_all_inner_text()</code></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command returns texts in a list of all elements with similar selector path.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_all_inner_text("xpath", "//path")
+   print(a)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_all_inner_text("css", "//path")
+   print(a)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1171,31 +1431,62 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Getting attributes</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-15-1">
 						<h2 class="section-heading"><code>.return_attribute()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <p>This command returns the css attribute of a particular element, argument required by the function can be any attribute of css.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   text = run.return_attribute("xpath", "//path", "placeholder")
+   print(text))
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   text = run.return_attribute("css", "//path", "placeholder")
+   print(text)
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-15-2">
 						<h2 class="section-heading"><code>.display_attribute()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<p>This command prints the css attribute of a particular element, argument required by the function can be any attribute of css.</p>
+						<h2>With X-path</h2>
+						 	        <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_attribute("xpath", "//path", "placeholder")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
+	<br>
+						 <br>
+						<h2>With CSS</h2>
+						      <h5>Example:</h5>
+						 <p>You have you add the url of the page that you are checking in <code>"url"</code> field.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_attribute("css", "//path", "placeholder")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-15-3">
@@ -1213,41 +1504,50 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Checkboxes</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
+
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-16-1">
 						<h2 class="section-heading"><code>.return_is_checked()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <br>
+						 <p>This command returns true if the checkbox is checked else returns false.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_is_checked("xpath", "//path")
+   if a:
+       print("yes")  # checkbox is checked
+   else:
+       print("no")  # checkbox is not checked
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-16-2">
 						<h2 class="section-heading"><code>.display_is_checked()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<br>
+						 <p>This command prints "Checkbox is checked" if the checkbox is checked else prints "Checkbox not checked".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_ is_checked("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-16-3">
 							<h2 class="section-heading"><code>.check_all()</code></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<br>
+						 <p>This command checks all the checkboxes.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.check_all()
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1255,41 +1555,36 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Visible Elements</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-17-1">
 						<h2 class="section-heading"><code>.return_is_visible()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <br>
+						 <p>This command returns true if the element is visible on the browser else returns false.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_is_visible("xpath", "//path")
+   if a:
+       print("yes")  # is visible
+   else:
+       print("no")  # not visible
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-17-2">
 						<h2 class="section-heading"><code>.display_is_visible()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
+						<br>
+						 <p>This command prints "Element is visible" if the element is visible on the browser else prints "Element not visible"</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_visible("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
-					<section class="docs-section" id="item-17-3">
-							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1297,41 +1592,36 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Clickable Elements</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-18-1">
 						<h2 class="section-heading"><code>.return_is_clickable()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <br>
+						 <p>This command returns true if the element is clickable else returns false.</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   a = run.return_is_clickable("xpath", "//path")
+   if a:
+       print("yes")  # is clickable
+   else:
+       print("no")  # not clickable
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-18-2">
 						<h2 class="section-heading"><code>.display_is_clickable()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
+						<br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 
-					<section class="docs-section" id="item-18-3">
-							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 
@@ -1339,83 +1629,86 @@ def test_example(browser):
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Drag and Drop</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-19-1">
 						<h2 class="section-heading"><code>.drag_and_drop()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-19-2">
 						<h2 class="section-heading"><code>.drag_and_drop()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-19-3">
 							<h2 class="section-heading"><code>.drag_and_drop()</code></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						   <br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 				<article class="docs-article" id="section-20">
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Click and Hold</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. You can list all your FAQs using the format below.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-20-1">
 						<h2 class="section-heading"><code>.click_and_hold()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						 <br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-20-2">
 						<h2 class="section-heading"><code>.click_and_hold()</code></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
+						<br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-20-3">
 							<h2 class="section-heading"><code>.click_and_hold()</code></h2>
-						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo vel fermentum?</h5>
-							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo. Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
+						  <br>
+						 <p>This command prints "Element is clickable" if the element is clickable on the browser else prints "Element not clickable".</p>
+							<pre class="shadow-lg rounded"><code class="python">from FUNCTIONS.helper import Checker
+def test_example(browser):
+   run = Checker("url", browser)
+   run.display_is_clickable("xpath", "//path")
+</code></pre>
+					<a href="https://github.com/NetzOptimize/pyQA/issues" target="_blank" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report Bugs</a>
 			    </article><!--//docs-article-->
 
 
@@ -1445,6 +1738,7 @@ def test_example(browser):
     <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
     <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
     <script src="assets/js/docs.js"></script>
+	<script src="assets/js/sidebar.js"></script>
 
 </body>
 </html>
