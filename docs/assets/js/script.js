@@ -16,7 +16,7 @@ inputBox.onkeyup = (e) => {
     showSuggestions(emptyArray)
     let allList = suggBox.querySelectorAll("a");
     for (let i = 0; i < allList.length; i++) {
-            console.log(linkArray)
+//            console.log(linkArray)
             var link = Object.values(suggest).find(value => suggest[linkArray[i]] === value);
             allList[i].setAttribute('href', link)
     }
