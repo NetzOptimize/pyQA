@@ -4634,3 +4634,15 @@ class Checker:
         self.y_axis = y_axis
         self.y_axis = int(self.y_axis)
         self.driver.execute_script(f"window.scrollTo(0, {self.y_axis})")
+
+    def listToString(self, obj):
+        self.obj = obj
+        # initialize an empty string
+        obj1 = ""
+        # traverse in the string
+        for ele in obj1:
+            obj1 += ele
+        # return string
+        return obj1
+
+    
