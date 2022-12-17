@@ -4638,11 +4638,11 @@ class Checker:
     def listToString(self, obj):
         self.obj = obj
         # initialize an empty string
-        str1 = ""
+        obj1 = ""
         # traverse in the string
-        for ele in obj:
-            str1 += ele
+        for ele in obj1:
+            obj1 += ele
         # return string
-        return str1
+        return obj1
 
     
