@@ -4640,7 +4640,7 @@ class Checker:
         # initialize an empty string
         obj1 = ""
         # traverse in the string
-        for ele in obj1:
+        for ele in obj:
             obj1 += ele
         # return string
         return obj1
