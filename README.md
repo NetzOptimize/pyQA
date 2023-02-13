@@ -109,7 +109,8 @@ Any additional information goes here
 ## Authors
 
 - [@montekkundan](https://www.github.com/Montekkundan)
-
+- [@thakuravneet] (https://github.com/thakuravneet)
+- [@pritwinderss] (https://github.com/pritwinderss)
 
 ## Feedback
 
