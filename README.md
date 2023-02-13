@@ -109,9 +109,9 @@ Any additional information goes here
 ## Authors
 
 - [@montekkundan](https://www.github.com/Montekkundan)
-- [@thakuravneet] (https://github.com/thakuravneet)
-- [@pritwinderss] (https://github.com/pritwinderss)
+- [@thakuravneet](https://github.com/thakuravneet)
+- [@pritwinderss](https://github.com/pritwinderss)
 
 ## Feedback
 
-If you have any feedback, please reach out at fake@fake.com
+If you have any feedback, please reach out at contact@netzoptimize.com
