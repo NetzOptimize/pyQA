@@ -48,6 +48,7 @@ chrome_options.add_argument('--headless')
 ##################################################################
 # firefox_options.add_argument('--disable-blink-features=AutomationControlled')
 firefox_options.headless = True
+firefox_options.add_argument("--headless")
 
 
 ##################################################################
