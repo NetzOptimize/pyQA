@@ -39,7 +39,20 @@ edge_options.add_argument("headless")
 edge_options.add_argument("disable-gpu")
 ##################################################################
 chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-extensions')
+chrome_options.add_argument('--disable-infobars')
+# chrome_options.add_argument('--start-maximized')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-features=NetworkService')
+chrome_options.add_argument('--disable-features=VizDisplayCompositor')
+chrome_options.add_argument('--disable-site-isolation-trials')
+chrome_options.add_argument('--disable-web-security')
+chrome_options.add_argument('--allow-running-insecure-content')
+chrome_options.add_argument('--disable-popup-blocking')
+chrome_options.add_argument('--ignore-certificate-errors')
 # chrome_options.add_argument('--disable-gpu')
 # chrome_options.add_argument('--disable-dev-shm-usage')
 # chrome_options.add_argument('--profile-directory=Default')
@@ -97,11 +110,10 @@ def pytest_generate_tests(metafunc):
         # CHROME
         ###################################
         if browser1 == "chrome":
-            chrome_options.headless = True
+            chrome_options.add_argument('--headless')
             parameters += [webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)]
             ids += ["chrome"]
         if browser1 == "chrome-head":
-            chrome_options.headless = False
             parameters += [webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)]
             ids += ["chrome-head"]
         ###################################
@@ -176,6 +188,7 @@ def pytest_generate_tests(metafunc):
         # IF NOTHING IS SPECIFIED DEFAULT BROWSER -> CHROME
         ###################################
         if browser1 is None and browser2 is None:
+            chrome_options.add_argument('--headless')
             parameters += [webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)]
             ids += ["chrome"]
 
