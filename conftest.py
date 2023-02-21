@@ -185,7 +185,7 @@ def pytest_generate_tests(metafunc):
         if browser2 not in browsers and browser2 is not None:
             pytest.fail("No such browser")
         ###################################
-        # IF NOTHING IS SPECIFIED DEFAULT BROWSER -> CHROME
+        # IF NOTHING IS SPECIFIED DEFAULT BROWSER -> CHROME HEADLESS
         ###################################
         if browser1 is None and browser2 is None:
             chrome_options.add_argument('--headless')
