@@ -3844,7 +3844,7 @@ class Checker:
             try:
                 input_obj = self.driver.find_elements(By.CSS_SELECTOR, f"{self.lv}")
                 if len(input_obj) == 0:
-                    print(f"There are no text to return, try checking the locator value.{self.lv}")
+                    print(f"\nThere are no text to return, try checking the locator value. Element value: {self.lv}\n")
                 for element in input_obj:
                     array_elements.append(element.text)
             except NoSuchElementException:
@@ -3856,7 +3856,7 @@ class Checker:
             try:
                 input_obj = self.driver.find_elements(By.XPATH, f"{self.lv}")
                 if len(input_obj) == 0:
-                    print(f"There are no text to return, try checking the locator value.{self.lv}")
+                    print(f"\nThere are no text to return, try checking the locator value. Element value: {self.lv}\n")
                 for element in input_obj:
                     array_elements.append(element.text)
             except NoSuchElementException:
@@ -4451,12 +4451,14 @@ class Checker:
         if self.locator == L_CSS:
             try:
                 self.button("css", self.lv)
-            except WebDriverException:
+            except :
+                print(f"\nNo such element: None -> CSS -> {self.lv}\n")
                 pass
         if self.locator == L_XPATH:
             try:
                 self.button("xpath", self.lv)
-            except WebDriverException:
+            except :
+                print(f"\nNo such element: None -> Xpath -> {self.lv}\n")
                 pass
 
     def end(self):
